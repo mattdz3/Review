@@ -1,0 +1,36 @@
+// bower:scss
+// endbower
+
+body {
+  margin: 0;
+  background: #fafafa;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+.top-header {
+  width: 100%;
+
+  h1 {
+    display: inline-block;
+  }
+
+  ul {
+    float: right;
+    display: inline-block;
+    text-align: center;
+  }
+
+  li {
+    display: inline-block;
+  }
+}
+
+.header {
+  text-align: center;
+  width: 100%;
+
+  li {
+    display: inline-block;
+  }
+}
