@@ -34,3 +34,57 @@ body {
     display: inline-block;
   }
 }
+
+.views-container {
+  width: 90%;
+  margin: 0 auto;
+
+  .main-view {
+    width: 100%;
+
+    .reviews-container {
+      text-align: center;
+      width: 100%;
+
+      .review-contents {
+        width: 40%;
+        padding: 20px;
+        margin: 20px;
+        vertical-align: top;
+        display: inline-block;
+        border: 1px solid black;
+
+        .review-start {
+          width: 60%;
+          margin: 0 auto;
+          margin-bottom: 20px;
+          text-align: center;
+          font-size: 25px;
+
+          img {
+            width: 100%;
+            display: block;
+            margin-top: 20px; 
+            margin-bottom: 20px;
+          }
+        }
+
+        span {
+          font-size: 16px;
+        }
+
+        .review-score {
+          margin-top: 20px;
+          font-size: 25px;
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  display: block;
+}
+
+
+

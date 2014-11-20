@@ -1,5 +1,7 @@
 var HomeView = Parse.View.extend({
 	
+	className: 'main-view',
+
 	template: _.template($('.home-view').text()),
 
 	initialize: function() {

@@ -1,4 +1,6 @@
 var ReviewView = Parse.View.extend({
+
+	className: "review-contents",
 	
 	template: _.template($('.review-view').text()),
 
