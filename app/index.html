@@ -84,6 +84,16 @@
       <span><%= quickReview %></span>
       <div class="review-score"><%= score %></div>
     </script>
+
+    <script type="text/template" class="full-review-view">
+      <div class="review-start">
+        <%= name %>
+        <img src="<%= image %>">
+        By: <%= reviewer %>
+      </div>
+      <span><%= review %></span>
+      <div class="review-score"><%= score %></div>
+    </script>
     
 
     <!-- build:js(.) scripts/vendor.js -->
@@ -113,6 +123,7 @@
         <script src="scripts/joinView.js"></script>
         <script src="scripts/reviewView.js"></script>
         <script src="scripts/CreateReviewView.js"></script>
+        <script src="scripts/fullReviewView.js"></script>
         <script src="scripts/router.js"></script>
 
         <!-- endbuild -->

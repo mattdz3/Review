@@ -1,3 +1,5 @@
+"use strict";
+
 var Router = Parse.Router.extend({
 	
 	routes: {
@@ -50,28 +52,27 @@ var Router = Parse.Router.extend({
 		this.swap(view);
 	},
 
-	// review: function() {
-	// 	$('.reviews-container').empty();
-	// 	var query = Parse.Query(Review);
-	// 	console.log(query)
-	// 	query.equalTo("objectId", id);
-	// 	query.find({
-	// 		success: function(results) {
-	// 			var reviewQuery = results[0].query();
-	// 			reviewQuery.include('parent');
-	// 			reviewQuery.find().done(function(allReviews) {
-	// 				$('.reviews-container').html('');
-	// 				allReviews.forEach(function(reviews) {
-					
-	// 					new ReviewView({
-	// 						model: reviews,
-	// 					})
-	// 				})
-	// 			})						
-	// 		},
-	// 	})
-	// 	this.swap(view);
-	// },
+	review: function() {
+		$('.reviews-container').empty();
+		// new HomeView({model: Parse.User.current().attributes})
+		var query = new Parse.Query(ReviewCollection);
+		console.log(query)
+		query.equalTo("objectId", id);
+		query.find({
+			success: function(reviews) {
+				reviews.forEach(function(review) {
+					new FullReviewView({
+						model: review
+					})
+				})					
+			},
+
+			error: function() {
+				console.log("no worky");
+			}
+		})
+		this.swap(view);
+	},
 
 	swap: function(view) {
 		if (this.currentView) this.currentView.remove();

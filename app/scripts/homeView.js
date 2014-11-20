@@ -4,6 +4,10 @@ var HomeView = Parse.View.extend({
 
 	template: _.template($('.home-view').text()),
 
+	events: {
+		'click .review-contents' : 'thisReview',
+	},
+
 	initialize: function() {
 		$('.views-container').append(this.el);
 		this.render();
@@ -13,5 +17,10 @@ var HomeView = Parse.View.extend({
 		var renderTemplate = this.template(this.model.attributes)
 		this.$el.html(renderTemplate);
 		return this;
+	},
+
+	thisReview: function() {
+		router.navigate('home/:id', {trigger: true});
+		console.log("cool")
 	},
 });
