@@ -69,6 +69,7 @@
     <script type="text/template" class="create-review-view">
       <input class="game-title" placeholder="Game Name">
       <input class="game-image" placeholder="Game Picture">
+      <textarea class="quick-review" placeholder="a quick review here"></textarea>
       <textarea class="review-content" placeholder="Review the game here"></textarea>
       <input class="score" placeholder="Game Score">
       <button class="create">do it</button>
@@ -80,7 +81,7 @@
         <img src="<%= image %>">
         By: <%= reviewer %>
       </div>
-      <span><%= review %></span>
+      <span><%= quickReview %></span>
       <div class="review-score"><%= score %></div>
     </script>
     
@@ -117,4 +118,3 @@
         <!-- endbuild -->
 </body>
 </html>
-

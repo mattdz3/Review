@@ -24,6 +24,7 @@ var CreateReviewView = Parse.View.extend({
 		var gameTitle = $('.game-title').val();
 		var gameImage = $('.game-image').val();
 		var gameReview = $('.review-content').val();
+		var quickReview = $('.quick-review').val();
 		var score = $('.score').val();
 
 		review.set('reviewerObject', user);
@@ -32,6 +33,7 @@ var CreateReviewView = Parse.View.extend({
 		review.set('score', score);
 		review.set('image', gameImage);
 		review.set('review', gameReview);
+		review.set('quickReview', quickReview);
 
 		review.save(null, {
 			success: function(){
@@ -40,6 +42,7 @@ var CreateReviewView = Parse.View.extend({
 				$('.game-title').val('');
 				$('.game-image').val('');
 				$('.review-content').val('');
+				$('.quick-review').val('');
 				$('.score').val('');
 			},
 

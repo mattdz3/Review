@@ -48,6 +48,8 @@ body {
 
       .review-contents {
         width: 40%;
+        max-height: 500px;
+        overflow: scroll;
         padding: 20px;
         margin: 20px;
         vertical-align: top;
@@ -86,5 +88,13 @@ body {
   display: block;
 }
 
+@media screen and (max-width: 910px) {
 
+  .views-container 
+  .main-view 
+  .reviews-container 
+  .review-contents {
+    width: 70%;
+  }
+}
 
