@@ -46,6 +46,21 @@ body {
       text-align: center;
       width: 100%;
 
+      .full-review-container {
+        width: 80%;
+        margin: 0 auto;
+
+        .full-review-start {
+          font-size: 30px;
+
+          img {
+            width: 40%;
+            margin: 0 auto;
+            display: block;
+          }
+        }
+      }
+
       .review-contents {
         width: 40%;
         max-height: 500px;

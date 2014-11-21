@@ -50,7 +50,7 @@
     </div> -->
 
     <script type="text/template" class="home-view">
-      hello <%= this.model.username %>
+      Welcome <%= this.model.username %>
       <div class="reviews-container"></div> 
     </script>
 
@@ -88,13 +88,18 @@
     </script>
 
     <script type="text/template" class="full-review-view">
-      <div class="review-start">
+      <div class="full-review-start">
         <%= name %>
         <img src="<%= image %>">
         By: <%= reviewer %>
       </div>
       <span><%= review %></span>
       <div class="review-score"><%= score %></div>
+      <button>edit</button>
+    </script>
+
+    <script type="text/template" class="edit-view">
+      this is edit
     </script>
     
 
@@ -126,6 +131,7 @@
         <script src="scripts/reviewView.js"></script>
         <script src="scripts/CreateReviewView.js"></script>
         <script src="scripts/fullReviewView.js"></script>
+        <script src="scripts/editView.js"></script>
         <script src="scripts/router.js"></script>
 
         <!-- endbuild -->

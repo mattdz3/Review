@@ -9,10 +9,18 @@ var Router = Parse.Router.extend({
 		'join'     : 'join',
 		'login'    : 'login',
 		'create'   : 'create',
+		'edit'     : 'edit',
 	},
 
 	initialize: function(options) {
 		this.currentView = null;
+	},
+
+	home: function() {
+		$('.views-container').empty();
+		var view = new HomeView({
+			model: Parse.User.current().attributes
+		});
 
 		var query = new Parse.Query(Review);
 
@@ -25,13 +33,6 @@ var Router = Parse.Router.extend({
 				})
 			}
 		})
-	},
-
-	home: function() {
-		$('.views-container').empty();
-		var view = new HomeView({
-			model: Parse.User.current().attributes
-		});
 	},
 
 	join: function() {
@@ -63,9 +64,13 @@ var Router = Parse.Router.extend({
 				})
 				this.swap(view);
 			}
-		})
-		
-		
+		})	
+	},
+
+	edit: function() {
+		$('.views-container').empty();
+		var view = new EditView();
+		this.swap(view);
 	},
 
 	swap: function(view) {
