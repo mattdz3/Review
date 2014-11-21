@@ -52,26 +52,20 @@ var Router = Parse.Router.extend({
 		this.swap(view);
 	},
 
-	review: function() {
-		$('.reviews-container').empty();
-		// new HomeView({model: Parse.User.current().attributes})
-		var query = new Parse.Query(ReviewCollection);
-		console.log(query)
-		query.equalTo("objectId", id);
-		query.find({
+	review: function(id) {
+		new Parse.Query('Review').get(id, {
 			success: function(reviews) {
 				reviews.forEach(function(review) {
-					new FullReviewView({
+					console.log(review);
+					var view = new FullReviewView({
 						model: review
 					})
-				})					
-			},
-
-			error: function() {
-				console.log("no worky");
+				})
+				this.swap(view);
 			}
 		})
-		this.swap(view);
+		
+		
 	},
 
 	swap: function(view) {

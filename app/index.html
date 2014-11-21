@@ -76,13 +76,15 @@
     </script>
 
     <script type="text/template" class="review-view">
-      <div class="review-start">
-        <%= name %>
-        <img src="<%= image %>">
-        By: <%= reviewer %>
+      <div class="full-review">
+        <div class="review-start">
+          <%= name %>
+          <img src="<%= image %>">
+          By: <%= reviewer %>
+        </div>
+        <span><%= quickReview %></span>
+        <div class="review-score"><%= score %></div>
       </div>
-      <span><%= quickReview %></span>
-      <div class="review-score"><%= score %></div>
     </script>
 
     <script type="text/template" class="full-review-view">
