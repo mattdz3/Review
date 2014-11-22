@@ -13,6 +13,7 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="Regular/Jaapokki-Regular.otf">
     <!-- endbuild -->
   </head>
   <body>
@@ -22,7 +23,7 @@
 
 
     <div class="top-header">
-      <h1 class="title">review</h1>
+      <h1 class="title">Fucking Sweet Ass Reviews</h1>
       <ul>
         <a href="#join"><li>Join</li></a>
         <a href="#login"><li>Login</li></a>
@@ -88,19 +89,30 @@
     </script>
 
     <script type="text/template" class="full-review-view">
-      <div class="full-review-start">
-        <%= name %>
-        <img src="<%= image %>">
-        By: <%= reviewer %>
+      <div class="full-review-header"><%= name %></div>
+      <div class="full-review-header-img"><img src="<%= image %>"></div>
+      <div class="first-review">
+        <div class="full-review-reviewer">
+          By: <%= reviewer %>
+        </div>
+        <span><%= review %></span>
+        <div class="review-score"><%= score %></div>
       </div>
-      <span><%= review %></span>
-      <div class="review-score"><%= score %></div>
+
+      <div class="second-review">
+        <div class="full-review-reviewer">
+          By: <%= secondReviewer %>
+        </div>
+        <span><%= secondReview %></span>
+        <div class="review-score"><%= secondScore %></div>
+      </div>
       <button>edit</button>
     </script>
 
     <script type="text/template" class="edit-view">
       <textarea class="second-review" placeholder="Second Review Here"></textarea>
       <input class="second-score" placeholder="Score Here"></input>
+      <button>done</button>
     </script>
     
 

@@ -67,11 +67,11 @@ var Router = Parse.Router.extend({
 		})	
 	},
 
-	edit: function() {
-		$('.views-container').empty();
-		var view = new EditView();
-		this.swap(view);
-	},
+	// edit: function() {
+	// 	$('.views-container').empty();
+	// 	var view = new EditView();
+	// 	this.swap(view);
+	// },
 
 	swap: function(view) {
 		if (this.currentView) this.currentView.remove();

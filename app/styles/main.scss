@@ -1,10 +1,16 @@
 // bower:scss
 // endbower
 
+@font-face {
+  font-family: 'Jaapokki';
+  src: url('../Regular/web/jaapokki-regular.woff') format('woff'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url('../Regular/web/jaapokki-regular.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}
+
 body {
   margin: 0;
   background: #fafafa;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Jaapokki", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
 }
 
@@ -13,11 +19,13 @@ body {
 
   h1 {
     display: inline-block;
+    margin-left: 50px;
   }
 
   ul {
     float: right;
     display: inline-block;
+    margin-right: 50px;
     text-align: center;
   }
 
@@ -50,14 +58,53 @@ body {
         width: 80%;
         margin: 0 auto;
 
-        .full-review-start {
-          font-size: 30px;
+        .full-review-header {
+          padding-top: 100px;
+          font-size: 40px;
+        }
+
+        .full-review-header-img {
+          width: 100%;
 
           img {
-            width: 40%;
+            width: 80%;
             margin: 0 auto;
-            display: block;
+            margin-top: 50px;
+            margin-bottom: 50px;
           }
+        }
+
+        .first-review {
+          width: 45%;
+          display: inline-block;
+          text-align: left;
+        }
+
+        .second-review {
+          width: 45%;
+          float: right;
+          text-align: left;
+        }
+
+        .full-review-reviewer {
+          text-align: center;
+          font-size: 30px;
+          margin-bottom: 20px;
+        }
+
+        span {
+          font-size: 17px;
+          line-height: 27px;
+        }
+
+        .review-score {
+          font-size: 40px;
+          text-align: center;
+          margin: 20px 0;
+        }
+
+        button {
+          vertical-align: bottom;
         }
       }
 

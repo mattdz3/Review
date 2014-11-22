@@ -15,12 +15,13 @@ var FullReviewView = Parse.View.extend({
 	},
 
 	render: function() {
-		var renderTemplate = this.template(this.model)
+		var renderTemplate = this.template(this.model.attributes)
 		this.$el.html(renderTemplate);
 		return this;
 	},
 
 	toEdit: function() {
-		router.navigate('edit', {trigger: true})
+		// router.navigate('edit', {trigger: true})
+		new EditView({model: this.model})
 	},
 });

@@ -25,7 +25,7 @@ var ReviewView = Parse.View.extend({
 		var modelId = this.model.id;
 		
 		console.log(modelId);
-		var fullReview = this.model.attributes;
+		var fullReview = this.model;
 		console.log(fullReview)
 
 		new FullReviewView({
