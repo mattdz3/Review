@@ -13,7 +13,6 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="Regular/Jaapokki-Regular.otf">
     <!-- endbuild -->
   </head>
   <body>
@@ -90,8 +89,11 @@
 
     <script type="text/template" class="full-review-view">
       <div class="full-review-header"><%= name %></div>
-      <div class="full-review-header-img"><img src="<%= image %>"></div>
-      <div class="first-review">
+      <div class="full-review-header-img">
+        <img src="<%= image %>">
+      </div>
+
+      <div class="review">
         <div class="full-review-reviewer">
           By: <%= reviewer %>
         </div>
@@ -99,14 +101,24 @@
         <div class="review-score"><%= score %></div>
       </div>
 
-      <div class="second-review">
+      <div class="review">
         <div class="full-review-reviewer">
           By: <%= secondReviewer %>
         </div>
         <span><%= secondReview %></span>
         <div class="review-score"><%= secondScore %></div>
       </div>
-      <button>edit</button>
+
+      <div class="game-info"> 
+        <ul>
+          <li>Developed by: <%=developer%> </li>
+          <li>Published by: <%=publisher%> </li>
+          <li>Players:</li>
+          <li>PS4, Xbox One</li>
+        </ul>
+      </div>
+      <button> edit </button>
+   
     </script>
 
     <script type="text/template" class="edit-view">
