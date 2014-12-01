@@ -6,7 +6,6 @@ $('.title').click(function(){
 
 $('.logout').click(function() {
 	Parse.User.logOut();
-	router.navigate("", {trigger: true})
-	console.log(Parse.User.current());
+	router.navigate("login", {trigger: true})
 });
 

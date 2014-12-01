@@ -18,7 +18,9 @@ var CreateReviewView = Parse.View.extend({
 	},
 
 	createReview: function(){
+		console.log(Parse.User.current());
 		var user = Parse.User.current();
+		console.log(user);
 		var username = user.attributes.username;
 		var review = new Review();
 		var gameTitle = $('.game-title').val();
@@ -38,11 +40,10 @@ var CreateReviewView = Parse.View.extend({
 		review.set('quickReview', quickReview);
 		review.set('developer', developer);
 		review.set('publisher', publisher);
+		
 
 		review.save(null, {
 			success: function(){
-				user.relation("reviews").add(Review);
-
 				$('.game-title').val('');
 				$('.game-image').val('');
 				$('.review-content').val('');
@@ -55,6 +56,18 @@ var CreateReviewView = Parse.View.extend({
 			error: function(){
 				console.log("nope")
 			}
-		})
+		}).done(function() {
+			user.relation("reviews").add(review);
+
+			user.save(null, {
+				success: function() {
+					console.log("cool");
+				},
+
+				error: function() {
+					console.log("error");
+				}
+			})
+		});
 	},
 });
