@@ -6,6 +6,7 @@ var Router = Parse.Router.extend({
 		''         : 'home',
 		'home'     : 'home',
 		'home/:id' : 'review',
+		'home/:id/second' : 'secondReview',
 		'join'     : 'join',
 		'login'    : 'login',
 		'create'   : 'create',
@@ -72,6 +73,20 @@ var Router = Parse.Router.extend({
 	// 	var view = new EditView();
 	// 	this.swap(view);
 	// },
+
+	secondReview: function(id) {
+		new Parse.Query('Review').get(id, {
+			success: function(reviews) {
+				reviews.forEach(function(review) {
+					console.log(review);
+					var view = new FullReviewView({
+						model: review
+					})
+				})
+				this.swap(view);
+			}
+		})	
+	},
 
 	swap: function(view) {
 		if (this.currentView) this.currentView.remove();

@@ -103,6 +103,24 @@
         <div class="review-score"><%= score %></div>
       </div>
 
+      <div class="game-info"> 
+        <ul>
+          <li>Developed by: <%=developer%> </li>
+          <li>Published by: <%=publisher%> </li>
+          <li>Players:</li>
+          <li>PS4, Xbox One</li>
+        </ul>
+      </div>
+      <button> Second Review </button>
+   
+    </script>
+
+    <script type="text/template" class="second-full-review-view">
+      <div class="full-review-header"><%= name %></div>
+      <div class="full-review-header-img">
+        <img src="<%= image %>">
+      </div>
+
       <div class="review">
         <div class="full-review-reviewer">
           By: <%= secondReviewer %>
@@ -119,7 +137,7 @@
           <li>PS4, Xbox One</li>
         </ul>
       </div>
-      <button> edit </button>
+      <button> First Review </button>
    
     </script>
 
@@ -159,6 +177,7 @@
         <script src="scripts/CreateReviewView.js"></script>
         <script src="scripts/fullReviewView.js"></script>
         <script src="scripts/editView.js"></script>
+        <script src="scripts/secondFullReviewView.js"></script>
         <script src="scripts/router.js"></script>
 
         <!-- endbuild -->
