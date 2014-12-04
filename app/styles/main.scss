@@ -64,6 +64,8 @@ body {
           width: 80%;
           margin: 0 auto;
           text-align: left;
+          display: inline-block;
+          position: relative;
 
           ul {
             padding: 0;
@@ -106,8 +108,27 @@ body {
         }
 
         span {
+          width: 80%;
           font-size: 17px;
           line-height: 27px;
+          display: inline-block;
+        }
+
+        .button {
+          width: 18%;
+          text-align: center;
+
+          .button-name {
+            font-size: 14px;
+          }
+
+          .second-button-name {
+            font-size: 14px;
+          }
+
+          img {
+            width: 70%;
+          }
         }
 
         .review-score {

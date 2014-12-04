@@ -3,7 +3,7 @@ var FullReviewView = Parse.View.extend({
 	className: "full-review-container",
 
 	events: {
-		'click button' : 'secondReview',
+		'click .button' : 'secondReview',
 	},
 
 	template: _.template($('.full-review-view').text()),
@@ -11,12 +11,13 @@ var FullReviewView = Parse.View.extend({
 	initialize: function() {
 		$('.reviews-container').append(this.el);
 		this.render();
-		console.log(this.model)
+
 	},
 
 	render: function() {
 		var renderTemplate = this.template(this.model.attributes)
 		this.$el.html(renderTemplate);
+		slidr.create('slidr-id').start();
 		return this;
 	},
 
