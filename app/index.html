@@ -70,7 +70,7 @@
 
       <div>
         <input class="game-title" placeholder="Game Name">
-        <button class="add-pic">Main Pic </button>
+        <button class="add-pic"> Main Pic </button>
       </div>
 
       <textarea class="quick-review" placeholder="Quick review"></textarea>
@@ -78,22 +78,24 @@
 
       <div>
         <button class="image-one">Image 1</button>
-        <input placeholder="image caption">
+        <input class="image-one-caption" placeholder="image caption">
       </div>
 
       <textarea class="second-review-content" placeholder="2nd Paragraph"></textarea>
 
       <div>
         <button class="image-two">Image 2</button>
-        <input placeholder="image caption">
+        <input class="image-two-caption" placeholder="image caption">
       </div>
 
       <textarea class="thrid-review-content" placeholder="3rd paragrph"></textarea>
 
       <div>
         <button class="image-three">Image 3</button>
-        <input placeholder="image caption">
+        <input class="image-three-caption" placeholder="image caption">
       </div>
+
+      <textarea class="fourth-review-content" placeholder="4th Paragraph"></textarea>
 
       <div>
         <input id="info-input" class="developer" placeholder="Game Developer">
@@ -131,8 +133,37 @@
             <div class="full-review-reviewer">
               By: <%= reviewer %>
             </div>
-            <span><%= review %></span>
-            <span class="to-second"> next </span> 
+
+            <span>
+              <%= reviewOne %>
+            </span>
+
+            <div class="image-container">
+              <img src="<%=imageOne%>">
+              <p><%=captionOne%></p>
+            </div>
+
+            <span>
+              <%= reviewTwo %>
+            </span>
+
+            <div class="image-container">
+              <img src="<%=imageTwo%>">
+              <p><%=captionTwo%></p>
+            </div>
+
+            <span>
+              <%= reviewThree %>
+            </span>
+
+            <div class="image-container">
+              <img src="<%=imageThree%>">
+              <p><%=captionThree%></p>
+            </div>
+            <span>
+              <%=reviewFour%>
+            </span>
+             
             <div class="review-score">
               <%= score %>
             </div>

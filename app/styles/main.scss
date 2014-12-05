@@ -99,32 +99,42 @@ body {
           text-align: left;
           margin: 0 auto;
           margin-bottom: 80px;
-        }
+        
+          .full-review-reviewer {
+            text-align: center;
+            font-size: 30px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+          }
 
-        .full-review-reviewer {
-          text-align: center;
-          font-size: 30px;
-          margin-bottom: 20px;
-        }
+          span {
+            width: 90%;
+            font-size: 17px;
+            line-height: 27px;
+            margin-left: 50px;
+            display: inline-block;
+          }
 
-        span {
-          width: 85%;
-          font-size: 17px;
-          line-height: 27px;
-          margin-left: 50px;
-          display: inline-block;
-        }
+          .image-container {
+            width: 80%;
+            margin: 0 auto;
+            margin-top: 50px;
+            margin-bottom: 50px;
 
-        .to-second {
-          margin: 0;
-          position: absolute;
-          top: 45%;
-        }
+            p {
+              text-align: center;
+            }
 
-        .review-score {
-          font-size: 40px;
-          text-align: center;
-          margin: 20px 0;
+            img {
+              width: 100%;
+            }
+          }
+
+          .review-score {
+            font-size: 40px;
+            text-align: center;
+            margin: 20px 0;
+          }
         }
       }
 
