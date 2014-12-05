@@ -108,37 +108,17 @@ body {
         }
 
         span {
-          width: 80%;
+          width: 85%;
           font-size: 17px;
           line-height: 27px;
+          margin-left: 50px;
           display: inline-block;
-        }
-
-        .button {
-          width: 18%;
-          text-align: center;
-
-          .button-name {
-            font-size: 14px;
-          }
-
-          .second-button-name {
-            font-size: 14px;
-          }
-
-          img {
-            width: 70%;
-          }
         }
 
         .review-score {
           font-size: 40px;
           text-align: center;
           margin: 20px 0;
-        }
-
-        button {
-          vertical-align: bottom;
         }
       }
 
