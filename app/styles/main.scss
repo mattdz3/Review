@@ -115,6 +115,12 @@ body {
           display: inline-block;
         }
 
+        .to-second {
+          margin: 0;
+          position: absolute;
+          top: 45%;
+        }
+
         .review-score {
           font-size: 40px;
           text-align: center;
@@ -124,7 +130,7 @@ body {
 
       .review-contents {
         width: 40%;
-        max-height: 500px;
+        // max-height: 500px;
         overflow: scroll;
         padding: 20px;
         margin: 20px;
@@ -148,7 +154,8 @@ body {
         }
 
         span {
-          font-size: 16px;
+          font-size: 18px;
+          padding: 10px;
         }
 
         .review-score {
@@ -169,10 +176,17 @@ body {
 
       input {
         padding: 4px;
+        width: 300px;
       }
 
       .game-title {
         display: inline-block;
+      }
+
+      #info-input {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 8px;
       }
     }
 
@@ -189,6 +203,7 @@ body {
 
     button {
       text-align: center;
+      margin: 0 auto;
       padding: 5px;
     }
   }
