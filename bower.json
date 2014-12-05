@@ -3,6 +3,8 @@
   "private": true,
   "dependencies": {
     "jquery": "~1.11.1",
-    "underscore": "~1.7.0"
+    "underscore": "~1.7.0",
+    "slidr": "~0.5.0",
+    "filepicker": "*"
   }
 }

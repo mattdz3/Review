@@ -158,6 +158,40 @@ body {
       }
     }
   }
+
+  .create-review {
+    width: 80%;
+    margin: 0 auto;
+
+    div {
+      text-align: center;
+      margin: 30px;
+
+      input {
+        padding: 4px;
+      }
+
+      .game-title {
+        display: inline-block;
+      }
+    }
+
+    textarea {
+      display: block;
+      width: 60%;
+      height: 300px;
+      margin: 0 auto;
+      margin-bottom: 30px;
+      padding: 8px;
+      font-size: 16px;
+      resize: none;
+    }
+
+    button {
+      text-align: center;
+      padding: 5px;
+    }
+  }
 }
 
 .footer {

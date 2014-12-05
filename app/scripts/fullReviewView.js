@@ -18,12 +18,12 @@ var FullReviewView = Parse.View.extend({
 		var renderTemplate = this.template(this.model.attributes)
 		this.$el.html(renderTemplate);
 
-		slidr.create('slidr-id', {
+		var reviewSlider = slidr.create('slidr-id', {
 		  // after: function(e) { console.log('in: ' + e.in.slidr); },
 		  // before: function(e) { console.log('out: ' + e.out.slidr); },
 		  breadcrumbs: true,
 		  controls: 'border',
-		  direction: 'horizontal',
+		  direction: 'h',
 		  fade: true,
 		  keyboard: true,
 		  overflow: false,
@@ -32,7 +32,11 @@ var FullReviewView = Parse.View.extend({
 		  timing: { 'cube': '0.5s ease-in' },
 		  touch: true,
 		  transition: 'linear'
-		}).start();	
+		});
+
+		
+
+		reviewSlider.start();	
 
 		return this;
 	},
