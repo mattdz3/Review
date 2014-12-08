@@ -22,7 +22,7 @@ var FullReviewView = Parse.View.extend({
 		  // after: function(e) { console.log('in: ' + e.in.slidr); },
 		  // before: function(e) { console.log('out: ' + e.out.slidr); },
 		  breadcrumbs: true,
-		  controls: 'border',
+		  controls: 'corner',
 		  direction: 'h',
 		  fade: true,
 		  keyboard: true,
@@ -33,8 +33,6 @@ var FullReviewView = Parse.View.extend({
 		  touch: true,
 		  transition: 'linear'
 		});
-
-		
 
 		reviewSlider.start();	
 

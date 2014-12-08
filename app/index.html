@@ -170,13 +170,25 @@
           </div>
 
           <div data-slidr="second-review">
-            <div class="full-review-reviewer">
+            <% if (this.model.get('secondReviewer') == undefined) { %>
+              <div class="full-review-reviewer">
+                Sorry we are lazy and have not got this review up yet. Please check back later. <br> Thanks!
+            <% } else { %>
               By: <%= secondReviewer %>
+            <% } %>
             </div>
-            <span><%= secondReview %></span>
-            <div class="review-score">
-              <%= secondScore %>
-            </div>
+            <% if (this.model.get('secondReview') == undefined) { %>
+              <span></span>
+            <% } else { %>
+              <span><%= secondReview %></span>
+            <% } %>
+            <% if (this.model.get('secondScore') == undefined) { %>
+              <span></span>
+            <% } else { %>
+              <div class="review-score">
+                <%= secondScore %>
+              </div>
+            <% } %>
           </div>
         </div>
       </div>
@@ -186,8 +198,8 @@
           <li>Developer: <%=developer%> </li>
           <li>Publisher: <%=publisher%> </li>
         </ul>
-
       </div>
+
     </script>
 
     <script type="text/template" class="edit-view">
