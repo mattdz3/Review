@@ -29,7 +29,7 @@ var FullReviewView = Parse.View.extend({
 		  overflow: false,
 		  pause: false,
 		  theme: '#222',
-		  timing: { 'cube': '0.5s ease-in' },
+		  timing: { 'linear': '.4s ease-in' },
 		  touch: true,
 		  transition: 'linear'
 		});

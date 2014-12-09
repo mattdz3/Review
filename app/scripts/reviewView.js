@@ -11,7 +11,6 @@ var ReviewView = Parse.View.extend({
 	initialize: function() {
 		$('.reviews-container').append(this.el);
 		this.render();
-		console.log(this.model);
 	},
 
 	render: function() {

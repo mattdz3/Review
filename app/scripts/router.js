@@ -18,9 +18,7 @@ var Router = Parse.Router.extend({
 
 	home: function() {
 		$('.views-container').empty();
-		var view = new HomeView({
-			model: Parse.User.current().attributes
-		});
+		var view = new HomeView();
 
 		var query = new Parse.Query(Review);
 
@@ -48,9 +46,14 @@ var Router = Parse.Router.extend({
 	},
 
 	create: function() {
-		$('.views-container').empty();
+		if (Parse.User.current() != undefined ) {
+			$('.views-container').empty();
 		var view = new CreateReviewView();
 		this.swap(view);
+		} else {
+			router.navigate('login', {trigger: true})
+		}
+		
 	},
 
 	review: function(id) {
@@ -64,7 +67,7 @@ var Router = Parse.Router.extend({
 				})
 				this.swap(view);
 			}
-		})	
+		});	
 	},
 
 	// edit: function() {

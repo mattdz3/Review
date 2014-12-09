@@ -1,6 +1,11 @@
 // bower:scss
 // endbower
 
+$background: #2E79A2;
+$border: #505559;
+$review-background: #EFF1F3;
+$main-font-color: #C8CAE1;
+
 @font-face {
   font-family: 'Jaapokki';
   src: url('../Regular/web/jaapokki-regular.woff') format('woff'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
@@ -16,6 +21,8 @@ body {
 
 .top-header {
   width: 100%;
+  background-color: $background;
+  color: $main-font-color;
 
   h1 {
     display: inline-block;
@@ -27,22 +34,39 @@ body {
   ul {
     float: right;
     display: inline-block;
+    margin-top: 50px;
     margin-right: 50px;
     text-align: center;
-  }
 
-  li {
-    display: inline-block;
+    li {
+      display: inline-block;
+
+      button {
+        border-radius: 3px;
+        border: $border;
+        padding: 6px 15px;
+        background-color: $main-font-color;
+      }
+    }
   }
 }
 
 .header {
-  text-align: center;
   width: 100%;
+  background-color: $background;
+  border-bottom: 1px solid $border;
+  color: $main-font-color;
 
-  li {
-    display: inline-block;
-  }
+  ul {
+    width: 85%;
+    margin: 0 auto;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      padding: 10px;
+    }
+  } 
 }
 
 .views-container {
@@ -146,7 +170,10 @@ body {
         margin: 20px;
         vertical-align: top;
         display: inline-block;
-        border: 1px solid black;
+        border: 1px solid $border;
+        background-color: $review-background;
+        border-radius: 3px;
+
 
         .review-start {
           width: 60%;
@@ -230,6 +257,11 @@ body {
   .reviews-container 
   .review-contents {
     width: 70%;
+  }
+
+  .header
+  ul {
+    text-align: center;
   }
 }
 

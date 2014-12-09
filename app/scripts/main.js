@@ -9,6 +9,10 @@ $('.title').click(function(){
 
 $('.logout').click(function() {
 	Parse.User.logOut();
-	router.navigate("login", {trigger: true})
+	router.navigate("home", {trigger: true})
+	alert('user has logged out!')
 });
 
+$(document).ready(function(){
+	$("#sticky").sticky({topSpacing: 0});
+});
