@@ -15,3 +15,4 @@ var HomeView = Parse.View.extend({
 		return this;
 	},
 });
+

@@ -22,7 +22,7 @@
 
 
     <div class="top-header">
-      <h1 class="title">Brutal Reviews</h1>
+      <h1 class="title">Reviews</h1>
       <ul>
         <a href="#join"><li><button>Join</button></li></a>
         <a href="#login"><li><button>Login</button></li></a>
@@ -37,43 +37,70 @@
         <li>Reviewers</li>
       </ul>
     </div>
-    <div class="meet-team">
-      <h1>Meet the team</h1>
-    </div>
+
+
+    
     <div class="img-slider-container">
+      <div class="meet-team">
+        <h1>Meet the team</h1>
+      </div>
       <div id="img-slidr">
         <div data-slidr="one">
           <img src="images/evan.jpg">
-          <p class="reviewer-info">
+          <div class="reviewer-info">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
             consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
+            <div class='ul-container'>
+              <ul> Likes:
+                <li>Cool Stuff</li>
+              </ul>
+              <ul>Dislikes:
+                <li>Uncool Stuff</li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div data-slidr="two">
           <img src="images/mike.jpg">
-          <p class="reviewer-info">
+          <div class="reviewer-info">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
             consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
+            proident.
+            <div class='ul-container'>
+              <ul> Likes:
+                <li>Cool Stuff</li>
+              </ul>
+              <ul>Dislikes:
+                <li>Uncool Stuff</li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div data-slidr="three">
           <img src="images/matt.jpeg">
-          <p class="reviewer-info">
+          <div class="reviewer-info">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
             consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum. qui officia deserunt mollit anim id est laborum.
+            <div class='ul-container'>
+              <ul> Likes:
+                <li>Cool Stuff</li>
+              </ul>
+              <ul>Dislikes:
+                <li>Uncool Stuff</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -89,6 +116,10 @@
         <li>lorem</li>
       </ul>
     </div>
+
+    <script type="text/template" class="team-view">
+
+    </script>
 
     <script type="text/template" class="home-view">
       <div class="reviews-container"></div> 
@@ -157,7 +188,7 @@
           By: <%= reviewer %>
         </div>
         <span class="quick-review"><%= quickReview %></span>
-        <div class="review-score">Click For more</div>
+        <div class="review-score">Click for more</div>
       </div>
     </script>
 

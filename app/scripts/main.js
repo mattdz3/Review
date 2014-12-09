@@ -22,7 +22,7 @@ var mainSlider = slidr.create('img-slidr', {
 	fade: true,
 	keyboard: true,
 	overflow: false,
-	pause: false,
+	pause: true,
 	theme: '#222',
 	timing: { 'linear': '.4s ease-in' },
 	touch: true,

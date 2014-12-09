@@ -7,11 +7,6 @@ $border: #505559;
 $review-background: #E4DBC3;
 $main-font-color: #C8CAE1;
 
-@font-face {
-  font-family: 'Jaapokki';
-  src: url('../Regular/web/jaapokki-regular.woff') format('woff'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-       url('../Regular/web/jaapokki-regular.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
-}
 
 body {
   margin: 0;
@@ -23,12 +18,11 @@ body {
 .top-header {
   width: 100%;
   background-color: $background;
-  color: $main-font-color;
+  // color: $main-font-color;
 
   h1 {
     display: inline-block;
     margin-left: 50px;
-    font-family: "Jaapokki";
     font-size: 45px;
   }
 
@@ -56,7 +50,7 @@ body {
   width: 100%;
   background-color: $background;
   border-bottom: 1px solid $border;
-  color: $main-font-color;
+  // color: $main-font-color;
 
   ul {
     width: 85%;
@@ -72,6 +66,10 @@ body {
 
 .meet-team {
   text-align: center;
+
+  h1 {
+    margin-bottom: 0;
+  }
 }
 
 .img-slider-container {
@@ -81,17 +79,31 @@ body {
 
   #img-slidr {
     width: 100%;
+    margin-top: 80px;
+    margin-bottom: 80px;
 
     img {
       width: 40%;
       height: 400px;
       margin-left: 50px;
+      border-radius: 3px;
+      border: 1px solid $border;
     }
 
-    p {
+    .reviewer-info {
       margin-right: 80px;
       float: right;
       width: 40%;
+    }
+
+    .ul-container {
+      width: 40%;
+
+      li {
+        margin-top: 3px;
+        margin-left: 8px;
+        list-style: none;
+      }
     }
   }
 }
@@ -223,8 +235,13 @@ body {
         }
 
         .review-score {
+          width: 40%;
+          margin: 0 auto;
           margin-top: 20px;
           font-size: 25px;
+          background-color: $button-background;
+          border-radius: 3px;
+          border: 1px solid $border;
         }
       }
     }
