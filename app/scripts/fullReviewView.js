@@ -3,7 +3,7 @@ var FullReviewView = Parse.View.extend({
 	className: "full-review-container",
 
 	events: {
-		'click .button' : 'secondReview',
+		'click .create-second-review' : 'secondReview',
 	},
 
 	template: _.template($('.full-review-view').text()),
@@ -41,6 +41,6 @@ var FullReviewView = Parse.View.extend({
 
 	secondReview: function() {
 		$('.reviews-container').empty();
-		new SecondFullReviewView({model: this.model})
+		new CreateSecondReviewView({model: this.model})
 	},
 });

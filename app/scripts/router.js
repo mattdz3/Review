@@ -3,14 +3,14 @@
 var Router = Parse.Router.extend({
 	
 	routes: {
-		''         : 'home',
-		'home'     : 'home',
-		'home/:id' : 'review',
-		'team'     : 'team',
-		'join'     : 'join',
-		'login'    : 'login',
-		'create'   : 'create',
-		'edit'     : 'edit',
+		''                 : 'home',
+		'home'             : 'home',
+		'home/:id'         : 'review',
+		'team'             : 'team',
+		'join'             : 'join',
+		'login'            : 'login',
+		'create'           : 'create',
+		'createSecond'     : 'createSecond',
 	},
 
 	initialize: function(options) {
@@ -71,11 +71,11 @@ var Router = Parse.Router.extend({
 		});	
 	},
 
-	// edit: function() {
-	// 	$('.views-container').empty();
-	// 	var view = new EditView();
-	// 	this.swap(view);
-	// },
+	createSecond: function() {
+		$('.views-container').empty();
+		var view = new EditView();
+		this.swap(view);
+	},
 
 	team: function() {
 		$('.views-container').empty();

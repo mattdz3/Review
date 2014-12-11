@@ -20,6 +20,7 @@ var CreateReviewView = Parse.View.extend({
 	initialize: function() {
 		$('.views-container').append(this.el);
 		this.render();
+		console.log(this.model);
 	},
 
 	render: function() {
