@@ -1,24 +1,24 @@
 // bower:scss
 // endbower
 
-$background: #E4DBC3;
-$button-background: #57321F;
+$background: #271C18;
+$button-background: #586E57;
 $border: #505559;
 $review-background: #E4DBC3;
-$main-font-color: #C8CAE1;
+$main-font-color: #8F9160;
 
 
 body {
   margin: 0;
   background: #f9f9f9;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  
+  // color: white;
 }
 
 .top-header {
   width: 100%;
   background-color: $background;
-  // color: $main-font-color;
+  color: $main-font-color;
 
   h1 {
     display: inline-block;
@@ -50,7 +50,7 @@ body {
   width: 100%;
   background-color: $background;
   border-bottom: 1px solid $border;
-  // color: $main-font-color;
+  color: $main-font-color;
 
   ul {
     width: 85%;
@@ -60,16 +60,13 @@ body {
     li {
       display: inline-block;
       padding: 10px;
+
+      a {
+        text-decoration: none;
+        color: $main-font-color;
+      }
     }
   } 
-}
-
-.meet-team {
-  text-align: center;
-
-  h1 {
-    margin-bottom: 0;
-  }
 }
 
 .img-slider-container {
@@ -210,7 +207,7 @@ body {
         vertical-align: top;
         display: inline-block;
         border: 1px solid $border;
-        background-color: $review-background;
+        // background-color: $review-background;
         border-radius: 3px;
 
 
@@ -286,6 +283,39 @@ body {
       text-align: center;
       margin: 0 auto;
       padding: 5px;
+    }
+  }
+
+  .team-view {
+    width: 90%;
+    margin: 0 auto;
+
+    .meet-team {
+      width: 100%;
+      text-align: center;
+    }
+
+    .team-member {
+      width: 100%;
+      display: inline-block;
+      margin-bottom: 80px;
+
+      img {
+        width: 45%;
+        border: 1px solid $border;
+        border-radius: 3px;
+      }
+
+      .reviewer-info {
+        width: 45%;
+        float: right;
+        margin-top: 50px;
+
+        li {
+          list-style: none;
+          margin-top: 5px;
+        }
+      }
     }
   }
 }

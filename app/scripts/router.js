@@ -6,6 +6,7 @@ var Router = Parse.Router.extend({
 		''         : 'home',
 		'home'     : 'home',
 		'home/:id' : 'review',
+		'team'     : 'team',
 		'join'     : 'join',
 		'login'    : 'login',
 		'create'   : 'create',
@@ -18,7 +19,6 @@ var Router = Parse.Router.extend({
 
 	home: function() {
 		$('.views-container').empty();
-		$('.img-slider-container').show();
 		var view = new HomeView();
 
 		var query = new Parse.Query(Review);
@@ -36,20 +36,17 @@ var Router = Parse.Router.extend({
 
 	join: function() {
 		$('.views-container').empty();
-		$('.img-slider-container').hide();
 		var view = new JoinView();
 		this.swap(view);
 	},
 
 	login: function() {
 		$('.views-container').empty();
-		$('.img-slider-container').hide();
 		var view = new LoginView();
 		this.swap(view);
 	},
 
 	create: function() {
-		$('.img-slider-container').hide();
 		if (Parse.User.current() != undefined ) {
 			$('.views-container').empty();
 		var view = new CreateReviewView();
@@ -61,7 +58,6 @@ var Router = Parse.Router.extend({
 	},
 
 	review: function(id) {
-		$('.img-slider-container').hide();
 		new Parse.Query('Review').get(id, {
 			success: function(reviews) {
 				reviews.forEach(function(review) {
@@ -80,6 +76,12 @@ var Router = Parse.Router.extend({
 	// 	var view = new EditView();
 	// 	this.swap(view);
 	// },
+
+	team: function() {
+		$('.views-container').empty();
+		var view = new TeamView();
+		this.swap(view);
+	},
 
 
 	swap: function(view) {
