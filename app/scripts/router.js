@@ -15,6 +15,12 @@ var Router = Parse.Router.extend({
 
 	initialize: function(options) {
 		this.currentView = null;
+
+		if (Parse.User.current() == null) {
+			$('.reviewer-button').hide();
+		} else {
+			console.log("cool")
+		};
 	},
 
 	home: function() {
@@ -31,7 +37,7 @@ var Router = Parse.Router.extend({
 					})
 				})
 			}
-		})
+		});
 	},
 
 	join: function() {
@@ -58,6 +64,11 @@ var Router = Parse.Router.extend({
 	},
 
 	review: function(id) {
+		if (Parse.User.current() == null) {
+			$('.create-second-review').hide();
+		} else {
+			console.log('no user');
+		};
 		new Parse.Query('Review').get(id, {
 			success: function(reviews) {
 				reviews.forEach(function(review) {

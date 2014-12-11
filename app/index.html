@@ -14,6 +14,7 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <!--[if lt IE 10]>
@@ -24,19 +25,19 @@
     <div class="top-header">
       <h1 class="title">Reviews</h1>
       <ul>
-        <a href="#join"><li><button>Join</button></li></a>
-        <a href="#login"><li><button>Login</button></li></a>
-        <a href="#create"><li><button>Create</button></li></a>
-        <li class='logout'><button>logout</button></li>
+        <a href="#join"><li><button class="reviewer-button">Join</button></li></a>
+        <a href="#login"><li><button>Reviewer Login</button></li></a>
+        <li class='logout'><button class="reviewer-button">logout</button></li>
+        <a href="#create"><li><button class="reviewer-button">Create</button></li></a>
       </ul>
     </div>
     <div class="header">
       <ul>
         <li><a href="#home">Home</a></li>
-        <li>News</li>
-        <li>Games</li>
-        <li>Reviewers</li>
-        <li><a href="#team"> Team</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#home">Games</a></li>
+        <li><a href="#reviewers">Reviewers</a></li>
+        <li><a href="#team">Team</a></li>
       </ul>
     </div>
 
@@ -289,7 +290,6 @@
                 <%= secondScore %>
               </div>
             <% } %>
-            
           </div>
         </div>
       </div>
@@ -300,7 +300,7 @@
           <li>Publisher: <%=publisher%> </li>
         </ul>
       </div>
-      <button class="create-second-review"> Create Second Review </button>
+      <button class="create-second-review">Create Second Review</button>
     </script>
 
 
