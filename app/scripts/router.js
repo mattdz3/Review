@@ -9,17 +9,18 @@ var Router = Parse.Router.extend({
 		'team'             : 'team',
 		'join'             : 'join',
 		'login'            : 'login',
-		'create'           : 'create',
+		'news'             : 'news',
+		'reviewer'         : 'reviewer',
+		'createReview'     : 'createReview',
 		'createSecond'     : 'createSecond',
+		'createNews'       : 'createNews',
+		'createReviewer'   : 'createReviewer',
 	},
 
 	initialize: function(options) {
 		this.currentView = null;
-
 		if (Parse.User.current() == null) {
 			$('.reviewer-button').hide();
-		} else {
-			console.log("cool")
 		};
 	},
 
@@ -52,7 +53,7 @@ var Router = Parse.Router.extend({
 		this.swap(view);
 	},
 
-	create: function() {
+	createReview: function() {
 		if (Parse.User.current() != undefined ) {
 			$('.views-container').empty();
 		var view = new CreateReviewView();
@@ -60,7 +61,6 @@ var Router = Parse.Router.extend({
 		} else {
 			router.navigate('login', {trigger: true})
 		}
-		
 	},
 
 	review: function(id) {
@@ -69,6 +69,7 @@ var Router = Parse.Router.extend({
 		} else {
 			console.log('no user');
 		};
+
 		new Parse.Query('Review').get(id, {
 			success: function(reviews) {
 				reviews.forEach(function(review) {
@@ -84,7 +85,13 @@ var Router = Parse.Router.extend({
 
 	createSecond: function() {
 		$('.views-container').empty();
-		var view = new EditView();
+		var view = new CreateSecondReviewView();
+		this.swap(view);
+	},
+
+	createNews: function() {
+		$('.views-container').empty();
+		var views = new CreateNewsView();
 		this.swap(view);
 	},
 
@@ -93,7 +100,6 @@ var Router = Parse.Router.extend({
 		var view = new TeamView();
 		this.swap(view);
 	},
-
 
 	swap: function(view) {
 		if (this.currentView) this.currentView.remove();
