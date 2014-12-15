@@ -29,7 +29,7 @@ var ReviewView = Parse.View.extend({
 
 		new FullReviewView({
 			model: fullReview
-		})
+		});
 
 		router.navigate('home/' + modelId, {trigger: true})
 	}

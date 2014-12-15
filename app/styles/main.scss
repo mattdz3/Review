@@ -208,6 +208,8 @@ body {
         margin: 20px;
         vertical-align: top;
         display: inline-block;
+        float: left;
+        clear: right;
         border: 1px solid $border;
         // background-color: $review-background;
         border-radius: 3px;
@@ -342,6 +344,7 @@ body {
 
 .footer {
   display: block;
+  clear: both;
 }
 
 @media screen and (max-width: 910px) {

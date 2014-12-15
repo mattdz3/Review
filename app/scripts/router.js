@@ -9,12 +9,11 @@ var Router = Parse.Router.extend({
 		'team'             : 'team',
 		'join'             : 'join',
 		'login'            : 'login',
+		'game'             : 'game',
 		'news'             : 'news',
 		'reviewer'         : 'reviewer',
 		'createReview'     : 'createReview',
 		'createSecond'     : 'createSecond',
-		'createNews'       : 'createNews',
-		'createReviewer'   : 'createReviewer',
 	},
 
 	initialize: function(options) {
@@ -28,9 +27,50 @@ var Router = Parse.Router.extend({
 		$('.views-container').empty();
 		var view = new HomeView();
 
-		var query = new Parse.Query(Review);
+		var gameQuery = new Parse.Query(Review);
 
-		query.find({
+		gameQuery.find({
+			success: function(reviews) {
+				reviews.forEach(function(review) {
+					new ReviewView({
+						model: review
+					})
+				})
+			}
+		});
+
+		var reviewerQuery = new Parse.Query(Reviewer);
+
+		reviewerQuery.find({
+			success: function(reviewers) {
+				reviewers.forEach(function(reviewer) {
+					new ReviewerView({
+						model: reviewer
+					})
+				})
+			}
+		});
+
+		var newsQuery = new Parse.Query(News);
+
+		newsQuery.find({
+			success: function(allNews) {
+				allNews.forEach(function(news) {
+					new NewsView({
+						model: news
+					})
+				})
+			}
+		});
+	},
+
+	game: function() {
+		$('.views-container').empty();
+		var view = new HomeView();
+
+		var gameQuery = new Parse.Query(Review);
+
+		gameQuery.find({
 			success: function(reviews) {
 				reviews.forEach(function(review) {
 					new ReviewView({
@@ -80,7 +120,7 @@ var Router = Parse.Router.extend({
 				})
 				this.swap(view);
 			}
-		});	
+		});
 	},
 
 	createSecond: function() {
@@ -89,10 +129,38 @@ var Router = Parse.Router.extend({
 		this.swap(view);
 	},
 
-	createNews: function() {
+	news: function() {
 		$('.views-container').empty();
-		var views = new CreateNewsView();
-		this.swap(view);
+		var view = new HomeView();		
+
+		var query = new Parse.Query(News);
+
+		query.find({
+			success: function(allNews) {
+				allNews.forEach(function(news) {
+					new NewsView({
+						model: news
+					})
+				})
+			}
+		});
+	},
+
+	reviewer: function(){
+		$('.views-container').empty();
+		var view = new HomeView();
+
+		var query = new Parse.Query(Reviewer);
+
+		query.find({
+			success: function(reviewers) {
+				reviewers.forEach(function(reviewer) {
+					new ReviewerView({
+						model: reviewer
+					})
+				})
+			}
+		});
 	},
 
 	team: function() {

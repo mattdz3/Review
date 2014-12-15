@@ -29,16 +29,14 @@
         <a href="#login"><li><button>Reviewer Login</button></li></a>
         <li class='logout'><button class="reviewer-button">logout</button></li>
         <a href="#createReview"><li><button class="reviewer-button">Create Review</button></li></a>
-        <a href="#createNews"><li><button class="reviewer-button">Create News</button></li></a>
-        <a href="#createReviewer"><li><button class="reviewer-button">Create Reviewer</button></li></a>
       </ul>
     </div>
     <div class="header">
       <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#news">News</a></li>
-        <li><a href="#home">Games</a></li>
-        <li><a href="#reviewers">Reviewers</a></li>
+        <li><a href="#game">Games</a></li>
+        <li><a href="#reviewer">Reviewers</a></li>
         <li><a href="#team">Team</a></li>
       </ul>
     </div>
@@ -373,18 +371,28 @@
       </div>
     </script>
 
-    <script type="text/template" class="create-news-view">
-      <div> 
-        <h1> Create News Story </h1>
+    <script type="text/template" class="news-view">
+      <div class="full-review">
+        <div class="review-start">
+          <%= name %>
+          <img src="<%= image %>">
+          By: <%= reviewer %>
+        </div>
+        <span class="quick-review"><%= quickReview %></span>
+        <div class="review-score">Click for more</div>
       </div>
+    </script>
 
-      <div>
-        <input class="news-title" placeholder="Title">
-        <button class="add-pic"> Main Pic </button>
+    <script type="text/template" class="reviewer-view">
+      <div class="full-review">
+        <div class="review-start">
+          <%= name %>
+          <img src="<%= image %>">
+          By: <%= reviewer %>
+        </div>
+        <span class="quick-review"><%= quickReview %></span>
+        <div class="review-score">Click for more</div>
       </div>
-
-      <textarea class="news-intro" placeholder="Overview"></textarea>
-      <textarea class="news-content" placeholder=""></textarea>
     </script>
     
 
@@ -420,6 +428,8 @@
         <script src="scripts/CreateReviewView.js"></script>
         <script src="scripts/fullReviewView.js"></script>
         <script src="scripts/CreateSecondReviewView.js"></script>
+        <script src="scripts/newsView.js"></script>
+        <script src="scripts/reviewerView.js"></script>
         <script src="scripts/teamView.js"></script>
         <script src="scripts/router.js"></script>
 
