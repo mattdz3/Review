@@ -60,12 +60,14 @@
     </script>
 
     <script type="text/template" class="join-view">
+      <h1>Create Account</h1>
       <input class='username' placeholder="username">
       <input class='password' placeholder="password" type="password">
       <button class="create"> Create User </button>
     </script>
 
     <script type="text/template" class="login-view">
+      <h1> Login </h1>
       <input class='username' placeholder="username">
       <input class='password' placeholder="password" type="password">
       <button class="login">login</button>
@@ -73,11 +75,23 @@
 
     <script type="text/template" class="create-review-view">
       <div> 
-      <h1>First Review</h1> 
+        <h1>First Review</h1>
+        <div class="checkbox">
+          Game Review
+          <input type="checkbox" name="game"> 
+        </div>
+        <div class="checkbox">
+          Reviewer Review
+          <input type="checkbox" name="reviewer"> 
+        </div>
+        <div class="checkbox">
+          News
+          <input type="checkbox" name="news"> 
+        </div>
       </div>
 
       <div>
-        <input class="game-title" placeholder="Game Name">
+        <input class="game-title" placeholder="Title">
         <button class="add-pic"> Main Pic </button>
       </div>
 
@@ -106,9 +120,9 @@
       <textarea class="fourth-review-content" placeholder="4th Paragraph"></textarea>
 
       <div>
-        <input id="info-input" class="developer" placeholder="Game Developer">
-        <input id="info-input" class="publisher" placeholder="Game Publisher">
-        <input id="info-input" class="score" placeholder="Game Score">
+        <input id="info-input" class="developer" placeholder="Developer">
+        <input id="info-input" class="publisher" placeholder="Publisher">
+        <input id="info-input" class="score" placeholder="Score">
       </div>
 
       <div>
@@ -360,7 +374,17 @@
     </script>
 
     <script type="text/template" class="create-news-view">
-      
+      <div> 
+        <h1> Create News Story </h1>
+      </div>
+
+      <div>
+        <input class="news-title" placeholder="Title">
+        <button class="add-pic"> Main Pic </button>
+      </div>
+
+      <textarea class="news-intro" placeholder="Overview"></textarea>
+      <textarea class="news-content" placeholder=""></textarea>
     </script>
     
 

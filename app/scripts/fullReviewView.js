@@ -11,7 +11,6 @@ var FullReviewView = Parse.View.extend({
 	initialize: function() {
 		$('.reviews-container').append(this.el);
 		this.render();
-
 	},
 
 	render: function() {
@@ -19,8 +18,6 @@ var FullReviewView = Parse.View.extend({
 		this.$el.html(renderTemplate);
 
 		var reviewSlider = slidr.create('slidr-id', {
-		  // after: function(e) { console.log('in: ' + e.in.slidr); },
-		  // before: function(e) { console.log('out: ' + e.out.slidr); },
 		  breadcrumbs: true,
 		  controls: 'corner',
 		  direction: 'h',

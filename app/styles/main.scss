@@ -109,6 +109,7 @@ body {
 .views-container {
   width: 90%;
   margin: 0 auto;
+  margin-top: 80px;
 
   .main-view {
     width: 100%;
@@ -210,6 +211,13 @@ body {
         border: 1px solid $border;
         // background-color: $review-background;
         border-radius: 3px;
+        transition: all 0.4s ease;
+
+        &:hover {
+          transition: all 0.4s ease;
+          background-color: gray;
+          cursor: pointer;
+        }
 
 
         .review-start {
@@ -252,6 +260,15 @@ body {
     div {
       text-align: center;
       margin: 30px;
+
+      .checkbox {
+        width: 45%;
+        margin: 0 auto;
+
+        input {
+          width: 20px;
+        }
+      }
 
       input {
         padding: 4px;
