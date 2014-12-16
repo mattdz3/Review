@@ -9,7 +9,7 @@ var FullReviewView = Parse.View.extend({
 	template: _.template($('.full-review-view').text()),
 
 	initialize: function() {
-		$('.reviews-container').append(this.el);
+		$('.review-container').append(this.el);
 		this.render();
 	},
 
