@@ -110,6 +110,7 @@ body {
   width: 90%;
   margin: 0 auto;
   margin-top: 80px;
+  position: relative;
 
   .main-view {
     width: 100%;
@@ -117,6 +118,56 @@ body {
     .reviews-container {
       text-align: center;
       width: 100%;
+      vertical-align: top;
+      column-count: 2;
+      column-gap: 0px;
+      
+      .review-contents {
+        width: 80%;
+        padding: 20px;
+        margin: 20px;
+        display: inline-block;
+        border: 1px solid $border;
+        border-radius: 3px;
+        transition: all 0.4s ease;
+
+        &:hover {
+          transition: all 0.4s ease;
+          background-color: gray;
+          cursor: pointer;
+        }
+
+
+        .review-start {
+          width: 60%;
+          margin: 0 auto;
+          margin-bottom: 20px;
+          text-align: center;
+          font-size: 25px;
+
+          img {
+            width: 100%;
+            display: block;
+            margin-top: 20px; 
+            margin-bottom: 20px;
+          }
+        }
+
+        span {
+          font-size: 18px;
+          padding: 10px;
+        }
+
+        .review-score {
+          width: 40%;
+          margin: 0 auto;
+          margin-top: 20px;
+          font-size: 25px;
+          background-color: $button-background;
+          border-radius: 3px;
+          border: 1px solid $border;
+        }
+      }
 
       .full-review-container {
         width: 80%;
@@ -197,59 +248,6 @@ body {
             text-align: center;
             margin: 20px 0;
           }
-        }
-      }
-
-      .review-contents {
-        width: 40%;
-        // max-height: 500px;
-        overflow: scroll;
-        padding: 20px;
-        margin: 20px;
-        vertical-align: top;
-        display: inline-block;
-        float: left;
-        clear: right;
-        border: 1px solid $border;
-        // background-color: $review-background;
-        border-radius: 3px;
-        transition: all 0.4s ease;
-
-        &:hover {
-          transition: all 0.4s ease;
-          background-color: gray;
-          cursor: pointer;
-        }
-
-
-        .review-start {
-          width: 60%;
-          margin: 0 auto;
-          margin-bottom: 20px;
-          text-align: center;
-          font-size: 25px;
-
-          img {
-            width: 100%;
-            display: block;
-            margin-top: 20px; 
-            margin-bottom: 20px;
-          }
-        }
-
-        span {
-          font-size: 18px;
-          padding: 10px;
-        }
-
-        .review-score {
-          width: 40%;
-          margin: 0 auto;
-          margin-top: 20px;
-          font-size: 25px;
-          background-color: $button-background;
-          border-radius: 3px;
-          border: 1px solid $border;
         }
       }
     }
@@ -351,10 +349,14 @@ body {
 
   .views-container 
   .main-view 
-  .reviews-container 
-  .review-contents {
-    width: 70%;
-  }
+  .reviews-container {
+    column-count: 1;
+
+    .review-contents {
+      width: 70%;
+    }
+  } 
+  
 
   .header
   ul {

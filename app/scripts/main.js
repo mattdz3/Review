@@ -13,6 +13,7 @@ $('.logout').click(function() {
 	alert('user has logged out!')
 });
 
+
 // var mainSlider = slidr.create('img-slidr', {
 // 	// after: function(e) { console.log('in: ' + e.in.slidr); },
 // 	// before: function(e) { console.log('out: ' + e.out.slidr); },
