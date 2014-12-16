@@ -25,10 +25,14 @@
     <div class="top-header">
       <h1 class="title">Reviews</h1>
       <ul>
-        <a href="#join"><li><button class="reviewer-button">Join</button></li></a>
-        <a href="#login"><li><button>Reviewer Login</button></li></a>
-        <li class='logout'><button class="reviewer-button">logout</button></li>
-        <a href="#createReview"><li><button class="reviewer-button">Create Review</button></li></a>
+        <li><a href="#join" class="reviewer-button">Join</li></a>
+
+        <li><a href="#login">Reviewer Login</a></li>
+
+        <li class='logout'><a class="reviewer-button">logout</a></li>
+
+        <li><a href="#createReview" class="reviewer-button">Create Review</li></a>
+
       </ul>
     </div>
     <div class="header">
@@ -220,11 +224,12 @@
             <span>
               <%=reviewFour%>
             </span>
-             
             <div class="review-score">
               <%= score %>
             </div>
+            <span class="next-button">Second Review</span>
           </div>
+
 
           <div data-slidr="second-review">
             <div class="full-review-reviewer">
@@ -293,7 +298,9 @@
                 <%= secondScore %>
               </div>
             <% } %>
+            <span class="next-button">First Review</span>
           </div>
+
         </div>
       </div>
       
@@ -335,6 +342,26 @@
         <img src="images/mike.jpg">
         <div class="reviewer-info">
           Hi my name is Mike Adam! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident.
+          <div class='ul-container'>
+            <ul> Likes:
+              <li>Cool Stuff</li>
+            </ul>
+            <ul>Dislikes:
+              <li>Uncool Stuff</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <img src="images/cliff.jpg">
+        <div class="reviewer-info">
+          Hi my name is Cliff Overstreet! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse

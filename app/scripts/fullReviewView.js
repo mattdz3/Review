@@ -4,6 +4,7 @@ var FullReviewView = Parse.View.extend({
 
 	events: {
 		'click .create-second-review' : 'secondReview',
+		'click .slidr-control'        : 'top',
 	},
 
 	template: _.template($('.full-review-view').text()),
@@ -26,7 +27,7 @@ var FullReviewView = Parse.View.extend({
 		  overflow: false,
 		  pause: false,
 		  theme: '#222',
-		  timing: { 'linear': '.4s ease-in' },
+		  timing: { 'linear': '.8s ease-in' },
 		  touch: true,
 		  transition: 'linear'
 		});
@@ -34,6 +35,12 @@ var FullReviewView = Parse.View.extend({
 		reviewSlider.start();	
 
 		return this;
+	},
+
+	top: function() {
+		$('body').animate({
+        	scrollTop: $('.full-review-header').offset().top
+    	}, 0);
 	},
 
 	secondReview: function() {

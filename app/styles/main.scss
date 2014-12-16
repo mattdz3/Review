@@ -1,16 +1,17 @@
 // bower:scss
 // endbower
 
-$background: #271C18;
+$background: #F8F8F8;
 $button-background: #586E57;
 $border: #505559;
-$review-background: #E4DBC3;
-$main-font-color: #8F9160;
+$review-background: #3F733C;
+$main-font-color: #242424;
+$transition-color: #586E57;
 
 
 body {
   margin: 0;
-  background: #f9f9f9;
+  background: #D6D6D6;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-family: 'Roboto', sans-serif;
   // color: white;
@@ -25,6 +26,7 @@ body {
     display: inline-block;
     margin-left: 50px;
     font-size: 45px;
+    color: $button-background;
   }
 
   ul {
@@ -36,12 +38,26 @@ body {
 
     li {
       display: inline-block;
+      padding-right: 5px;
 
-      button {
-        border-radius: 3px;
-        border: $border;
-        padding: 6px 15px;
-        background-color: $button-background;
+      a {
+        background-color: $background;
+        padding: 3px;
+        border-right: 1px solid $border;
+        border-bottom: 1px solid $border;
+        border: 1px solid $border;
+        border-radius: 3px ;
+        text-decoration: none;
+        color: $main-font-color;
+        transition: all 0.2s ease;
+        cursor: pointer;
+
+        &:hover {
+          border: 3px solid $transition-color;
+          border-radius: 3px;
+          transition: all 0.2s ease;
+          color: $transition-color;
+        }
       }
     }
   }
@@ -50,8 +66,10 @@ body {
 .header {
   width: 100%;
   background-color: $background;
-  border-bottom: 1px solid $border;
+  // border-bottom: 1px solid $border;
   color: $main-font-color;
+  padding-bottom: 5px;
+
 
   ul {
     width: 85%;
@@ -63,8 +81,21 @@ body {
       padding: 10px;
 
       a {
+        padding: 3px;
+        border-right: 1px solid $border;
+        border-bottom: 1px solid $border;
+        border-radius: 3px 0;
         text-decoration: none;
         color: $main-font-color;
+        transition: all 0.2s ease;
+        cursor: pointer;
+
+        &:hover {
+          border: 3px solid $transition-color;
+          border-radius: 3px;
+          transition: all 0.2s ease;
+          color: $transition-color;
+        }
       }
     }
   } 
@@ -110,6 +141,7 @@ body {
   width: 90%;
   margin: 0 auto;
   margin-top: 80px;
+  background-color: $background;
 
   .main-view {
     width: 100%;
@@ -140,7 +172,6 @@ body {
         }
 
         .full-review-header {
-          padding-top: 100px;
           font-size: 40px;
         }
 
@@ -161,6 +192,12 @@ body {
           text-align: left;
           margin: 0 auto;
           margin-bottom: 80px;
+          position: relative;
+
+          .next-button {
+            margin-left: 80px;
+            margin-bottom: 24px;
+          }
         
           .full-review-reviewer {
             text-align: center;
@@ -213,13 +250,14 @@ body {
         padding: 20px;
         margin: 20px;
         display: inline-block;
+        background-color: $button-background;
         border: 1px solid $border;
         border-radius: 3px;
         transition: all 0.4s ease;
 
         &:hover {
           transition: all 0.4s ease;
-          background-color: gray;
+          background-color: $transition-color;
           cursor: pointer;
         }
 
@@ -249,7 +287,7 @@ body {
           margin: 0 auto;
           margin-top: 20px;
           font-size: 25px;
-          background-color: $button-background;
+          background-color: $background;
           border-radius: 3px;
           border: 1px solid $border;
         }

@@ -106,8 +106,6 @@ var Router = Parse.Router.extend({
 	review: function(id) {
 		if (Parse.User.current() == null) {
 			$('.create-second-review').hide();
-		} else {
-			console.log('no user');
 		};
 
 		new Parse.Query('Review').get(id, {
