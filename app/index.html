@@ -25,25 +25,23 @@
     <div class="top-header">
       <h1 class="title">Reviews</h1>
       <ul>
-        <li><a href="#join" class="reviewer-button">Join</li></a>
-
         <li><a href="#login">Reviewer Login</a></li>
-
+        <li><a href="#join" class="reviewer-button">Join</li></a>
         <li class='logout'><a class="reviewer-button">logout</a></li>
-
         <li><a href="#createReview" class="reviewer-button">Create Review</li></a>
-
       </ul>
     </div>
     <div class="header">
       <ul>
         <li><a href="#home">Home</a></li>
-        <li><a href="#news">News</a></li>
         <li><a href="#game">Games</a></li>
+        <li><a href="#news">News</a></li>
         <li><a href="#reviewer">Reviewers</a></li>
         <li><a href="#team">Team</a></li>
       </ul>
     </div>
+
+    <div class="main-slidr"></div>
 
     <div class="views-container"></div>
 
@@ -172,13 +170,12 @@
 
     <script type="text/template" class="review-view">
         <div class="full-review">
+        <h2> <%= name %> </h2>
           <div class="review-start">
-            <%= name %>
+            
             <img src="<%= image %>">
-            By: <%= reviewer %>
           </div>
           <span class="quick-review"><%= quickReview %></span>
-          <div class="review-score">Click for more</div>
         </div>
     </script>
 
@@ -401,25 +398,21 @@
 
     <script type="text/template" class="news-view">
         <div class="full-review">
+        <h2> <%= name %> </h2>
           <div class="review-start">
-            <%= name %>
             <img src="<%= image %>">
-            By: <%= reviewer %>
           </div>
           <span class="quick-review"><%= quickReview %></span>
-          <div class="review-score">Click for more</div>
         </div>
     </script>
 
     <script type="text/template" class="reviewer-view">
         <div class="full-review">
+        <h2> <%= name %> </h2>
           <div class="review-start">
-            <%= name %>
             <img src="<%= image %>">
-            By: <%= reviewer %>
           </div>
           <span class="quick-review"><%= quickReview %></span>
-          <div class="review-score">Click for more</div>
         </div>
     </script>
     

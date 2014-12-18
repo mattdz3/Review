@@ -39,7 +39,7 @@ var FullReviewView = Parse.View.extend({
 
 	top: function() {
 		$('body').animate({
-        	scrollTop: $('.full-review-header').offset().top
+        	scrollTop: $('.full-review-header-img').offset().top
     	}, 0);
 	},
 
