@@ -51,6 +51,7 @@ var CreateSecondReviewView = Parse.View.extend({
 	finishedEdit: function() {
 		console.log(this.model)
 		var user = Parse.User.current().attributes.username;
+		var userPic = Parse.User.current().attributes.userPic;
 		var model = this.model;
 
 		var secondReviewOne = $('.review-content').val();
@@ -63,6 +64,7 @@ var CreateSecondReviewView = Parse.View.extend({
 		var secondScore = $('.score').val();
 
 		model.set('secondReviewer', user);
+		model.set('secondReviewerPic', userPic);
 		model.set('secondReviewOne', secondReviewOne);
 		model.set('secondReviewTwo', secondReviewTwo);
 		model.set('secondReviewThree', secondReviewThree);

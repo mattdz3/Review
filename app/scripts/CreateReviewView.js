@@ -61,6 +61,7 @@ var CreateReviewView = Parse.View.extend({
 		if ($("input[name='game']").is(":checked")) {
 			var user = Parse.User.current();
 			var username = user.attributes.username;
+			var userPic = Parse.User.current().attributes.userPic;
 			var review = new Review();
 			var title = $('.game-title').val();
 			var gameReviewOne = $('.review-content').val();
@@ -77,6 +78,7 @@ var CreateReviewView = Parse.View.extend({
 
 			review.set('reviewerObject', user);
 			review.set('reviewer', username);
+			review.set('reviewerPic', userPic);
 			review.set('name', title);
 			review.set('score', score);
 			review.set('image', mainImage);
@@ -131,6 +133,7 @@ var CreateReviewView = Parse.View.extend({
 		} else if ($("input[name='reviewer']").is(":checked")) {
 			var user = Parse.User.current();
 			var username = user.attributes.username;
+			var userPic = Parse.User.current().attributes.userPic;
 			var reviewer = new Reviewer();
 			var title = $('.game-title').val();
 			var gameReviewOne = $('.review-content').val();
@@ -147,6 +150,7 @@ var CreateReviewView = Parse.View.extend({
 
 			reviewer.set('reviewerObject', user);
 			reviewer.set('reviewer', username);
+			reviewer.set('reviewerPic', userPic);
 			reviewer.set('name', title);
 			reviewer.set('score', score);
 			reviewer.set('image', mainImage);
@@ -205,6 +209,7 @@ var CreateReviewView = Parse.View.extend({
 		} else if ($("input[name='news']").is(":checked")){
 			var user = Parse.User.current();
 			var username = user.attributes.username;
+			var userPic = Parse.User.current().attributes.userPic;
 			var news = new News();
 			var title = $('.game-title').val();
 			var gameReviewOne = $('.review-content').val();
@@ -221,6 +226,7 @@ var CreateReviewView = Parse.View.extend({
 
 			news.set('reviewerObject', user);
 			news.set('reviewer', username);
+			news.set('reviewerPic', userPic);
 			news.set('name', title);
 			news.set('score', score);
 			news.set('image', mainImage);

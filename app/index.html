@@ -23,7 +23,7 @@
 
 
     <div class="top-header">
-      <h1 class="title">Reviews</h1>
+      <h1 class="title">MSO</h1>
       <ul>
         <li><a href="#login">Reviewer Login</a></li>
         <li><a href="#join" class="reviewer-button">Join</li></a>
@@ -41,7 +41,12 @@
       </ul>
     </div>
 
-    <div class="main-slidr"></div>
+    <div class="main-slidr">
+      <div id="slidr-img" style="display: inline-block">
+        <img data-slidr="one" src="images/metalgear.jpeg">
+        <img data-slidr="two" src="images/reddead.jpeg">
+      </div>
+    </div>
 
     <div class="views-container"></div>
 
@@ -64,6 +69,7 @@
       <h1>Create Account</h1>
       <input class='username' placeholder="username">
       <input class='password' placeholder="password" type="password">
+      <button class='user-pic'>Add Pic</button>
       <button class="create"> Create User </button>
     </script>
 
@@ -169,14 +175,22 @@
     </script>
 
     <script type="text/template" class="review-view">
-        <div class="full-review">
+      <div class="full-review">
         <h2> <%= name %> </h2>
-          <div class="review-start">
-            
-            <img src="<%= image %>">
-          </div>
-          <span class="quick-review"><%= quickReview %></span>
+        <div class="review-start">
+          <img src="<%= image %>">
         </div>
+        <span class="quick-review"><%= quickReview %></span>
+        <div class="uploader">
+          <div class="vs">
+            <img src="<%=reviewerPic%>">
+          </div>
+          <img src="images/vs.png" class="vs">
+          <div class="vs">
+            <img src="<%=secondReviewerPic%>">
+          </div>
+        </div>
+      </div>
     </script>
 
     <script type="text/template" class="full-review-view">
@@ -224,7 +238,10 @@
             <div class="review-score">
               <%= score %>
             </div>
-            <span class="next-button">Second Review</span>
+            <span class="next-button">
+              <img src="<%=secondReviewerPic%>">
+              <span><%=secondReviewer%>'s Review</span>
+            </span>
           </div>
 
 
@@ -295,7 +312,10 @@
                 <%= secondScore %>
               </div>
             <% } %>
-            <span class="next-button">First Review</span>
+            <span class="next-button">
+              <img src="<%=reviewerPic%>">
+              <span><%=reviewer%>'s Review</span>
+            </span>
           </div>
 
         </div>
@@ -423,6 +443,7 @@
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/slidr/slidr.js"></script>
     <script src="bower_components/filepicker/filepicker.min.js"></script>
+    <script src="bower_components/sticky/jquery.sticky.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
     <script src="//www.parsecdn.com/js/parse-1.2.18.min.js"></script>

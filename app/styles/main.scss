@@ -1,20 +1,19 @@
 // bower:scss
 // endbower
 
-$background: #F8F8F8;
+$background: #FCFCFC;
 $button-background: #586E57;
-$border: #505559;
+$border: #AAAAAA;
 $review-background: #3F733C;
-$main-font-color: #242424;
-$transition-color: #586E57;
+$main-font-color: black;
+$transition-color: #343838;
 
 
 body {
   margin: 0;
-  background: #D6D6D6;
+  background: #AAAAAA;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-family: 'Roboto', sans-serif;
-  // color: white;
 }
 
 .top-header {
@@ -26,7 +25,7 @@ body {
     display: inline-block;
     margin-left: 50px;
     font-size: 45px;
-    color: $button-background;
+    color: $main-font-color;
   }
 
   ul {
@@ -43,18 +42,19 @@ body {
       a {
         background-color: $background;
         padding: 3px;
-        border-right: 1px solid $border;
+        border-left: 1px solid $border;
         border-bottom: 1px solid $border;
-        border: 1px solid $border;
-        border-radius: 3px;
+        border-radius: 0 3px;
         text-decoration: none;
         color: $main-font-color;
         transition: all 0.2s ease;
         cursor: pointer;
+        font-size: 14px;
 
         &:hover {
-          border: 3px solid $transition-color;
-          border-radius: 3px;
+          border-bottom: 3px solid $transition-color;
+          border-left: 3px solid $transition-color;
+          border-radius: 0 3px;
           transition: all 0.2s ease;
           color: $transition-color;
         }
@@ -66,9 +66,7 @@ body {
 .header {
   width: 100%;
   background-color: $background;
-  // border-bottom: 1px solid $border;
   color: $main-font-color;
-  padding-bottom: 5px;
   border-bottom: 1px solid $border;
   box-shadow: 1px 0px 0px;
 
@@ -79,22 +77,27 @@ body {
     padding: 0;
 
     li {
+      font-size: 17px;
       display: inline-block;
-      padding: 10px;
+      margin: 10px;
+      margin-bottom: 30px;
+
 
       a {
+        background-color: $background;
         padding: 3px;
-        border-right: 1px solid $border;
+        border-left: 1px solid $border;
         border-bottom: 1px solid $border;
-        border-radius: 3px 0;
+        border-radius: 0 3px;
         text-decoration: none;
         color: $main-font-color;
         transition: all 0.2s ease;
         cursor: pointer;
 
         &:hover {
-          border: 3px solid $transition-color;
-          border-radius: 3px;
+          border-bottom: 3px solid $transition-color;
+          border-left: 3px solid $transition-color;
+          border-radius: 0 3px;
           transition: all 0.2s ease;
           color: $transition-color;
         }
@@ -139,21 +142,43 @@ body {
   }
 }
 
+.main-slidr {
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  background-color: $background;
+
+
+  #slidr-img {
+    width: 100%;
+    height: 400px;
+    margin: 0 auto;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
 .views-container {
   width: 90%;
   margin: 0 auto;
-  margin-top: 80px;
-  background-color: $background;
+  // margin-top: 80px;
+  // background-color: #008C9E;
+  border-right: 1px solid $border;
+  border-left: 1px solid $border;
+  // box-shadow: 0px 1px 2px;
 
   .main-view {
     width: 100%;
-    border: 1px solid $border;
-    box-shadow: 0px 1px 1px;
-    border-radius: 3px;
-
+    background-color: $background;
+    padding-top: 50px;
+    
     .review-container {
-      text-align: center;
       width: 100%;
+      text-align: center;
+
 
       .full-review-container {
         width: 80%;
@@ -164,7 +189,6 @@ body {
           margin: 0 auto;
           text-align: left;
           display: inline-block;
-          position: relative;
 
           ul {
             padding: 0;
@@ -178,6 +202,7 @@ body {
 
         .full-review-header {
           font-size: 40px;
+          margin-top: 50px;
         }
 
         .full-review-header-img {
@@ -201,7 +226,22 @@ body {
 
           .next-button {
             margin-left: 80px;
-            margin-bottom: 24px;
+            margin-top: 40px;
+            position: relative;
+
+            img {
+              width: 60px;
+              height: 60px;
+              border-radius: 50%;
+            }
+
+            span {
+              position: absolute;
+              top: 18px;
+              left: 75px;
+              width: 50%;
+              margin: 0;
+            }
           }
         
           .full-review-reviewer {
@@ -244,32 +284,48 @@ body {
     }
 
     .reviews-container {
-      // text-align: center;
-      width: 100%;
-      vertical-align: top;
-      // column-count: 2;
-      // column-gap: 0px;
+      width: 75%;
+      display: inline-block;
       
       .review-contents {
-        width: 70%;
-        padding: 20px;
-        margin: 20px;
-        display: inline-block;
-        border-right: 1px solid $border;
-        border-bottom: 1px solid $border;
-        border-radius: 3px 0;
-        transition: all 0.2s ease;
-
-        &:hover {
-          transition: all 0.2s ease;
-          border: 3px solid $transition-color;
-          border-radius: 3px;
-          box-shadow: 0px 1px 1px;
-          cursor: pointer;
-        }
+        width: 100%;
 
         .full-review {
-          width: 100%;
+          width: 90%;
+          padding: 20px;
+          margin: 20px;
+          border-left: 1px solid $border;
+          border-bottom: 1px solid $border;
+          border-radius: 0 3px;
+          transition: all 0.2s ease;
+          display: inline-block;
+
+          &:hover {
+            transition: all 0.2s ease;
+            // background-color: #EBEBEB;
+            border-bottom: 3px solid $transition-color;
+            border-left: 3px solid $transition-color;
+            border-radius: 0 3px;
+            // box-shadow: 0px 1px 1px;
+            cursor: pointer;
+          }
+
+          .uploader {
+            width: 80%;
+            margin-top: 8px;
+
+            .vs {
+              display: inline-block;
+              margin-right: 15px;
+            }
+
+            img {
+              width: 60px;
+              height: 60px;
+              border-radius: 50%;
+              display: inline-block;
+            }
+          }
 
           h2 {
             margin: 0;
@@ -289,9 +345,9 @@ body {
             }
           }
 
-          span {
+          .quick-review {
             align-self: center;
-            font-size: 18px;
+            font-size: 16px;
             margin-top: 15px;
             width: 65%;
             float: right;
@@ -358,9 +414,10 @@ body {
   }
 
   .team-view {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
-    margin-top: 80px;
+    background-color: $background;
+    padding-top: 80px;
 
     .meet-team {
       width: 100%;
@@ -369,9 +426,10 @@ body {
     }
 
     .team-member {
-      width: 100%;
+      width: 90%;
       display: inline-block;
       margin-bottom: 80px;
+      padding: 20px;
 
       img {
         width: 45%;

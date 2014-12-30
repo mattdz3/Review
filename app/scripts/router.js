@@ -21,10 +21,12 @@ var Router = Parse.Router.extend({
 		if (Parse.User.current() == null) {
 			$('.reviewer-button').hide();
 		};
+		$('.main-slidr').hide();
 	},
 
 	home: function() {
 		$('.views-container').empty();
+		$('.main-slidr').show();
 		var view = new HomeView();
 
 		var gameQuery = new Parse.Query(Review);
@@ -37,31 +39,34 @@ var Router = Parse.Router.extend({
 					})
 				})
 			}
-		});
-
-		var reviewerQuery = new Parse.Query(Reviewer);
-
-		reviewerQuery.find({
-			success: function(reviewers) {
-				reviewers.forEach(function(reviewer) {
-					new ReviewerView({
-						model: reviewer
+		}).done(function() {
+			var reviewerQuery = new Parse.Query(Reviewer);
+			reviewerQuery.find({
+				success: function(reviewers) {
+					reviewers.forEach(function(reviewer) {
+						new ReviewerView({
+							model: reviewer
+						})
 					})
-				})
-			}
-		});
+				}
+			});
+		}).done(function() {
+			var newsQuery = new Parse.Query(News);
 
-		var newsQuery = new Parse.Query(News);
-
-		newsQuery.find({
-			success: function(allNews) {
-				allNews.forEach(function(news) {
-					new NewsView({
-						model: news
+			newsQuery.find({
+				success: function(allNews) {
+					allNews.forEach(function(news) {
+						new NewsView({
+							model: news
+						})
 					})
-				})
-			}
+				}
+			});
 		});
+
+		
+
+		
 	},
 
 	game: function() {
@@ -162,12 +167,14 @@ var Router = Parse.Router.extend({
 	},
 
 	team: function() {
+
 		$('.views-container').empty();
 		var view = new TeamView();
 		this.swap(view);
 	},
 
 	swap: function(view) {
+		$('.main-slidr').hide();
 		if (this.currentView) this.currentView.remove();
 		this.currentView = view;
 		this.currentView.render();
