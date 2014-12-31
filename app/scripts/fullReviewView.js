@@ -10,6 +10,7 @@ var FullReviewView = Parse.View.extend({
 	template: _.template($('.full-review-view').text()),
 
 	initialize: function() {
+		$('.sidebar').hide();
 		$('.review-container').append(this.el);
 		this.render();
 	},

@@ -21,12 +21,11 @@ var Router = Parse.Router.extend({
 		if (Parse.User.current() == null) {
 			$('.reviewer-button').hide();
 		};
-		$('.main-slidr').hide();
 	},
 
 	home: function() {
 		$('.views-container').empty();
-		$('.main-slidr').show();
+
 		var view = new HomeView();
 
 		var gameQuery = new Parse.Query(Review);
@@ -36,7 +35,10 @@ var Router = Parse.Router.extend({
 				reviews.forEach(function(review) {
 					new ReviewView({
 						model: review
-					})
+					});
+					new SideGameView({
+						model: review
+					});
 				})
 			}
 		}).done(function() {
@@ -45,6 +47,9 @@ var Router = Parse.Router.extend({
 				success: function(reviewers) {
 					reviewers.forEach(function(reviewer) {
 						new ReviewerView({
+							model: reviewer
+						});
+						new SideReviewerView({
 							model: reviewer
 						})
 					})
@@ -58,15 +63,14 @@ var Router = Parse.Router.extend({
 					allNews.forEach(function(news) {
 						new NewsView({
 							model: news
-						})
-					})
+						});
+						new SideNewsView({
+							model: news
+						});
+					});
 				}
 			});
-		});
-
-		
-
-		
+		});		
 	},
 
 	game: function() {
@@ -174,7 +178,6 @@ var Router = Parse.Router.extend({
 	},
 
 	swap: function(view) {
-		$('.main-slidr').hide();
 		if (this.currentView) this.currentView.remove();
 		this.currentView = view;
 		this.currentView.render();

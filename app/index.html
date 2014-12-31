@@ -42,14 +42,17 @@
     </div>
 
     <div class="main-slidr">
-      <div id="slidr-img" style="display: inline-block">
-        <img data-slidr="one" src="images/metalgear.jpeg">
-        <img data-slidr="two" src="images/reddead.jpeg">
+      <div class="slidr-container">
+        <div id="slidr-img" style="display: inline-block">
+          <img data-slidr="one" src="images/metalgear.jpeg">
+          <img data-slidr="two" src="images/reddead.jpg">
+        </div>
       </div>
     </div>
 
+    
     <div class="views-container"></div>
-
+    
     <div class="footer">
       <h1>This is the footer</h1>
       <ul>
@@ -61,8 +64,26 @@
     </div>
 
     <script type="text/template" class="home-view">
+      <div class="sidebar">
+        <h3> New Game Reviews </h3>
+        <div class="game-sidebar"></div>
+        <h3> New News <h3>
+        <div class="news-sidebar"></div>
+        <h3> New Reviewers <h3>
+        <div class="reviewer-sidebar"></div>
+      </div>
       <div class="reviews-container"></div>
       <div class="review-container"></div>
+    </script>
+
+    <script type="text/template" class="side-view">
+      <div>
+        <img src='<%= image %>'>
+      </div>
+    </script>
+
+    <script type="text/template" class="slidr-view">
+      
     </script>
 
     <script type="text/template" class="join-view">
@@ -187,7 +208,11 @@
           </div>
           <img src="images/vs.png" class="vs">
           <div class="vs">
+          <% if (this.model.get('secondReviewerPic') == undefined) { %>
+            <p>nope</p>
+            <% } else { %>
             <img src="<%=secondReviewerPic%>">
+            <% } %>
           </div>
         </div>
       </div>
@@ -238,10 +263,14 @@
             <div class="review-score">
               <%= score %>
             </div>
-            <span class="next-button">
-              <img src="<%=secondReviewerPic%>">
-              <span><%=secondReviewer%>'s Review</span>
-            </span>
+              <span class="next-button">
+                <% if (this.model.get('secondReviewerPic') == undefined) { %>
+                <p>no second review yet!</p>
+                <% } else { %>
+                <img src="<%=secondReviewerPic%>">
+                <span><%=secondReviewer%> Review</span>
+                <% } %>
+              </span>
           </div>
 
 
@@ -314,7 +343,7 @@
             <% } %>
             <span class="next-button">
               <img src="<%=reviewerPic%>">
-              <span><%=reviewer%>'s Review</span>
+              <span><%=reviewer%> Review</span>
             </span>
           </div>
 
@@ -463,6 +492,9 @@
         <script src="scripts/main.js"></script>
         <script src="scripts/model.js"></script>
         <script src="scripts/homeView.js"></script>
+        <script src="scripts/sideGameView.js"></script>
+        <script src="scripts/sideNewsView.js"></script>
+        <script src="scripts/sideReviewerView.js"></script>
         <script src="scripts/loginView.js"></script>
         <script src="scripts/joinView.js"></script>
         <script src="scripts/reviewView.js"></script>
