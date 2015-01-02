@@ -78,15 +78,40 @@ var Router = Parse.Router.extend({
 		var view = new HomeView();
 
 		var gameQuery = new Parse.Query(Review);
-
 		gameQuery.find({
 			success: function(reviews) {
 				reviews.forEach(function(review) {
 					new ReviewView({
 						model: review
 					})
+					new SideGameView({
+						model: review
+					})
 				})
 			}
+		}).done(function() {
+			var newsQuery = new Parse.Query(News);
+
+			newsQuery.find({
+				success: function(allNews) {
+					allNews.forEach(function(news) {
+						new SideNewsView({
+							model: news
+						});
+					});
+				}
+			});
+		}).done(function() {
+			var reviewerQuery = new Parse.Query(Reviewer);
+			reviewerQuery.find({
+				success: function(reviewers) {
+					reviewers.forEach(function(reviewer) {
+						new SideReviewerView({
+							model: reviewer
+						})
+					})
+				}
+			});
 		});
 	},
 
@@ -138,35 +163,85 @@ var Router = Parse.Router.extend({
 
 	news: function() {
 		$('.views-container').empty();
-		var view = new HomeView();		
+		var view = new HomeView();
 
-		var query = new Parse.Query(News);
-
-		query.find({
-			success: function(allNews) {
-				allNews.forEach(function(news) {
-					new NewsView({
-						model: news
+		var gameQuery = new Parse.Query(Review);
+		gameQuery.find({
+			success: function(reviews) {
+				reviews.forEach(function(review) {
+					new SideGameView({
+						model: review
 					})
 				})
 			}
-		});
+		}).done(function() {
+			var newsQuery = new Parse.Query(News);
+
+			newsQuery.find({
+				success: function(allNews) {
+					allNews.forEach(function(news) {
+						new NewsView({
+							model: news
+						});
+						new SideNewsView({
+							model: news
+						});
+					});
+				}
+			});
+		}).done(function() {
+			var reviewerQuery = new Parse.Query(Reviewer);
+			reviewerQuery.find({
+				success: function(reviewers) {
+					reviewers.forEach(function(reviewer) {
+						new SideReviewerView({
+							model: reviewer
+						})
+					})
+				}
+			});
+		});	
 	},
 
 	reviewer: function(){
 		$('.views-container').empty();
 		var view = new HomeView();
 
-		var query = new Parse.Query(Reviewer);
-
-		query.find({
-			success: function(reviewers) {
-				reviewers.forEach(function(reviewer) {
-					new ReviewerView({
-						model: reviewer
+		var gameQuery = new Parse.Query(Review);
+		gameQuery.find({
+			success: function(reviews) {
+				reviews.forEach(function(review) {
+					new SideGameView({
+						model: review
 					})
 				})
 			}
+		}).done(function() {
+			var newsQuery = new Parse.Query(News);
+
+			newsQuery.find({
+				success: function(allNews) {
+					allNews.forEach(function(news) {
+						new SideNewsView({
+							model: news
+						});
+					});
+				}
+			});
+		}).done(function() {
+			var reviewerQuery = new Parse.Query(Reviewer);
+			reviewerQuery.find({
+				success: function(reviewers) {
+					reviewers.forEach(function(reviewer) {
+						new ReviewerView({
+							model: reviewer
+						});
+						new SideReviewerView({
+							model: reviewer
+						});
+					})
+				}
+			});
 		});
 	},
 

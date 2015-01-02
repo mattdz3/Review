@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <!--[if lt IE 10]>
@@ -23,7 +24,7 @@
 
 
     <div class="top-header">
-      <h1 class="title">MSO</h1>
+      <h1 class="title">BHG</h1>
       <ul>
         <li><a href="#login">Reviewer Login</a></li>
         <li><a href="#join" class="reviewer-button">Join</li></a>
@@ -40,7 +41,7 @@
         <li><a href="#team">Team</a></li>
       </ul>
     </div>
-
+    <!-- <div class="banner"></div> -->
     <div class="main-slidr">
       <div class="slidr-container">
         <div id="slidr-img" style="display: inline-block">
@@ -54,25 +55,32 @@
     <div class="views-container"></div>
     
     <div class="footer">
-      <h1>This is the footer</h1>
       <ul>
-        <li>Contact</li>
-        <li>About</li>
-        <li>lorem</li>
-        <li>lorem</li>
+        <li><a href="#team">About</a></li>
+        <li><a href="">Contact</a></li>
       </ul>
+      <span><a href="http://mattdz3.github.io/Portfolio/">Created By Matt Dougherty</a></span>
     </div>
 
     <script type="text/template" class="home-view">
       <div class="sidebar">
-        <h3> New Game Reviews </h3>
+        <h3><a href="#game">Game Reviews</a></h3>
         <div class="game-sidebar"></div>
-        <h3> New News <h3>
+        <h3><a href="#news">New News</a><h3>
         <div class="news-sidebar"></div>
-        <h3> New Reviewers <h3>
+        <h3><a href="#reviewer">New Reviewers</a><h3>
         <div class="reviewer-sidebar"></div>
+        <h3><a href="#team">Meet The Team</a></h3>
+        <div class="team-sidebar">
+          <a href="#team"><img src="images/evan.jpg"></a>
+          <a href="#team"><img src="images/mike.jpg"></a>
+          <a href="#team"><img src="images/cliff.jpg"></a>
+          <a href="#team"><img src="images/matt.jpeg"></a>
+        </div>
       </div>
-      <div class="reviews-container"></div>
+      <div class="reviews-container">
+        <h1><a href="#home">Newest Content</a></h1>
+      </div>
       <div class="review-container"></div>
     </script>
 
@@ -201,20 +209,22 @@
         <div class="review-start">
           <img src="<%= image %>">
         </div>
-        <span class="quick-review"><%= quickReview %></span>
-        <div class="uploader">
-          <div class="vs">
-            <img src="<%=reviewerPic%>">
+        <span class="quick-review"><%= quickReview %>
+          <div class="uploader">
+            <div class="vs">
+              <img src="<%=reviewerPic%>">
+            </div>
+            <img src="images/vs.png" class="vs">
+            <div class="vs">
+              <% if (this.model.get('secondReviewerPic') == undefined) { %>
+              <img src="images/user.png">
+              <% } else { %>
+              <img src="<%=secondReviewerPic%>">
+              <% } %>
+            </div>
           </div>
-          <img src="images/vs.png" class="vs">
-          <div class="vs">
-          <% if (this.model.get('secondReviewerPic') == undefined) { %>
-            <p>nope</p>
-            <% } else { %>
-            <img src="<%=secondReviewerPic%>">
-            <% } %>
-          </div>
-        </div>
+        </span>
+        
       </div>
     </script>
 
@@ -265,7 +275,8 @@
             </div>
               <span class="next-button">
                 <% if (this.model.get('secondReviewerPic') == undefined) { %>
-                <p>no second review yet!</p>
+                <img src="images/user.png">
+                <span> Sorry no review yet</span>
                 <% } else { %>
                 <img src="<%=secondReviewerPic%>">
                 <span><%=secondReviewer%> Review</span>
@@ -451,7 +462,21 @@
           <div class="review-start">
             <img src="<%= image %>">
           </div>
-          <span class="quick-review"><%= quickReview %></span>
+          <span class="quick-review"><%= quickReview %>
+            <div class="uploader">
+              <div class="vs">
+                <img src="<%=reviewerPic%>">
+              </div>
+              <img src="images/vs.png" class="vs">
+              <div class="vs">
+              <% if (this.model.get('secondReviewerPic') == undefined) { %>
+                <img src="images/user.png">
+                <% } else { %>
+                <img src="<%=secondReviewerPic%>">
+                <% } %>
+              </div>
+            </div>
+          </span>
         </div>
     </script>
 
@@ -461,7 +486,21 @@
           <div class="review-start">
             <img src="<%= image %>">
           </div>
-          <span class="quick-review"><%= quickReview %></span>
+          <span class="quick-review"><%= quickReview %>
+            <div class="uploader">
+              <div class="vs">
+                <img src="<%=reviewerPic%>">
+              </div>
+              <img src="images/vs.png" class="vs">
+              <div class="vs">
+              <% if (this.model.get('secondReviewerPic') == undefined) { %>
+                <img src="images/user.png">
+                <% } else { %>
+                <img src="<%=secondReviewerPic%>">
+                <% } %>
+              </div>
+            </div>
+          </span>
         </div>
     </script>
     
