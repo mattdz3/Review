@@ -15,20 +15,3 @@ $('.logout').click(function() {
 
 
 
-var mainSlider = slidr.create('slidr-img', {
-			breadcrumbs: false,
-			controls: 'none',
-			direction: 'h',
-			fade: true,
-			keyboard: true,
-			overflow: false,
-			pause: false,
-			theme: '#222',
-			timing: { 'linear': '.2s ease-in' },
-			touch: true,
-			transition: 'linear'
-		});
-
-		mainSlider.add('h', ['one', 'two', 'one'])
-
-		mainSlider.auto();

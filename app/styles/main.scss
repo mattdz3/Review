@@ -92,6 +92,7 @@ body {
       a {
         background-color: $background;
         padding: 3px;
+        padding-left: 25px;
         border-left: 1px solid $border;
         border-bottom: 1px solid $border;
         text-decoration: none;
@@ -101,7 +102,7 @@ body {
 
         &:hover {
           border-left: 1px solid $transition-color;
-          border-bottom: 1px solid $transition-color;
+          // border-bottom: 1px solid $transition-color;
           transition: all 0.2s ease;
           color: $transition-color;
         }

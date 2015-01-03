@@ -42,16 +42,8 @@
       </ul>
     </div>
     <!-- <div class="banner"></div> -->
-    <div class="main-slidr">
-      <div class="slidr-container">
-        <div id="slidr-img" style="display: inline-block">
-          <img data-slidr="one" src="images/metalgear.jpeg">
-          <img data-slidr="two" src="images/reddead.jpg">
-        </div>
-      </div>
-    </div>
+    <div class="main-slidr"></div>
 
-    
     <div class="views-container"></div>
     
     <div class="footer">
@@ -91,7 +83,9 @@
     </script>
 
     <script type="text/template" class="slidr-view">
-      
+      <div id="slidr-img">
+          <img src="<%=image%>">
+        </div>
     </script>
 
     <script type="text/template" class="join-view">
@@ -534,6 +528,7 @@
         <script src="scripts/sideGameView.js"></script>
         <script src="scripts/sideNewsView.js"></script>
         <script src="scripts/sideReviewerView.js"></script>
+        <script src="scripts/slidrView.js"></script>
         <script src="scripts/loginView.js"></script>
         <script src="scripts/joinView.js"></script>
         <script src="scripts/reviewView.js"></script>

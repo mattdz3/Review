@@ -5,18 +5,33 @@ var SlidrView = Parse.View.extend({
 	template: _.template($('.slidr-view').text()),
 
 	initialize: function() {
-		$('.main-slidr').empty();
+		console.log(this.model);
 		$('.main-slidr').append(this.el);
 		this.render();
 	},
 
 	render: function() {
-		var renderTemplate = this.template(this.model)
+		var renderTemplate = this.template(this.model.attributes)
 		this.$el.html(renderTemplate);
 
-		
+		// var mainSlider = slidr.create('slidr-img', {
+		// 	breadcrumbs: false,
+		// 	controls: 'none',
+		// 	direction: 'h',
+		// 	fade: true,
+		// 	keyboard: true,
+		// 	overflow: false,
+		// 	pause: false,
+		// 	theme: '#222',
+		// 	timing: { 'linear': '.2s ease-in' },
+		// 	touch: true,
+		// 	transition: 'linear'
+		// });
+
+		// mainSlider.add('h', ['one', 'two', 'one'])
+
+		// mainSlider.auto();
 		return this;
 	},
-
 });
 

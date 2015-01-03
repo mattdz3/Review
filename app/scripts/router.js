@@ -25,6 +25,7 @@ var Router = Parse.Router.extend({
 
 	home: function() {
 		$('.views-container').empty();
+		$('.main-slidr').empty();
 
 		var view = new HomeView();
 
@@ -39,6 +40,9 @@ var Router = Parse.Router.extend({
 					new SideGameView({
 						model: review
 					});
+					new SlidrView({
+						model: review
+					});
 				})
 			}
 		}).done(function() {
@@ -51,7 +55,8 @@ var Router = Parse.Router.extend({
 						});
 						new SideReviewerView({
 							model: reviewer
-						})
+						});
+						
 					})
 				}
 			});
