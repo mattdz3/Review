@@ -15,6 +15,7 @@ var Router = Parse.Router.extend({
 		'createReview'     : 'createReview',
 		'createSecond'     : 'createSecond',
 		'forums'           : 'forums',
+		'forums/:id'       : 'topic',
 		'createTopic'      : 'createTopic',
 	},
 
@@ -151,6 +152,7 @@ var Router = Parse.Router.extend({
 
 		new Parse.Query('Review').get(id, {
 			success: function(reviews) {
+				console.log('no error')
 				reviews.forEach(function(review) {
 					console.log(review);
 					var view = new FullReviewView({
@@ -158,6 +160,9 @@ var Router = Parse.Router.extend({
 					})
 				})
 				this.swap(view);
+			},
+			error: function() {
+				console.log('error')
 			}
 		});
 	},
@@ -273,9 +278,30 @@ var Router = Parse.Router.extend({
 						model: forum
 					});
 				})
+			},
+			error: function() {
+				console.log('error')
 			}
 		})
 	},
+
+	// topic: function(id) {
+	// 	$('.forum-view').empty();
+
+	// 	new Parse.Query('Forum').get(id, {
+	// 		success: function(topics) {
+	// 			topics.forEach(function(topic) {
+	// 				var view = new TopicView({
+	// 					model: topic
+	// 				});
+	// 			});
+	// 			this.swap(view);
+	// 		},
+	// 		error: function() {
+	// 			console.log('error')
+	// 		}
+	// 	});
+	// },
 
 	createTopic: function() {
 		$('.views-container').empty();

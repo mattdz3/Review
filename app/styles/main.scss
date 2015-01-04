@@ -94,7 +94,6 @@ body {
         padding: 3px;
         padding-left: 25px;
         border-left: 1px solid $border;
-        border-bottom: 1px solid $border;
         text-decoration: none;
         color: $main-font-color;
         transition: all 0.2s ease;
@@ -621,24 +620,34 @@ body {
     button {
       margin: 20px;
     }
+    .main-forum{
+      .topic-view {
+        width: 80%;
+        margin-left: 20px;
 
-    .forums-view {
-      width: 70%;
-      margin-left: 15px;
-      margin-bottom: 20px;
-      padding: 5px 0px 5px 5px;
-      border-bottom: 1px solid $border;
-      border-left: 1px solid $border;
-      border-radius: 0 3px;
-      transition: all 0.2s ease;
-      cursor: pointer;
+        .main-topic-title {
+          font-size: 25px;
+        }
+      }
 
-      &:hover {
-        border-bottom: 1px solid $transition-color;
-        border-left: 1px solid $transition-color;
+      .forums-view {
+        width: 70%;
+        margin-left: 15px;
+        margin-bottom: 20px;
+        padding: 5px 0px 5px 5px;
+        border-bottom: 1px solid $border;
+        border-left: 1px solid $border;
         border-radius: 0 3px;
-        color: $transition-color;
         transition: all 0.2s ease;
+        cursor: pointer;
+
+        &:hover {
+          border-bottom: 1px solid $transition-color;
+          border-left: 1px solid $transition-color;
+          border-radius: 0 3px;
+          color: $transition-color;
+          transition: all 0.2s ease;
+        }
       }
     }
   }

@@ -4,8 +4,13 @@ var ForumsView = Parse.View.extend({
 
 	template: _.template($('.forums-view').text()),
 
+	events: {
+		"click .topic-title" : "fullView",
+	},
+
 	initialize: function() {
-		console.log(this.model)
+		$('.create-new-topic').show();
+		$('.create-new-post').hide();
 		$('.main-forum').append(this.el);
 		this.render();
 	},
@@ -14,5 +19,16 @@ var ForumsView = Parse.View.extend({
 		var renderTemplate = this.template(this.model.attributes)
 		this.$el.html(renderTemplate);
 		return this;
+	},
+
+	fullView: function() {
+		console.log(this.model)
+		var modelId = this.model.id;
+
+		new TopicView({
+			model: this.model
+		});
+
+		router.navigate('forums/' + modelId, {trigger: true})
 	},
 });

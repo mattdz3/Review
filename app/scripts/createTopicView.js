@@ -5,7 +5,7 @@ var CreateTopicView = Parse.View.extend({
 	template: _.template($('.create-topic-view').text()),
 
 	events: {
-		'click button' : 'createTopic',
+		'click .create-new-topic' : 'createTopic',
 	},
 
 	initialize: function() {
