@@ -14,6 +14,7 @@ var Router = Parse.Router.extend({
 		'reviewer'         : 'reviewer',
 		'createReview'     : 'createReview',
 		'createSecond'     : 'createSecond',
+		'forums'           : 'forums',
 	},
 
 	initialize: function(options) {
@@ -251,10 +252,27 @@ var Router = Parse.Router.extend({
 	},
 
 	team: function() {
-
 		$('.views-container').empty();
 		var view = new TeamView();
 		this.swap(view);
+	},
+
+	forums: function() {
+		$('.main-slidr').empty();
+		$('.views-container').empty();
+
+		var query = new Parse.Query(Forum);
+		query.find({
+			success: function(forums) {
+				forums.forEach(function(forum) {
+					new ForumsView({
+						model: forum
+					});
+				})
+			}
+		})
+		
+		// this.swap(view);
 	},
 
 	swap: function(view) {

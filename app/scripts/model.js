@@ -2,6 +2,7 @@ var Review = Parse.Object.extend('review');
 var User = Parse.Object.extend('User');
 var News = Parse.Object.extend('News');
 var Reviewer = Parse.Object.extend('Reviewer');
+var Forum = Parse.Object.extend('Forum');
 
 var ReviewCollection = Parse.Collection.extend({
 	model: Review
@@ -17,4 +18,8 @@ var NewsCollection = Parse.Collection.extend({
 
 var ReviewerCollection = Parse.Collection.extend({
 	model: Reviewer
+});
+
+var ForumCollection = Parse.Collection.extend({
+	model: Forum
 });

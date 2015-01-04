@@ -165,8 +165,9 @@ body {
   border-radius: 2px 2px 0 0;
 
   .slidr-container {
-    width: 70%;
-    margin: 0 auto;
+    width: 50%;
+    display: inline-block;
+    // margin: 0 auto;
     padding-top: 80px;
 
     #slidr-img {
@@ -187,11 +188,11 @@ body {
   border: 1px solid $border;
   border-top: none;
   border-radius: 0px 0px 2px 2px;
+  background-color: $background;
   
   .main-view {
     width: 100%;
-    background-color: $background;
-
+    
     .sidebar {
       width: 20%;
       float: right;
@@ -568,6 +569,7 @@ body {
     font-size: 10px;
     float: right;
     margin-right: 70px;
+    padding-bottom: 5px;
 
     a {
       text-decoration: none;
@@ -587,7 +589,7 @@ body {
       margin-left: 20px;
 
 
-      a{
+      a {
         text-decoration: none;
         padding: 3px;
         color: $main-font-color;
@@ -609,6 +611,29 @@ body {
   }
 }
 
+.views-container {
+  .forums-view {
+    width: 70%;
+    margin-left: 15px;
+    margin-bottom: 20px;
+    padding: 5px 0px 5px 5px;
+    border-bottom: 1px solid $border;
+    border-left: 1px solid $border;
+    border-radius: 0 3px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+      border-bottom: 1px solid $transition-color;
+      border-left: 1px solid $transition-color;
+      border-radius: 0 3px;
+      color: $transition-color;
+      transition: all 0.2s ease;
+    }
+  }
+}
+
+
 @media screen and (max-width: 1000px) {
 
   .views-container 
@@ -627,8 +652,8 @@ body {
     }
   } 
   
-
   .header
+
   ul {
     text-align: center;
   }
