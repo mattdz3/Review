@@ -612,23 +612,58 @@ body {
 }
 
 .views-container {
-  .forums-view {
-    width: 70%;
-    margin-left: 15px;
-    margin-bottom: 20px;
-    padding: 5px 0px 5px 5px;
-    border-bottom: 1px solid $border;
-    border-left: 1px solid $border;
-    border-radius: 0 3px;
-    transition: all 0.2s ease;
-    cursor: pointer;
+  .forum-view {
 
-    &:hover {
-      border-bottom: 1px solid $transition-color;
-      border-left: 1px solid $transition-color;
+    h1 {
+      margin: 0 0 20px 20px;
+    }
+
+    button {
+      margin: 20px;
+    }
+
+    .forums-view {
+      width: 70%;
+      margin-left: 15px;
+      margin-bottom: 20px;
+      padding: 5px 0px 5px 5px;
+      border-bottom: 1px solid $border;
+      border-left: 1px solid $border;
       border-radius: 0 3px;
-      color: $transition-color;
       transition: all 0.2s ease;
+      cursor: pointer;
+
+      &:hover {
+        border-bottom: 1px solid $transition-color;
+        border-left: 1px solid $transition-color;
+        border-radius: 0 3px;
+        color: $transition-color;
+        transition: all 0.2s ease;
+      }
+    }
+  }
+
+  .create-topic-view {
+    width: 90%;
+
+    div {
+      margin-left: 20px;
+      font-size: 25px;
+    }
+
+    textarea {
+      width: 500px;
+      height: 300px;
+      display: block;
+      margin: 20px;
+      padding: 3px;
+      font-size: 18px;
+      resize: none;
+    }
+
+    button {
+      margin: 20px;
+      cursor: pointer;
     }
   }
 }

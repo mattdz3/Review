@@ -501,10 +501,21 @@
         </div>
     </script>
 
-    <script type="text/template" class="forum-view">
+     <script type="text/template" class="forum-view">
+      <h1> Forums </h1>
+      <div class="main-forum"></div>
+      <button>Create New Topic</button>
+    </script>
+
+    <script type="text/template" class="forums-view">
       <div><%=name%></div>
     </script>
 
+    <script type="text/template" class="create-topic-view">
+      <div> What do you want to create? </div>
+      <textarea placeholder="Topic Title" class="create-topic"></textarea>
+      <button> Create </button>
+    </script>
 
 
     
@@ -547,8 +558,10 @@
         <script src="scripts/CreateSecondReviewView.js"></script>
         <script src="scripts/newsView.js"></script>
         <script src="scripts/reviewerView.js"></script>
+        <script src="scripts/mainForumView.js"></script>
         <script src="scripts/forumView.js"></script>
         <script src="scripts/teamView.js"></script>
+        <script src="scripts/createTopicView.js"></script>
         <script src="scripts/router.js"></script>
 
         <!-- endbuild -->

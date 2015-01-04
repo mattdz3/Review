@@ -2,11 +2,11 @@ var ForumsView = Parse.View.extend({
 	
 	className: 'forums-view',
 
-	template: _.template($('.forum-view').text()),
+	template: _.template($('.forums-view').text()),
 
 	initialize: function() {
 		console.log(this.model)
-		$('.views-container').append(this.el);
+		$('.main-forum').append(this.el);
 		this.render();
 	},
 

@@ -15,6 +15,7 @@ var Router = Parse.Router.extend({
 		'createReview'     : 'createReview',
 		'createSecond'     : 'createSecond',
 		'forums'           : 'forums',
+		'createTopic'      : 'createTopic',
 	},
 
 	initialize: function(options) {
@@ -261,6 +262,9 @@ var Router = Parse.Router.extend({
 		$('.main-slidr').empty();
 		$('.views-container').empty();
 
+		var view = new MainForumView();
+		this.swap(view);
+
 		var query = new Parse.Query(Forum);
 		query.find({
 			success: function(forums) {
@@ -271,8 +275,12 @@ var Router = Parse.Router.extend({
 				})
 			}
 		})
-		
-		// this.swap(view);
+	},
+
+	createTopic: function() {
+		$('.views-container').empty();
+		var view = new CreateTopicView();
+		this.swap(view);
 	},
 
 	swap: function(view) {
