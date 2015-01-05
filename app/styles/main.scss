@@ -628,6 +628,19 @@ body {
         .main-topic-title {
           font-size: 25px;
         }
+
+        .posts {
+          width: 80%;
+
+          .post-view {
+            width: 100%;
+            margin: 40px;
+            padding: 5px 0px 5px 5px;
+            border-bottom: 1px solid $border;
+            border-left: 1px solid $border;
+            border-radius: 0 3px;
+          }
+        }
       }
 
       .forums-view {
@@ -676,7 +689,7 @@ body {
       cursor: pointer;
     }
   }
-  
+
   .create-topic-view {
     width: 90%;
 

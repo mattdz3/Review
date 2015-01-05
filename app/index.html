@@ -512,6 +512,7 @@
 
     <script type="text/template" class="topic-view">
       <div class="main-topic-title"><%=name%></div>
+      <div class="posts"></div>
       <button class="create-new-post">Create New Post</button>
     </script>
 
@@ -525,6 +526,10 @@
       <div> What do you want to say? </div>
       <textarea placeholder="Post" class="create-post"></textarea>
       <button> Create </button>
+    </script>
+
+    <script type="text/template" class="post-view">
+      <div class="post"> <%= this.model.attributes.post %> </div>
     </script>
 
 
@@ -572,6 +577,7 @@
         <script src="scripts/topicView.js"></script>
         <script src="scripts/createTopicView.js"></script>
         <script src="scripts/createPostView.js"></script>
+        <script src="scripts/postView.js"></script>
         <script src="scripts/router.js"></script>
 
         <!-- endbuild -->

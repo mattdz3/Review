@@ -25,16 +25,17 @@ var CreatePostView = Parse.View.extend({
 		var topic = this.model;
 		var comment = new Comment();
 		var content = $('.create-post').val();
-		var commentObj = comment.attributes;
 		
+		comment.set('post', content);
 		comment.set('parent', topic);
-		comment.set('comment', content);
 
 		comment.save().then(function() {
 			var relation = topic.relation("comments");
 			relation.add(comment);
 			topic.save();
 		});
+
+		
 	},
 });
 
