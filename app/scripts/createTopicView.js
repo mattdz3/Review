@@ -22,7 +22,9 @@ var CreateTopicView = Parse.View.extend({
 	createTopic: function() {
 		console.log('cool');
 		var topic = new Forum();
+		var comment = new Comment();
 		var title = $('.create-topic').val();
+		var post = $('.create-post').val();
 
 
 		topic.set('name', title);
@@ -36,6 +38,15 @@ var CreateTopicView = Parse.View.extend({
 			error: function(){
 				console.log("nope")
 			}
-		});
+		}).then(function() {
+			comment.set('post', post);
+			comment.set('parent', topic);
+
+			comment.save().then(function() {
+				var relation = topic.relation("comments");
+				relation.add(comment);
+				topic.save();
+			});
+		})
 	}
 });
