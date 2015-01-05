@@ -23,6 +23,7 @@ var CreatePostView = Parse.View.extend({
 
 	createTopic: function() {
 		var topic = this.model;
+		var id = topic.id;
 		var comment = new Comment();
 		var content = $('.create-post').val();
 		
@@ -35,7 +36,8 @@ var CreatePostView = Parse.View.extend({
 			topic.save();
 		});
 
-		
+		$('.create-post-view').hide();
+		router.navigate('#forums', {trigger: true})		
 	},
 });
 
