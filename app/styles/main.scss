@@ -189,6 +189,22 @@ body {
   border-radius: 0px 0px 2px 2px;
   background-color: $background;
   
+  h1 {
+    margin: 0px 0px 20px 40px;
+  }
+
+  .login-style {
+    input {
+      display: block;
+      margin: 20px;
+    }
+
+    button {
+      display: block;
+      margin: 20px;
+    }
+  }
+
   .main-view {
     width: 100%;
     
@@ -471,7 +487,7 @@ body {
 
     div {
       text-align: center;
-      margin: 30px;
+      margin: 0 30px;
 
       .checkbox {
         width: 45%;
@@ -484,6 +500,7 @@ body {
 
       input {
         padding: 4px;
+        margin-bottom: 20px;
         width: 300px;
       }
 
@@ -512,6 +529,7 @@ body {
     button {
       text-align: center;
       margin: 0 auto;
+      margin-bottom: 20px;
       padding: 5px;
     }
   }

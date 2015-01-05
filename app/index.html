@@ -92,17 +92,21 @@
 
     <script type="text/template" class="join-view">
       <h1>Create Account</h1>
-      <input class='username' placeholder="username">
-      <input class='password' placeholder="password" type="password">
-      <button class='user-pic'>Add Pic</button>
-      <button class="create"> Create User </button>
+      <div class="login-style">
+        <input class='username' placeholder="username">
+        <input class='password' placeholder="password" type="password">
+        <button class='user-pic'>Add Pic</button>
+        <button class="create"> Create User </button>
+      </div>
     </script>
 
     <script type="text/template" class="login-view">
       <h1> Login </h1>
-      <input class='username' placeholder="username">
-      <input class='password' placeholder="password" type="password">
-      <button class="login">login</button>
+      <div class="login-style">
+        <input class='username' placeholder="username">
+        <input class='password' placeholder="password" type="password">
+        <button class="login">login</button>
+      </div>
     </script>
 
     <script type="text/template" class="create-review-view">
@@ -353,7 +357,6 @@
               <span><%=reviewer%> Review</span>
             </span>
           </div>
-
         </div>
       </div>
       
@@ -363,6 +366,7 @@
           <li>Publisher: <%=publisher%> </li>
         </ul>
       </div>
+      <div style="margin-bottom: 15px;"> Want to give your opinion? Go to the <a href="#forums">forum!</a>
       <button class="create-second-review">Create Second Review</button>
     </script>
 
@@ -530,7 +534,7 @@
     </script>
 
     <script type="text/template" class="post-view">
-      <div class="post"> <%= this.model.attributes.post %> </div>
+      <div class="post"><%=this.model.attributes.post%></div>
     </script>
 
 

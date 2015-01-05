@@ -83,6 +83,7 @@ var Router = Parse.Router.extend({
 
 	game: function() {
 		$('.views-container').empty();
+		$('.main-slidr').empty();
 		var view = new HomeView();
 
 		var gameQuery = new Parse.Query(Review);
@@ -125,17 +126,20 @@ var Router = Parse.Router.extend({
 
 	join: function() {
 		$('.views-container').empty();
+		$('.main-slidr').empty();
 		var view = new JoinView();
 		this.swap(view);
 	},
 
 	login: function() {
 		$('.views-container').empty();
+		$('.main-slidr').empty();
 		var view = new LoginView();
 		this.swap(view);
 	},
 
 	createReview: function() {
+		$('.main-slidr').empty();
 		if (Parse.User.current() != undefined ) {
 			$('.views-container').empty();
 		var view = new CreateReviewView();
@@ -175,6 +179,7 @@ var Router = Parse.Router.extend({
 
 	news: function() {
 		$('.views-container').empty();
+		$('.main-slidr').empty();
 		var view = new HomeView();
 
 		var gameQuery = new Parse.Query(Review);
@@ -217,6 +222,7 @@ var Router = Parse.Router.extend({
 
 	reviewer: function(){
 		$('.views-container').empty();
+		$('.main-slidr').empty();
 		var view = new HomeView();
 
 		var gameQuery = new Parse.Query(Review);
@@ -259,6 +265,7 @@ var Router = Parse.Router.extend({
 
 	team: function() {
 		$('.views-container').empty();
+		$('.main-slidr').empty();
 		var view = new TeamView();
 		this.swap(view);
 	},
