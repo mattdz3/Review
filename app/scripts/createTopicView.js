@@ -5,7 +5,7 @@ var CreateTopicView = Parse.View.extend({
 	template: _.template($('.create-topic-view').text()),
 
 	events: {
-		'click .create-new-topic' : 'createTopic',
+		'click button' : 'createTopic',
 	},
 
 	initialize: function() {
@@ -21,8 +21,10 @@ var CreateTopicView = Parse.View.extend({
 	},
 
 	createTopic: function() {
+		console.log('cool');
 		var topic = new Forum();
 		var title = $('.create-topic').val();
+
 
 		topic.set('name', title);
 

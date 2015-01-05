@@ -9,8 +9,6 @@ var ForumsView = Parse.View.extend({
 	},
 
 	initialize: function() {
-		$('.create-new-topic').show();
-		$('.create-new-post').hide();
 		$('.main-forum').append(this.el);
 		this.render();
 	},

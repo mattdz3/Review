@@ -5,13 +5,12 @@ var TopicView = Parse.View.extend({
 	template: _.template($('.topic-view').text()),
 
 	events: {
-		'click button' : 'newPost',
+		'click .create-new-post' : 'newPost',
 	},
 
 	initialize: function() {
 		console.log(this.model)
 		$('.main-forum').empty();
-		$('.create-new-post').show();
 		$('.create-new-topic').hide();
 		$('.main-forum').append(this.el);
 		this.render();
@@ -25,5 +24,8 @@ var TopicView = Parse.View.extend({
 
 	newPost: function(){
 		console.log("cool")
-	}
+		new CreatePostView({
+			model: this.model
+		});
+	},
 });

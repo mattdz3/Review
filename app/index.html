@@ -505,7 +505,6 @@
       <h1> Forums </h1>
       <div class="main-forum"></div>
       <button class="create-new-topic">Create New Topic</button>
-      <button class="create-new-post">Create New Post</button>
     </script>
 
     <script type="text/template" class="forums-view">
@@ -514,6 +513,7 @@
 
     <script type="text/template" class="topic-view">
       <div class="main-topic-title"><%=name%></div>
+      <button class="create-new-post">Create New Post</button>
     </script>
 
     <script type="text/template" class="create-topic-view">
@@ -521,6 +521,13 @@
       <textarea placeholder="Topic Title" class="create-topic"></textarea>
       <button> Create </button>
     </script>
+
+    <script type="text/template" class="create-post-view">
+      <div> What do you want to say? </div>
+      <textarea placeholder="Post" class="create-post"></textarea>
+      <button> Create </button>
+    </script>
+
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -565,6 +572,7 @@
         <script src="scripts/teamView.js"></script>
         <script src="scripts/topicView.js"></script>
         <script src="scripts/createTopicView.js"></script>
+        <script src="scripts/creatPostView.js"></script>
         <script src="scripts/router.js"></script>
 
         <!-- endbuild -->

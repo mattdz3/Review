@@ -5,7 +5,7 @@ var MainForumView = Parse.View.extend({
 	template: _.template($('.forum-view').text()),
 
 	events: {
-		'click button' : 'newTopic',
+		'click .create-new-topic' : 'newTopic',
 	},
 
 	initialize: function() {
