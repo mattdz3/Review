@@ -652,6 +652,31 @@ body {
     }
   }
 
+  .create-post-view {
+    width: 90%;
+    margin-top: 100px;
+
+    div {
+      margin-left: 20px;
+      font-size: 25px;
+    }
+
+    textarea {
+      width: 500px;
+      height: 300px;
+      display: block;
+      margin: 20px;
+      padding: 3px;
+      font-size: 18px;
+      resize: none;
+    }
+
+    button {
+      margin: 20px;
+      cursor: pointer;
+    }
+  }
+  
   .create-topic-view {
     width: 90%;
 

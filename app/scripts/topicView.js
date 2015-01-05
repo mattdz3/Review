@@ -9,7 +9,7 @@ var TopicView = Parse.View.extend({
 	},
 
 	initialize: function() {
-		console.log(this.model)
+		console.log(this.model.id)
 		$('.main-forum').empty();
 		$('.create-new-topic').hide();
 		$('.main-forum').append(this.el);
@@ -19,6 +19,22 @@ var TopicView = Parse.View.extend({
 	render: function() {
 		var renderTemplate = this.template(this.model.attributes)
 		this.$el.html(renderTemplate);
+
+		var modelId = this.model.id;
+
+		var query = new Parse.Query(Comment)
+		query.find({
+			success: function(comments){
+				comments.forEach(function(comment) {
+					var commentId = comment.attributes.parent.id;
+					if (commentId === modelId) {
+						console.log('cool')
+					}
+				});
+			}
+		});
+
+
 		return this;
 	},
 

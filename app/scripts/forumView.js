@@ -20,7 +20,6 @@ var ForumsView = Parse.View.extend({
 	},
 
 	fullView: function() {
-		console.log(this.model)
 		var modelId = this.model.id;
 
 		new TopicView({

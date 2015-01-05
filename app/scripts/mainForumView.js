@@ -9,7 +9,6 @@ var MainForumView = Parse.View.extend({
 	},
 
 	initialize: function() {
-		console.log(this.model)
 		$('.views-container').append(this.el);
 		this.render();
 	},
