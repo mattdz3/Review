@@ -29,14 +29,15 @@ var SearchView = Parse.View.extend({
 			$('.display-search').empty();
 			$('.review-container').empty();
 			var search = $('.search').val();
-			var array = [];
 
 			var gameQuery = new Parse.Query(Review);
 			gameQuery.find({
 				success: function(reviews) {
 					reviews.forEach(function(review) {
 						var reviewName = review.attributes.name;
-						if (search == reviewName) {
+						var searchTerm = reviewName.toLowerCase();
+
+						if (searchTerm.search(search) != -1) {
 							new DisplaySearchView({
 								model: review
 							});
@@ -49,7 +50,8 @@ var SearchView = Parse.View.extend({
 					success: function(reviewers) {
 						reviewers.forEach(function(reviewer) {
 							var reviewerName = reviewer.attributes.name;
-							if (search == reviewerName) {
+							var searchTerm = reviewerName.toLowerCase();
+							if (searchTerm.search(search) != -1) {
 								new DisplaySearchView({
 									model: reviewer
 								});
@@ -63,7 +65,8 @@ var SearchView = Parse.View.extend({
 					success: function(allNews) {
 						allNews.forEach(function(news) {
 							var newsName = news.attributes.name;
-							if (search == newsName) {
+							var searchTerm = newsName.toLowerCase();
+							if (searchTerm.search(search) != -1) {
 								console.log(each)
 								new DisplaySearchView({
 									model: news
