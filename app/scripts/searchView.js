@@ -41,8 +41,6 @@ var SearchView = Parse.View.extend({
 							new DisplaySearchView({
 								model: review
 							});
-						} else {
-							$('.display-search').html('No Results');
 						}
 					})
 				}
@@ -57,8 +55,6 @@ var SearchView = Parse.View.extend({
 								new DisplaySearchView({
 									model: reviewer
 								});
-							} else {
-								$('.display-search').html('No Results');
 							}
 						})
 					}
@@ -74,8 +70,6 @@ var SearchView = Parse.View.extend({
 								new DisplaySearchView({
 									model: news
 								});
-							} else {
-								$('.display-search').html('No Results');
 							}
 						});
 					}
