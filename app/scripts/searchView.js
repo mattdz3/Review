@@ -41,6 +41,8 @@ var SearchView = Parse.View.extend({
 							new DisplaySearchView({
 								model: review
 							});
+						} else {
+							$('.display-search').html('No Results');
 						}
 					})
 				}
@@ -55,6 +57,8 @@ var SearchView = Parse.View.extend({
 								new DisplaySearchView({
 									model: reviewer
 								});
+							} else {
+								$('.display-search').html('No Results');
 							}
 						})
 					}
@@ -67,10 +71,11 @@ var SearchView = Parse.View.extend({
 							var newsName = news.attributes.name;
 							var searchTerm = newsName.toLowerCase();
 							if (searchTerm.search(search) != -1) {
-								console.log(each)
 								new DisplaySearchView({
 									model: news
 								});
+							} else {
+								$('.display-search').html('No Results');
 							}
 						});
 					}

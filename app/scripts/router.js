@@ -35,7 +35,7 @@ var Router = Parse.Router.extend({
 		$('.searchbar').show();
 
 		var view = new HomeView();
-
+		var view = new SlidrView();
 		var gameQuery = new Parse.Query(Review);
 
 		gameQuery.find({
@@ -45,9 +45,6 @@ var Router = Parse.Router.extend({
 						model: review
 					});
 					new SideGameView({
-						model: review
-					});
-					new SlidrView({
 						model: review
 					});
 				})
@@ -161,21 +158,21 @@ var Router = Parse.Router.extend({
 			$('.create-second-review').hide();
 		};
 
-		new Parse.Query('Review').get(id, {
-			success: function(reviews) {
-				console.log('no error')
-				reviews.forEach(function(review) {
-					console.log(review);
-					var view = new FullReviewView({
-						model: review
-					})
-				})
-				this.swap(view);
-			},
-			error: function() {
-				console.log('error')
-			}
-		});
+		// new Parse.Query('Review').get(id, {
+		// 	success: function(reviews) {
+		// 		console.log('no error')
+		// 		reviews.forEach(function(review) {
+		// 			console.log(review);
+		// 			var view = new FullReviewView({
+		// 				model: review
+		// 			})
+		// 		})
+		// 		this.swap(view);
+		// 	},
+		// 	error: function() {
+		// 		console.log('error')
+		// 	}
+		// });
 	},
 
 	createSecond: function() {

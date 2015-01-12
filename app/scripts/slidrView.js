@@ -10,26 +10,26 @@ var SlidrView = Parse.View.extend({
 	},
 
 	render: function() {
-		var renderTemplate = this.template(this.model.attributes)
+		var renderTemplate = this.template(this.model)
 		this.$el.html(renderTemplate);
 
-		// var mainSlider = slidr.create('slidr-img', {
-		// 	breadcrumbs: false,
-		// 	controls: 'none',
-		// 	direction: 'h',
-		// 	fade: true,
-		// 	keyboard: true,
-		// 	overflow: false,
-		// 	pause: false,
-		// 	theme: '#222',
-		// 	timing: { 'linear': '.2s ease-in' },
-		// 	touch: true,
-		// 	transition: 'linear'
-		// });
+		var mainSlider = slidr.create('slidr-img', {
+			breadcrumbs: false,
+			controls: 'none',
+			direction: 'h',
+			fade: true,
+			keyboard: true,
+			overflow: false,
+			pause: false,
+			theme: '#222',
+			timing: { 'linear': '.2s ease-in' },
+			touch: true,
+			transition: 'linear'
+		});
 
-		// mainSlider.add('h', ['one', 'two', 'one'])
+		mainSlider.add('h', ['one', 'two', 'three', 'one'])
 
-		// mainSlider.auto();
+		mainSlider.auto();
 		return this;
 	},
 });
