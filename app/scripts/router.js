@@ -24,11 +24,15 @@ var Router = Parse.Router.extend({
 		if (Parse.User.current() == null) {
 			$('.reviewer-button').hide();
 		};
+
+		new SearchView();
+		$('.display-search').hide();				
 	},
 
 	home: function() {
 		$('.views-container').empty();
 		$('.main-slidr').empty();
+		$('.searchbar').show();
 
 		var view = new HomeView();
 
@@ -84,6 +88,7 @@ var Router = Parse.Router.extend({
 	game: function() {
 		$('.views-container').empty();
 		$('.main-slidr').empty();
+		$('.searchbar').show();
 		var view = new HomeView();
 
 		var gameQuery = new Parse.Query(Review);
@@ -150,6 +155,8 @@ var Router = Parse.Router.extend({
 	},
 
 	review: function(id) {
+		$('.main-slidr').empty();
+		$('.searchbar').show();
 		if (Parse.User.current() == null) {
 			$('.create-second-review').hide();
 		};
@@ -180,6 +187,7 @@ var Router = Parse.Router.extend({
 	news: function() {
 		$('.views-container').empty();
 		$('.main-slidr').empty();
+		$('.searchbar').show();
 		var view = new HomeView();
 
 		var gameQuery = new Parse.Query(Review);
@@ -223,6 +231,7 @@ var Router = Parse.Router.extend({
 	reviewer: function(){
 		$('.views-container').empty();
 		$('.main-slidr').empty();
+		$('.searchbar').show();
 		var view = new HomeView();
 
 		var gameQuery = new Parse.Query(Review);
@@ -265,6 +274,7 @@ var Router = Parse.Router.extend({
 
 	team: function() {
 		$('.views-container').empty();
+		$('.searchbar').hide();
 		$('.main-slidr').empty();
 		var view = new TeamView();
 		this.swap(view);
@@ -272,6 +282,7 @@ var Router = Parse.Router.extend({
 
 	forums: function() {
 		$('.main-slidr').empty();
+		$('.searchbar').hide();
 		$('.views-container').empty();
 
 		var view = new MainForumView();
@@ -291,24 +302,6 @@ var Router = Parse.Router.extend({
 			}
 		})
 	},
-
-	// topic: function(id) {
-	// 	$('.forum-view').empty();
-
-	// 	new Parse.Query('Forum').get(id, {
-	// 		success: function(topics) {
-	// 			topics.forEach(function(topic) {
-	// 				var view = new TopicView({
-	// 					model: topic
-	// 				});
-	// 			});
-	// 			this.swap(view);
-	// 		},
-	// 		error: function() {
-	// 			console.log('error')
-	// 		}
-	// 	});
-	// },
 
 	createTopic: function() {
 		$('.views-container').empty();

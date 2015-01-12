@@ -37,10 +37,14 @@
         <li><a href="#home">Home</a></li>
         <li><a href="#game">Games</a></li>
         <li><a href="#news">News</a></li>
-        <li><a href="#reviewer">Reviewers</a></li>
+        <li><a href="#reviewer">Industry</a></li>
         <li><a href="#team">Team</a></li>
         <li><a href="#forums">Forum</a></li>
       </ul>
+      <span class="searchbar"></span>
+      <div class="display-search"></div>
+
+        
     </div>
     <!-- <div class="banner"></div> -->
     <div class="main-slidr"></div>
@@ -58,11 +62,11 @@
 
     <script type="text/template" class="home-view">
       <div class="sidebar">
-        <h3><a href="#game">Game Reviews</a></h3>
-        <div class="game-sidebar"></div>
         <h3><a href="#news">New News</a><h3>
         <div class="news-sidebar"></div>
-        <h3><a href="#reviewer">New Reviewers</a><h3>
+        <h3><a href="#game">Game Reviews</a></h3>
+        <div class="game-sidebar"></div>
+        <h3><a href="#reviewer">Industry Reviews</a><h3>
         <div class="reviewer-sidebar"></div>
         <h3><a href="#team">Meet The Team</a></h3>
         <div class="team-sidebar">
@@ -76,6 +80,14 @@
         <h1><a href="#home">Newest Content</a></h1>
       </div>
       <div class="review-container"></div>
+    </script>
+
+    <script type="text/template" class="search-view">
+      <input placeholder="Search" class="search">
+    </script>
+
+    <script type="text/template" class="display-search-view">
+      <span><%= attributes.name %></span>
     </script>
 
     <script type="text/template" class="side-view">
@@ -583,6 +595,8 @@
         <script src="scripts/createTopicView.js"></script>
         <script src="scripts/createPostView.js"></script>
         <script src="scripts/postView.js"></script>
+        <script src="scripts/searchView.js"></script>
+        <script src="scripts/displaySearchView.js"></script>
         <script src="scripts/router.js"></script>
 
         <!-- endbuild -->
