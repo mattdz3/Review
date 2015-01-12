@@ -12,7 +12,6 @@ var SearchView = Parse.View.extend({
 
 	initialize: function() {
 		$('.searchbar').append(this.el);
-		console.log(this.model)
 		this.render();
 	},
 
@@ -30,17 +29,18 @@ var SearchView = Parse.View.extend({
 			$('.display-search').empty();
 			$('.review-container').empty();
 			var search = $('.search').val();
-			console.log(search)
+			var array = [];
 
 			var gameQuery = new Parse.Query(Review);
 			gameQuery.find({
 				success: function(reviews) {
 					reviews.forEach(function(review) {
 						var reviewName = review.attributes.name;
-						console.log(reviewName)
-						new DisplaySearchView({
-							model: review
-						});
+						if (search == reviewName) {
+							new DisplaySearchView({
+								model: review
+							});
+						}
 					})
 				}
 			}).done(function() {
@@ -49,10 +49,11 @@ var SearchView = Parse.View.extend({
 					success: function(reviewers) {
 						reviewers.forEach(function(reviewer) {
 							var reviewerName = reviewer.attributes.name;
-							console.log(reviewerName)
-							new DisplaySearchView({
-								model: reviewer
-							});
+							if (search == reviewerName) {
+								new DisplaySearchView({
+									model: reviewer
+								});
+							}
 						})
 					}
 				});
@@ -62,10 +63,12 @@ var SearchView = Parse.View.extend({
 					success: function(allNews) {
 						allNews.forEach(function(news) {
 							var newsName = news.attributes.name;
-							console.log(newsName)
-							new DisplaySearchView({
-								model: news
-							});
+							if (search == newsName) {
+								console.log(each)
+								new DisplaySearchView({
+									model: news
+								});
+							}
 						});
 					}
 				});

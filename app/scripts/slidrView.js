@@ -5,7 +5,6 @@ var SlidrView = Parse.View.extend({
 	template: _.template($('.slidr-view').text()),
 
 	initialize: function() {
-		console.log(this.model);
 		$('.main-slidr').append(this.el);
 		this.render();
 	},

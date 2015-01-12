@@ -12,7 +12,6 @@ var DisplaySearchView = Parse.View.extend({
 
 	initialize: function() {
 		$('.display-search').append(this.el);
-		// console.log(this.model)
 		this.render();
 	},
 
@@ -26,8 +25,7 @@ var DisplaySearchView = Parse.View.extend({
 		$('.display-search').hide();
 		$('.search').val('')
 		$('.reviews-container').empty();
-		$('.full-review-container').empty();
-		
+
 		var modelId = this.model.id;
 		var fullReview = this.model;
 
