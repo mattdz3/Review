@@ -20,7 +20,6 @@ var TopicView = Parse.View.extend({
 		this.$el.html(renderTemplate);
 
 		var modelId = this.model.id;
-		console.log(modelId)
 
 		var query = new Parse.Query(Comment)
 		query.find({
@@ -37,7 +36,6 @@ var TopicView = Parse.View.extend({
 	},
 
 	newPost: function(){
-		console.log("cool")
 		new CreatePostView({
 			model: this.model
 		});

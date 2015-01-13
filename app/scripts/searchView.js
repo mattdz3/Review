@@ -78,3 +78,5 @@ var SearchView = Parse.View.extend({
 		}
 	}
 });
+
+

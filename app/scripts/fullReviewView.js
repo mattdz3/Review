@@ -5,6 +5,10 @@ var FullReviewView = Parse.View.extend({
 	events: {
 		'click .create-second-review' : 'secondReview',
 		'click .slidr-control'        : 'top',
+		'click .load-comments'        : 'load',
+		'click .post-comment'         : 'showCreate',
+		'click .hide-comments'        : 'hide',
+		'click .create'               : 'create',
 	},
 
 	template: _.template($('.full-review-view').text()),
@@ -12,6 +16,7 @@ var FullReviewView = Parse.View.extend({
 	initialize: function() {
 		$('.sidebar').hide();
 		$('.review-container').append(this.el);
+		console.log(this.model)
 		this.render();
 	},
 
@@ -48,4 +53,39 @@ var FullReviewView = Parse.View.extend({
 		$('.reviews-container').empty();
 		new CreateSecondReviewView({model: this.model})
 	},
+
+	load: function() {
+		$('.comment-container').slideDown();
+	},
+
+	hide: function() {
+		$('.comment-container').slideUp();
+	},
+
+	showCreate: function() {
+		$('.create-comment').slideDown();
+	},
+
+	create: function() {
+		var topic = this.model;
+		var id = topic.id;
+
+		var comment = new Comment();
+		var content = $('.comment').val();
+		console.log(comment)
+		
+		comment.set('post', content);
+		comment.set('parent', topic);
+
+		comment.save().then(function() {
+			var relation = topic.relation("comments");
+			relation.add(comment);
+			topic.save();
+		});
+
+		$('.create-comment').slideUp();
+	}
 });
+
+
+

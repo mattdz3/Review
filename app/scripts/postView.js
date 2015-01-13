@@ -6,7 +6,6 @@ var PostView = Parse.View.extend({
 
 	initialize: function() {
 		$('.posts').append(this.el);
-		console.log(this.model)
 		this.render();
 	},
 

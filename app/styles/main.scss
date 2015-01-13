@@ -7,6 +7,7 @@ $border: #AAAAAA;
 $review-background: #3F733C;
 $main-font-color: black;
 $transition-color: green;
+$header-font: 'Ropa Sans', sans-serif;
 
 
 body {
@@ -24,7 +25,7 @@ body {
   height: 80px;
   background-color: $background;
   color: $main-font-color;
-  font-family: 'Ropa Sans', sans-serif;
+  font-family: $header-font;
 
   h1 {
     display: inline-block;
@@ -74,13 +75,15 @@ body {
   background-color: $background;
   color: $main-font-color;
   border-bottom: 1px solid $border;
-  font-family: 'Ropa Sans', sans-serif;
+  font-family: $header-font;
 
   .display-search {
     position: absolute;
     top: 120px;
     right: 25px;
     width: 250px;
+    max-height: 400px;
+    overflow: scroll;
     float: right;
     text-align: left;
     padding: 4px;
@@ -202,6 +205,7 @@ body {
     padding-top: 20px; 
 
     h2 {
+      font-family: $header-font;
       margin-left: 20px;
       padding: 5px;
       width: 220px;
@@ -254,7 +258,7 @@ body {
     .sidebar {
       width: 20%;
       float: right;
-      font-family: 'Ropa Sans', sans-serif;
+      font-family: $header-font;
 
       h3 {
         margin: 0;
@@ -338,7 +342,7 @@ body {
         .full-review-header {
           font-size: 40px;
           margin-top: 50px;
-          font-family: 'Ropa Sans', sans-serif;
+          font-family: $header-font;
         }
 
         .full-review-header-img {
@@ -385,7 +389,7 @@ body {
             font-size: 30px;
             margin: 0 auto;
             margin-bottom: 20px;
-            font-family: 'Ropa Sans', sans-serif;
+            font-family: $header-font;
           }
 
           span {
@@ -427,7 +431,7 @@ body {
         margin: 20px;
         font-size: 20px;
         cursor: pointer;
-        font-family: 'Ropa Sans', sans-serif;
+        font-family: $header-font;
 
         a {
           transition: all 0.2s ease;
@@ -623,7 +627,7 @@ body {
   width: 100%;
   margin-top: 80px;
   border-top: 1px solid $border;
-  font-family: 'Ropa Sans', sans-serif;
+  font-family: $header-font;
 
   span {
     font-size: 10px;
@@ -676,7 +680,7 @@ body {
 
     h1 {
       margin: 0 0 20px 20px;
-      font-family: 'Ropa Sans', sans-serif;
+      font-family: $header-font;
     }
 
     button {
