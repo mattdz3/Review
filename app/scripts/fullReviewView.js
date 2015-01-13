@@ -8,7 +8,9 @@ var FullReviewView = Parse.View.extend({
 		'click .load-comments'        : 'load',
 		'click .post-comment'         : 'showCreate',
 		'click .hide-comments'        : 'hide',
-		'click .create'               : 'create',
+		'click .reviewPost'           : 'reviewPost',
+		'click .newsPost'             : 'newsPost',
+		'click .reviewerPost'         : 'reviewerPost',
 	},
 
 	template: _.template($('.full-review-view').text()),
@@ -66,23 +68,71 @@ var FullReviewView = Parse.View.extend({
 		$('.create-comment').slideDown();
 	},
 
-	create: function() {
+	reviewPost: function() {
 		var topic = this.model;
-		var id = topic.id;
-
-		var comment = new Comment();
+		var comment = new ReviewComment();
 		var content = $('.comment').val();
-		console.log(comment)
-		
+
 		comment.set('post', content);
 		comment.set('parent', topic);
 
-		comment.save().then(function() {
-			var relation = topic.relation("comments");
-			relation.add(comment);
-			topic.save();
+		comment.save({
+			success: function(comment) {
+				var relation = topic.relation("comments");
+				relation.add(comment);
+				topic.save();
+			},
+			error: function(comment, error) {
+                console.log(error.code+"::"+error.message);
+            }
 		});
+		
+		$('.create-comment').slideUp();
+	},
 
+	newsPost: function() {
+		var topic = this.model;
+		var comment = new NewsComment();
+		var content = $('.comment').val();
+
+		comment.set('post', content);
+		comment.set('parent', topic);
+
+		comment.save({
+			success: function(comment) {
+				console.log(comment)
+				var relation = topic.relation("comments");
+				relation.add(comment);
+				topic.save();
+			},
+			error: function(comment, error) {
+                console.log(error.code+"::"+error.message);
+            }
+		});
+		
+		$('.create-comment').slideUp();
+	},
+
+	reviewerPost: function() {
+		var topic = this.model;
+		var comment = new ReviewerComment();
+		var content = $('.comment').val();
+
+		comment.set('post', content);
+		comment.set('parent', topic);
+
+		comment.save({
+			success: function(comment) {
+				console.log(comment)
+				var relation = topic.relation("comments");
+				relation.add(comment);
+				topic.save();
+			},
+			error: function(comment, error) {
+                console.log(error.code+"::"+error.message);
+            }
+		});
+		
 		$('.create-comment').slideUp();
 	}
 });

@@ -381,17 +381,28 @@
           <li>Publisher: <%=publisher%> </li>
         </ul>
       </div>
+
       <button class='load-comments'> Load Comments </button>
       <button class="create-second-review">Create Second Review</button>
+
       <div class="create-comment">
         <textarea class="comment" placeholder="Comment Here"></textarea>
-        <button class="create">Post</button>
+        <button class="reviewPost">Review Post</button>
+        <button class="newsPost">News Post</button>
+        <button class="reviewerPost">Reviewer Post</button>
       </div>
+
       <div class="comment-container">
         <button class="post-comment">Post Comment</button>
         <button class="hide-comments">Hide Comments</button>
-        <p> hello world </p>
+        <% if (this.model.get('comments') == undefined) { %>
+          <span></span>
+        <% } else { %>
+          <%= this.model.attributes.comments.post %>
+        <% } %>
+        
       </div>
+
     </script>
 
     <script type="text/template" class="team-view">

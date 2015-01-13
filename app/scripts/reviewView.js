@@ -23,9 +23,7 @@ var ReviewView = Parse.View.extend({
 		$('.reviews-container').empty();
 		var modelId = this.model.id;
 		
-		console.log(modelId);
 		var fullReview = this.model;
-		console.log(fullReview)
 
 		new FullReviewView({
 			model: fullReview

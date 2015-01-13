@@ -1,8 +1,8 @@
-var CreatePostView = Parse.View.extend({
+var ReviewCommentView = Parse.View.extend({
 	
-	className: 'create-post-view',
+	className: 'create-review-comment',
 
-	template: _.template($('.create-post-view').text()),
+	template: _.template($('.review-comment-view').text()),
 
 	events: {
 		'click button' : 'createTopic',
@@ -10,8 +10,7 @@ var CreatePostView = Parse.View.extend({
 
 	initialize: function() {
 		console.log(this.model)
-		$('.create-new-post').hide();
-		$('.views-container').append(this.el);
+		$('.create-comments').append(this.el);
 		this.render();
 	},
 
@@ -26,7 +25,7 @@ var CreatePostView = Parse.View.extend({
 		console.log(topic)
 		var id = topic.id;
 		var comment = new Comment();
-		var content = $('.create-post').val();
+		var content = $('.comment').val();
 		
 		comment.set('post', content);
 		comment.set('parent', topic);
@@ -37,9 +36,5 @@ var CreatePostView = Parse.View.extend({
 			relation.add(comment);
 			topic.save();
 		});
-
-		$('.create-post-view').hide();
-		router.navigate('#forums', {trigger: true})		
 	},
 });
-
