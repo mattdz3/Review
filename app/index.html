@@ -391,18 +391,15 @@
         <button class="newsPost">News Post</button>
         <button class="reviewerPost">Reviewer Post</button>
       </div>
-
       <div class="comment-container">
         <button class="post-comment">Post Comment</button>
         <button class="hide-comments">Hide Comments</button>
-        <% if (this.model.get('comments') == undefined) { %>
-          <span></span>
-        <% } else { %>
-          <%= this.model.attributes.comments.post %>
-        <% } %>
-        
+        <div class="comments-container"></div>
       </div>
+    </script>
 
+    <script type="text/template" class="comment-view">
+      <p> <%=attributes.post%> </p>
     </script>
 
     <script type="text/template" class="team-view">
@@ -617,6 +614,7 @@
         <script src="scripts/topicView.js"></script>
         <script src="scripts/createTopicView.js"></script>
         <script src="scripts/createPostView.js"></script>
+        <script src="scripts/commentView.js"></script>
         <script src="scripts/postView.js"></script>
         <script src="scripts/searchView.js"></script>
         <script src="scripts/displaySearchView.js"></script>

@@ -58,6 +58,62 @@ var FullReviewView = Parse.View.extend({
 
 	load: function() {
 		$('.comment-container').slideDown();
+		$('.comments-container').empty();
+
+		var modelId = this.model.id;
+		console.log(modelId)
+
+		var query = new Parse.Query(ReviewComment)
+		
+		query.find({
+			success: function(comments){
+				comments.forEach(function(comment) {
+					console.log(comment)
+					var parentId = comment.attributes.parent.id
+
+					if (parentId === modelId) {
+						$('.newsPost').hide();
+						$('.reviewerPost').hide();
+						new CommentView({model: comment})
+					}
+				});
+			}
+		});
+
+		var query = new Parse.Query(NewsComment)
+		
+		query.find({
+			success: function(comments){
+				comments.forEach(function(comment) {
+					console.log(comment)
+					var parentId = comment.attributes.parent.id
+
+					if (parentId === modelId) {
+						$('.reviewPost').hide();
+						$('.reviewerPost').hide();
+						new CommentView({model: comment})
+					}
+				});
+			}
+		});
+
+		var query = new Parse.Query(ReviewerComment)
+		$('.newsPost').hide();
+		$('.reviewPost').hide();
+		query.find({
+			success: function(comments){
+				comments.forEach(function(comment) {
+					console.log(comment)
+					var parentId = comment.attributes.parent.id
+
+					if (parentId === modelId) {
+						$('.newsPost').hide();
+						$('.reviewPost').hide();
+						new CommentView({model: comment})
+					}
+				});
+			}
+		});
 	},
 
 	hide: function() {
