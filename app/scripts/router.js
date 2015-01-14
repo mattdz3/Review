@@ -154,7 +154,6 @@ var Router = Parse.Router.extend({
 	review: function(id) {
 		$('.main-slidr').empty();
 		$('.comment-container').hide();
-		$(".create-comment").hide();
 		$('.searchbar').show();
 		if (Parse.User.current() == null) {
 			$('.create-second-review').hide();
