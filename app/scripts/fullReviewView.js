@@ -56,7 +56,7 @@ var FullReviewView = Parse.View.extend({
 	},
 
 	load: function() {
-		$('.comment-container').show();
+		$('.comment-container').slideDown();
 		$('.comments-container').empty();
 		$('.newsPost').hide();
 		$('.reviewPost').hide();

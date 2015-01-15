@@ -24,7 +24,8 @@
 
 
     <div class="top-header">
-      <h1 class="title">Dueling Gamers</h1>
+      <img class="logo" src="images/joygunlogo.png">
+      <h1 class="title">JoyGun</h1>
       <ul>
         <li><a href="#login">Reviewer Login</a></li>
         <li><a href="#join" class="reviewer-button">Join</li></a>
@@ -96,13 +97,17 @@
       </div>
     </script>
 
+    <script type="text/template" class="main-side-view">
+      <img src='<%= image %>'>
+    </script>
+
     <script type="text/template" class="slidr-view">
-      <h2>Coming Soon</h2>
       <div id="slidr-img">
-        <img data-slidr="one" src="images/reddead.jpeg">
+        <img data-slidr="one" src="images/twitch.jpg">
         <img data-slidr="two" src="images/metalgear.jpeg">
         <img data-slidr="three" src="images/reddead.jpg">
       </div>
+      <div class="main-side-container"></div>
     </script>
 
     <script type="text/template" class="join-view">
@@ -501,14 +506,6 @@
               <div class="vs">
                 <img src="<%=reviewerPic%>">
               </div>
-              <img src="images/vs.png" class="vs">
-              <div class="vs">
-              <% if (this.model.get('secondReviewerPic') == undefined) { %>
-                <img src="images/user.png">
-                <% } else { %>
-                <img src="<%=secondReviewerPic%>">
-                <% } %>
-              </div>
             </div>
           </span>
         </div>
@@ -601,6 +598,7 @@
         <script src="scripts/sideGameView.js"></script>
         <script src="scripts/sideNewsView.js"></script>
         <script src="scripts/sideReviewerView.js"></script>
+        <script src="scripts/mainSideContainer.js"></script>
         <script src="scripts/slidrView.js"></script>
         <script src="scripts/loginView.js"></script>
         <script src="scripts/joinView.js"></script>

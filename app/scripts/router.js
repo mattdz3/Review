@@ -40,6 +40,9 @@ var Router = Parse.Router.extend({
 
 		gameQuery.find({
 			success: function(reviews) {
+				new MainSideView({
+					model: reviews[0]
+				});
 				reviews.forEach(function(review) {
 					new ReviewView({
 						model: review
@@ -47,12 +50,15 @@ var Router = Parse.Router.extend({
 					new SideGameView({
 						model: review
 					});
-				})
+				});
 			}
 		}).done(function() {
 			var reviewerQuery = new Parse.Query(Reviewer);
 			reviewerQuery.find({
 				success: function(reviewers) {
+					new MainSideView({
+						model: reviewers[0]
+					});
 					reviewers.forEach(function(reviewer) {
 						new ReviewerView({
 							model: reviewer
@@ -60,7 +66,6 @@ var Router = Parse.Router.extend({
 						new SideReviewerView({
 							model: reviewer
 						});
-						
 					})
 				}
 			});
@@ -69,6 +74,9 @@ var Router = Parse.Router.extend({
 
 			newsQuery.find({
 				success: function(allNews) {
+					new MainSideView({
+						model: allNews[0]
+					});
 					allNews.forEach(function(news) {
 						new NewsView({
 							model: news
