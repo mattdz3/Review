@@ -6,7 +6,6 @@ var FullReviewView = Parse.View.extend({
 		'click .create-second-review' : 'secondReview',
 		'click .slidr-control'        : 'top',
 		'click .load-comments'        : 'load',
-		// 'click .post-comment'         : 'showCreate',
 		'click .hide-comments'        : 'hide',
 		'click .reviewPost'           : 'reviewPost',
 		'click .newsPost'             : 'newsPost',
@@ -85,7 +84,6 @@ var FullReviewView = Parse.View.extend({
 			success: function(comments){
 				comments.forEach(function(comment) {
 					var parentId = comment.attributes.parent.id
-
 					if (parentId === modelId) {
 						$('.newsPost').show();
 						new CommentView({model: comment})
@@ -101,7 +99,6 @@ var FullReviewView = Parse.View.extend({
 			success: function(comments){
 				comments.forEach(function(comment) {
 					var parentId = comment.attributes.parent.id
-
 					if (parentId === modelId) {
 						$('.reviewerPost').show();
 						new CommentView({model: comment})
@@ -114,10 +111,6 @@ var FullReviewView = Parse.View.extend({
 	hide: function() {
 		$('.comment-container').slideUp();
 	},
-
-	// showCreate: function() {
-	// 	$('.create-comment').slideDown();
-	// },
 
 	reviewPost: function() {
 		var topic = this.model;
@@ -138,8 +131,7 @@ var FullReviewView = Parse.View.extend({
                 console.log(error.code+"::"+error.message);
             }
 		});
-		
-		$('.create-comment').val('');
+		$('.comment').val('');
 	},
 
 	newsPost: function() {
@@ -161,8 +153,7 @@ var FullReviewView = Parse.View.extend({
                 console.log(error.code+"::"+error.message);
             }
 		});
-		
-		$('.create-comment').val('');
+		$('.comment').val('');
 	},
 
 	reviewerPost: function() {
@@ -184,8 +175,7 @@ var FullReviewView = Parse.View.extend({
                 console.log(error.code+"::"+error.message);
             }
 		});
-		
-		$('.create-comment').val('');
+		$('.comment').val('');
 	}
 });
 
