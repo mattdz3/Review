@@ -20,13 +20,11 @@ var TopicView = Parse.View.extend({
 		this.$el.html(renderTemplate);
 
 		var modelId = this.model.id;
-		console.log(modelId)
 
 		var query = new Parse.Query(Comment)
 		query.find({
 			success: function(comments){
 				comments.forEach(function(comment) {
-					console.log(comment)
 					var parentId = comment.attributes.parent.id
 
 					if (parentId === modelId) {

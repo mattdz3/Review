@@ -5,7 +5,6 @@ var CommentView = Parse.View.extend({
 	template: _.template($('.comment-view').text()),
 
 	initialize: function() {
-		console.log(this.model)
 		$('.comments-container').append(this.el);
 		this.render();
 	},

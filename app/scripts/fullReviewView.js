@@ -56,7 +56,7 @@ var FullReviewView = Parse.View.extend({
 	},
 
 	load: function() {
-		$('.comment-container').slideDown();
+		$('.comment-container').show();
 		$('.comments-container').empty();
 		$('.newsPost').hide();
 		$('.reviewPost').hide();
@@ -70,7 +70,6 @@ var FullReviewView = Parse.View.extend({
 			success: function(comments){
 				comments.forEach(function(comment) {
 					var parentId = comment.attributes.parent.id
-
 					if (parentId === modelId) {
 						$('.reviewPost').show();
 						new CommentView({model: comment})
@@ -116,7 +115,7 @@ var FullReviewView = Parse.View.extend({
 		var topic = this.model;
 		var comment = new ReviewComment();
 		var content = $('.comment').val();
-
+		var that = this;
 		comment.set('post', content);
 		comment.set('parent', topic);
 
@@ -125,7 +124,7 @@ var FullReviewView = Parse.View.extend({
 				var relation = topic.relation("comments");
 				relation.add(comment);
 				topic.save();
-				$('.comment').val('');
+				that.load();
 			},
 			error: function(comment, error) {
                 console.log(error.code+"::"+error.message);
@@ -138,16 +137,16 @@ var FullReviewView = Parse.View.extend({
 		var topic = this.model;
 		var comment = new NewsComment();
 		var content = $('.comment').val();
-
+		var that = this;
 		comment.set('post', content);
 		comment.set('parent', topic);
 
 		comment.save({
 			success: function(comment) {
-				console.log(comment)
 				var relation = topic.relation("comments");
 				relation.add(comment);
 				topic.save();
+				that.load();
 			},
 			error: function(comment, error) {
                 console.log(error.code+"::"+error.message);
@@ -160,16 +159,16 @@ var FullReviewView = Parse.View.extend({
 		var topic = this.model;
 		var comment = new ReviewerComment();
 		var content = $('.comment').val();
-
+		var that = this;
 		comment.set('post', content);
 		comment.set('parent', topic);
 
 		comment.save({
 			success: function(comment) {
-				console.log(comment)
 				var relation = topic.relation("comments");
 				relation.add(comment);
 				topic.save();
+				that.load();
 			},
 			error: function(comment, error) {
                 console.log(error.code+"::"+error.message);

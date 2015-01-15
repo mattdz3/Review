@@ -23,23 +23,35 @@ var CreatePostView = Parse.View.extend({
 
 	createTopic: function() {
 		var topic = this.model;
-		console.log(topic)
 		var id = topic.id;
 		var comment = new Comment();
 		var content = $('.create-post').val();
 		
 		comment.set('post', content);
 		comment.set('parent', topic);
-		console.log(comment)
 
 		comment.save().then(function() {
 			var relation = topic.relation("comments");
 			relation.add(comment);
 			topic.save();
-		});
+		}).done(function() {
+			$('.posts').empty();
+			var query = new Parse.Query(Comment)
+			query.find({
+				success: function(comments){
+					comments.forEach(function(comment) {
+						var parentId = comment.attributes.parent.id
+						if (parentId === id) {
+							new PostView({model: comment})
+						}
+					});
+				}
+			});
+		})
 
 		$('.create-post-view').hide();
-		router.navigate('#forums', {trigger: true})		
+		
+		// router.navigate('#forums', {trigger: true})		
 	},
 });
 

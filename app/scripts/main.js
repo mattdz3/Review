@@ -13,6 +13,3 @@ $('.logout').click(function() {
 	alert('user has logged out!')
 });
 
-
-
-
