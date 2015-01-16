@@ -27,7 +27,7 @@ var SlidrView = Parse.View.extend({
 			transition: 'linear'
 		});
 
-		mainSlider.add('h', ['one', 'two', 'three', 'one'])
+		mainSlider.add('h', ['one', 'two', 'one'])
 
 		mainSlider.auto();
 		return this;

@@ -21,7 +21,8 @@ var Router = Parse.Router.extend({
 
 	initialize: function(options) {
 		this.currentView = null;
-		if (Parse.User.current() == null) {
+		var user = Parse.User.current();
+		if (user == null) {
 			$('.reviewer-button').hide();
 		};
 
