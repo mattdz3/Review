@@ -33,7 +33,7 @@ var JoinView = Parse.View.extend({
 		user.set('username', $('.username').val());
 		user.set('password', $('.password').val());
 		user.set('userPic', pic);
-
+		
 		user.signUp(null, {
 			success: function(user){
 				var currentUser = Parse.User.current();
