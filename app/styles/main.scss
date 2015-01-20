@@ -6,7 +6,7 @@ $button-background: #586E57;
 $border: #AAAAAA;
 $review-background: #3F733C;
 $main-font-color: black;
-$transition-color: green;
+$transition-color: #CD3232;
 $header-font: 'Ropa Sans', sans-serif;
 
 
@@ -104,8 +104,10 @@ body {
 
     .search-view {
       margin: 5px;
+      margin-top: 15px;
       list-style: none;
       color: $main-font-color;
+      border-bottom: 1px solid $border;
       cursor: pointer;
     }
   }
@@ -147,7 +149,6 @@ body {
 
         &:hover {
           border-left: 1px solid $transition-color;
-          // border-bottom: 1px solid $transition-color;
           transition: all 0.2s ease;
           color: $transition-color;
         }
@@ -298,7 +299,6 @@ body {
             border-left: 2px solid $transition-color;
             border-radius: 0 3px;
             transition: all 0.2s ease;
-            color: $transition-color;
           }
         }
       }
@@ -520,7 +520,6 @@ body {
             border-left: 2px solid $transition-color;
             border-radius: 0 3px;
             transition: all 0.2s ease;
-            color: green;
           }
         }
       }
@@ -548,7 +547,6 @@ body {
             border-left: 2px solid $transition-color;
             border-radius: 0 3px;
             cursor: pointer;
-            color: green;
           }
 
           .uploader {
@@ -741,7 +739,6 @@ body {
           border-left: 2px solid $transition-color;
           border-radius: 0 3px;
           cursor: pointer;
-          color: green;
         }
       }
     }
@@ -933,6 +930,11 @@ body {
       margin: 0;
       text-align: left;
     }
+  }
+
+  .views-container .main-view .reviews-container 
+  .review-contents .full-review {
+    width: 80%;
   }
 }
 

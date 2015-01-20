@@ -22,7 +22,7 @@ var Router = Parse.Router.extend({
 	initialize: function(options) {
 		this.currentView = null;
 		var user = Parse.User.current();
-		
+
 		if (user == null) {
 			$('.reviewer-button').hide();
 		};
@@ -38,34 +38,42 @@ var Router = Parse.Router.extend({
 
 		var view = new HomeView();
 		var view = new SlidrView();
-		var gameQuery = new Parse.Query(Review);
 
+		var gameQuery = new Parse.Query(Review);
 		gameQuery.find({
 			success: function(reviews) {
+				
 				new MainSideView({
 					model: reviews[0]
+				});
+				new SideGameView({
+					model: reviews[0]
+				});
+				new SideGameView({
+					model: reviews[1]
 				});
 				reviews.forEach(function(review) {
 					new ReviewView({
 						model: review
-					});
-					new SideGameView({
-						model: review
-					});
+					});	
 				});
 			}
 		}).done(function() {
 			var reviewerQuery = new Parse.Query(Reviewer);
 			reviewerQuery.find({
 				success: function(reviewers) {
+					var length = reviewers.length;
 					new MainSideView({
-						model: reviewers[0]
+						model: reviewers[length - 1]
+					});
+					new SideReviewerView({
+						model: reviewers[length - 1]
+					});
+					new SideReviewerView({
+						model: reviewers[length - 2]
 					});
 					reviewers.forEach(function(reviewer) {
 						new ReviewerView({
-							model: reviewer
-						});
-						new SideReviewerView({
 							model: reviewer
 						});
 					})
@@ -76,16 +84,21 @@ var Router = Parse.Router.extend({
 
 			newsQuery.find({
 				success: function(allNews) {
+					var length = allNews.length;
 					new MainSideView({
-						model: allNews[0]
+						model: allNews[length - 1]
+					});
+					new SideNewsView({
+						model: allNews[length - 1]
+					});
+					new SideNewsView({
+						model: allNews[length - 2]
 					});
 					allNews.forEach(function(news) {
 						new NewsView({
 							model: news
 						});
-						new SideNewsView({
-							model: news
-						});
+						
 					});
 				}
 			});
@@ -97,40 +110,45 @@ var Router = Parse.Router.extend({
 		$('.main-slidr').empty();
 		$('.searchbar').show();
 		var view = new HomeView();
-
 		var gameQuery = new Parse.Query(Review);
 		gameQuery.find({
 			success: function(reviews) {
+				$('.hide-game').hide();
+				$('.hide-team').hide();
+				$('.team-sidebar').hide();
 				reviews.forEach(function(review) {
 					new ReviewView({
 						model: review
-					})
-					new SideGameView({
-						model: review
-					})
-				})
+					});	
+				});
 			}
+		}).done(function() {
+			var reviewerQuery = new Parse.Query(Reviewer);
+			reviewerQuery.find({
+				success: function(reviewers) {
+					var length = reviewers.length;
+					
+					new SideReviewerView({
+						model: reviewers[length - 1]
+					});
+					new SideReviewerView({
+						model: reviewers[length - 2]
+					});
+				}
+			});
 		}).done(function() {
 			var newsQuery = new Parse.Query(News);
 
 			newsQuery.find({
 				success: function(allNews) {
-					allNews.forEach(function(news) {
-						new SideNewsView({
-							model: news
-						});
+					var length = allNews.length;
+					
+					new SideNewsView({
+						model: allNews[length - 1]
 					});
-				}
-			});
-		}).done(function() {
-			var reviewerQuery = new Parse.Query(Reviewer);
-			reviewerQuery.find({
-				success: function(reviewers) {
-					reviewers.forEach(function(reviewer) {
-						new SideReviewerView({
-							model: reviewer
-						})
-					})
+					new SideNewsView({
+						model: allNews[length - 2]
+					});
 				}
 			});
 		});
@@ -201,39 +219,45 @@ var Router = Parse.Router.extend({
 		var gameQuery = new Parse.Query(Review);
 		gameQuery.find({
 			success: function(reviews) {
-				reviews.forEach(function(review) {
-					new SideGameView({
-						model: review
-					})
-				})
+				$('.hide-news').hide();
+				$('.hide-team').hide();
+				$('.team-sidebar').hide();
+				new SideGameView({
+					model: reviews[0]
+				});
+				new SideGameView({
+					model: reviews[1]
+				});
 			}
+		}).done(function() {
+			var reviewerQuery = new Parse.Query(Reviewer);
+			reviewerQuery.find({
+				success: function(reviewers) {
+					var length = reviewers.length;
+					
+					new SideReviewerView({
+						model: reviewers[length - 1]
+					});
+					new SideReviewerView({
+						model: reviewers[length - 2]
+					});
+				}
+			});
 		}).done(function() {
 			var newsQuery = new Parse.Query(News);
 
 			newsQuery.find({
 				success: function(allNews) {
+					var length = allNews.length;
+					
 					allNews.forEach(function(news) {
 						new NewsView({
 							model: news
-						});
-						new SideNewsView({
-							model: news
-						});
+						});	
 					});
 				}
 			});
-		}).done(function() {
-			var reviewerQuery = new Parse.Query(Reviewer);
-			reviewerQuery.find({
-				success: function(reviewers) {
-					reviewers.forEach(function(reviewer) {
-						new SideReviewerView({
-							model: reviewer
-						})
-					})
-				}
-			});
-		});	
+		});			
 	},
 
 	reviewer: function(){
@@ -245,24 +269,16 @@ var Router = Parse.Router.extend({
 		var gameQuery = new Parse.Query(Review);
 		gameQuery.find({
 			success: function(reviews) {
-				reviews.forEach(function(review) {
-					new SideGameView({
-						model: review
-					})
-				})
+				$('.hide-industry').hide();
+				$('.hide-team').hide();
+				$('.team-sidebar').hide();
+				new SideGameView({
+					model: reviews[0]
+				});
+				new SideGameView({
+					model: reviews[1]
+				});
 			}
-		}).done(function() {
-			var newsQuery = new Parse.Query(News);
-
-			newsQuery.find({
-				success: function(allNews) {
-					allNews.forEach(function(news) {
-						new SideNewsView({
-							model: news
-						});
-					});
-				}
-			});
 		}).done(function() {
 			var reviewerQuery = new Parse.Query(Reviewer);
 			reviewerQuery.find({
@@ -271,10 +287,21 @@ var Router = Parse.Router.extend({
 						new ReviewerView({
 							model: reviewer
 						});
-						new SideReviewerView({
-							model: reviewer
-						});
 					})
+				}
+			});
+		}).done(function() {
+			var newsQuery = new Parse.Query(News);
+
+			newsQuery.find({
+				success: function(allNews) {
+					var length = allNews.length;
+					new SideNewsView({
+						model: allNews[length - 1]
+					});
+					new SideNewsView({
+						model: allNews[length - 2]
+					});
 				}
 			});
 		});

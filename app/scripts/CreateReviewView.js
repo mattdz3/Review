@@ -129,7 +129,6 @@ var CreateReviewView = Parse.View.extend({
 					}
 				})
 			});
-
 		} else if ($("input[name='reviewer']").is(":checked")) {
 			var user = Parse.User.current();
 			var username = user.attributes.username;
@@ -204,8 +203,6 @@ var CreateReviewView = Parse.View.extend({
 					}
 				})
 			});
-
-
 		} else if ($("input[name='news']").is(":checked")){
 			var user = Parse.User.current();
 			var username = user.attributes.username;

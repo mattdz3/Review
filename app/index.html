@@ -45,7 +45,7 @@
       <span class="searchbar"></span>
       <div class="display-search"></div> 
     </div>
-    <!-- <div class="banner"></div> -->
+    <div class="banner"></div>
     <div class="main-slidr"></div>
 
     <div class="views-container"></div>
@@ -61,13 +61,13 @@
 
     <script type="text/template" class="home-view">
       <div class="sidebar">
-        <h3><a href="#news">New News</a><h3>
+        <h3 class="hide-news"><a href="#news">New News</a><h3>
         <div class="news-sidebar"></div>
-        <h3><a href="#game">Game Reviews</a></h3>
+        <h3 class="hide-game"><a href="#game">Game Reviews</a></h3>
         <div class="game-sidebar"></div>
-        <h3><a href="#reviewer">Industry Reviews</a><h3>
+        <h3 class="hide-industry"><a href="#reviewer">Industry Reviews</a><h3>
         <div class="reviewer-sidebar"></div>
-        <h3><a href="#team">Meet The Team</a></h3>
+        <h3 class="hide-team"><a href="#team">Meet The Team</a></h3>
         <div class="team-sidebar">
           <a href="#team"><img src="images/evan.jpg"></a>
           <a href="#team"><img src="images/mike.jpg"></a>
@@ -100,15 +100,13 @@
     </script>
 
     <script type="text/template" class="slidr-view">
-
-    <div class="main-side-container"></div>
-    <div class="work">
-      <div id="slidr-img">
-        <a href="https://twitch.tv" data-slidr="one"><img src="images/twitch.jpg"></a>
-        <a href="https://google.com" data-slidr="two"><img src="images/metalgear.jpeg"></a>
+      <div class="main-side-container"></div>
+      <div class="work">
+        <div id="slidr-img">
+          <a href="https://twitch.tv" data-slidr="one"><img src="images/twitch.jpg"></a>
+          <a href="https://google.com" data-slidr="two"><img src="images/metalgear.jpeg"></a>
+        </div>
       </div>
-      </div>
-      
     </script>
 
     <script type="text/template" class="join-view">
@@ -245,7 +243,6 @@
             </div>
           </div>
         </span>
-        
       </div>
     </script>
 
