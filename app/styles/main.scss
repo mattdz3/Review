@@ -5,13 +5,14 @@ $background: #FCFCFC;
 $button-background: #586E57;
 $border: #AAAAAA;
 $review-background: #3F733C;
-$main-font-color: black;
+$main-font-color: #2C2C2E;
 $transition-color: #CD3232;
 $header-font: 'Ropa Sans', sans-serif;
 
 
 body {
   margin: 0;
+  color: $main-font-color;
   background: #E3E3E3;
   // background-image: url('http://i.imgur.com/5kwbT0g.jpg');
   // background-size: cover;
@@ -30,19 +31,15 @@ body {
 
   .logo {
     width: 250px;
-    // transform: rotateZ(90deg);
     position: relative;
-    // top: -50px;
   }
 
   h1 {
     position: absolute;
     display: inline-block;
-    // margin-left: 50px;
-    color: $main-font-color;
     cursor: pointer;
-    top: 50px;
-    left: 150px;
+    top: 30px;
+    left: 145px;
   }
 
   ul {
@@ -350,6 +347,8 @@ body {
           color: $transition-color;
           background: #E3E3E3;
           cursor: pointer;
+          width: 100%;
+          margin-bottom: 10px;
         }
       
         .comment-container {

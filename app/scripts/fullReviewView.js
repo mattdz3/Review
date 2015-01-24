@@ -16,8 +16,8 @@ var FullReviewView = Parse.View.extend({
 
 	initialize: function() {
 		$('.sidebar').hide();
+		$('.create-second-review').hide();
 		$('.review-container').append(this.el);
-		console.log(this.model)
 		this.render();
 	},
 

@@ -29,7 +29,7 @@
       <ul>
         <li><a href="#login">Reviewer Login</a></li>
         <li><a href="#join" class="reviewer-button">Join</li></a>
-        <li class='logout'><a class="reviewer-button">logout</a></li>
+        <li class='logout reviewer-button'><a>logout</a></li>
         <li><a href="#createReview" class="reviewer-button">Create Review</li></a>
       </ul>
     </div>
@@ -54,9 +54,9 @@
     <div class="footer">
       <ul>
         <li><a href="#team">About</a></li>
-        <li><a href="">Contact</a></li>
+        <li><a href="mailto:joygungaming@gmail.com">Contact</a></li>
       </ul>
-      <span><a href="http://mattdz3.github.io/Portfolio/">Created By Matt Dougherty</a></span>
+      <!-- <span><a href="http://mattdz3.github.io/Portfolio/">Created By Matt Dougherty</a></span> -->
     </div>
 
     <script type="text/template" class="home-view">
@@ -103,7 +103,7 @@
       <div class="main-side-container"></div>
       <div class="work">
         <div id="slidr-img">
-          <a href="https://twitch.tv" data-slidr="one"><img src="images/twitch.jpg"></a>
+          <a href="https://twitch.tv/joygungaming" data-slidr="one"><img src="images/twitch.jpg"></a>
           <a href="https://google.com" data-slidr="two"><img src="images/metalgear.jpeg"></a>
         </div>
       </div>
@@ -302,7 +302,6 @@
               </span>
           </div>
 
-
           <div data-slidr="second-review">
             <div class="full-review-reviewer">
               <% if (this.model.get('secondReviewer') == undefined) { %>
@@ -379,10 +378,15 @@
       </div>
       
       <div class="game-info"> 
+      <% if(this.model.get('developer') == '') { %>
+        <span></span>
+      <% } else { %>
         <ul>
           <li>Developer: <%=developer%> </li>
           <li>Publisher: <%=publisher%> </li>
         </ul>
+      <% } %>
+        
       </div>
 
       <button class='load-comments'> Load Comments </button>
@@ -404,7 +408,7 @@
     </script>
 
     <script type="text/template" class="comment-view">
-      <%=attributes.post%>
+      <div><%=attributes.post%></div>
     </script>
 
     <script type="text/template" class="team-view">
