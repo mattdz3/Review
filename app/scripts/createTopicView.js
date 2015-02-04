@@ -25,27 +25,30 @@ var CreateTopicView = Parse.View.extend({
 		var title = $('.create-topic').val();
 		var post = $('.create-post').val();
 
+		if (title == "" || post == "") {
+			alert("Looks like you forgot something!")
+		} else {
 
-		topic.set('name', title);
+			topic.set('name', title);
+			topic.save(null, {
+				success: function() {
+					$('.create-topic').val('');
 
-		topic.save(null, {
-			success: function() {
-				$('.create-topic').val('');
+					router.navigate('forums', {trigger: true})
+				},
+				error: function(){
+					console.log("nope")
+				}
+			}).then(function() {
+				comment.set('post', post);
+				comment.set('parent', topic);
 
-				router.navigate('forums', {trigger: true})
-			},
-			error: function(){
-				console.log("nope")
-			}
-		}).then(function() {
-			comment.set('post', post);
-			comment.set('parent', topic);
-
-			comment.save().then(function() {
-				var relation = topic.relation("comments");
-				relation.add(comment);
-				topic.save();
-			});
-		})
+				comment.save().then(function() {
+					var relation = topic.relation("comments");
+					relation.add(comment);
+					topic.save();
+				});
+			})
+		}
 	}
 });
