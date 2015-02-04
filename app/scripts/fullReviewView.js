@@ -115,21 +115,26 @@ var FullReviewView = Parse.View.extend({
 		var comment = new ReviewComment();
 		var content = $('.comment').val();
 		var that = this;
-		comment.set('post', content);
-		comment.set('parent', topic);
 
-		comment.save({
-			success: function(comment) {
-				var relation = topic.relation("comments");
-				relation.add(comment);
-				topic.save();
-				that.load();
-			},
-			error: function(comment, error) {
-                console.log(error.code+"::"+error.message);
-            }
-		});
-		$('.comment').val('');
+		if (content == ""){
+			alert("You didn't write anything!")
+		} else {
+			comment.set('post', content);
+			comment.set('parent', topic);
+
+			comment.save({
+				success: function(comment) {
+					var relation = topic.relation("comments");
+					relation.add(comment);
+					topic.save();
+					that.load();
+				},
+				error: function(comment, error) {
+	                console.log(error.code+"::"+error.message);
+	            }
+			});
+			$('.comment').val('');
+		}
 	},
 
 	newsPost: function() {
@@ -137,21 +142,26 @@ var FullReviewView = Parse.View.extend({
 		var comment = new NewsComment();
 		var content = $('.comment').val();
 		var that = this;
-		comment.set('post', content);
-		comment.set('parent', topic);
 
-		comment.save({
-			success: function(comment) {
-				var relation = topic.relation("comments");
-				relation.add(comment);
-				topic.save();
-				that.load();
-			},
-			error: function(comment, error) {
-                console.log(error.code+"::"+error.message);
-            }
-		});
-		$('.comment').val('');
+		if (content == "") {
+			alert("You didn't write anything!")
+		} else {
+			comment.set('post', content);
+			comment.set('parent', topic);
+
+			comment.save({
+				success: function(comment) {
+					var relation = topic.relation("comments");
+					relation.add(comment);
+					topic.save();
+					that.load();
+				},
+				error: function(comment, error) {
+	                console.log(error.code+"::"+error.message);
+	            }
+			});
+			$('.comment').val('');
+		}
 	},
 
 	reviewerPost: function() {
@@ -159,21 +169,26 @@ var FullReviewView = Parse.View.extend({
 		var comment = new ReviewerComment();
 		var content = $('.comment').val();
 		var that = this;
-		comment.set('post', content);
-		comment.set('parent', topic);
 
-		comment.save({
-			success: function(comment) {
-				var relation = topic.relation("comments");
-				relation.add(comment);
-				topic.save();
-				that.load();
-			},
-			error: function(comment, error) {
-                console.log(error.code+"::"+error.message);
-            }
-		});
-		$('.comment').val('');
+		if (content == "") {
+			alert("You didn't write anything!")
+		} else {
+			comment.set('post', content);
+			comment.set('parent', topic);
+
+			comment.save({
+				success: function(comment) {
+					var relation = topic.relation("comments");
+					relation.add(comment);
+					topic.save();
+					that.load();
+				},
+				error: function(comment, error) {
+	                console.log(error.code+"::"+error.message);
+	            }
+			});
+			$('.comment').val('');
+		}
 	}
 });
 
