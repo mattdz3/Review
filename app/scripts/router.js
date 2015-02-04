@@ -57,7 +57,6 @@ var Router = Parse.Router.extend({
 		var gameQuery = new Parse.Query(Review);
 		gameQuery.find({
 			success: function(reviews) {
-				
 				new MainSideView({
 					model: reviews[0]
 				});
@@ -68,6 +67,7 @@ var Router = Parse.Router.extend({
 					model: reviews[1]
 				});
 				reviews.forEach(function(review) {
+					console.log(review)
 					new ReviewView({
 						model: review
 					});	
@@ -75,19 +75,22 @@ var Router = Parse.Router.extend({
 			}
 		}).done(function() {
 			var reviewerQuery = new Parse.Query(Reviewer);
+
 			reviewerQuery.find({
 				success: function(reviewers) {
 					var length = reviewers.length;
+					var reverseReviewer = reviewers.reverse();
 					new MainSideView({
-						model: reviewers[length - 1]
+						model: reviewers[0]
 					});
 					new SideReviewerView({
-						model: reviewers[length - 1]
+						model: reviewers[0]
 					});
 					new SideReviewerView({
-						model: reviewers[length - 2]
+						model: reviewers[1]
 					});
-					reviewers.forEach(function(reviewer) {
+					reverseReviewer.forEach(function(reviewer) {
+						console.log(reviewer)
 						new ReviewerView({
 							model: reviewer
 						});
@@ -99,21 +102,21 @@ var Router = Parse.Router.extend({
 
 			newsQuery.find({
 				success: function(allNews) {
+					var reverseNews = allNews.reverse();
 					var length = allNews.length;
 					new MainSideView({
-						model: allNews[length - 1]
+						model: allNews[0]
 					});
 					new SideNewsView({
-						model: allNews[length - 1]
+						model: allNews[0]
 					});
 					new SideNewsView({
-						model: allNews[length - 2]
+						model: allNews[1]
 					});
-					allNews.forEach(function(news) {
+					reverseNews.forEach(function(news) {
 						new NewsView({
 							model: news
 						});
-						
 					});
 				}
 			});
@@ -128,6 +131,7 @@ var Router = Parse.Router.extend({
 		var gameQuery = new Parse.Query(Review);
 		gameQuery.find({
 			success: function(reviews) {
+				console.log(reviews)
 				$('.hide-game').hide();
 				$('.hide-team').hide();
 				$('.team-sidebar').hide();
@@ -244,34 +248,33 @@ var Router = Parse.Router.extend({
 					model: reviews[1]
 				});
 			}
-		}).done(function() {
-			var reviewerQuery = new Parse.Query(Reviewer);
-			reviewerQuery.find({
-				success: function(reviewers) {
-					var length = reviewers.length;
-					
-					new SideReviewerView({
-						model: reviewers[length - 1]
-					});
-					new SideReviewerView({
-						model: reviewers[length - 2]
-					});
-				}
-			});
-		}).done(function() {
-			var newsQuery = new Parse.Query(News);
+		});
 
-			newsQuery.find({
-				success: function(allNews) {
-					var length = allNews.length;
-					
-					allNews.forEach(function(news) {
-						new NewsView({
-							model: news
-						});	
-					});
-				}
-			});
+		var reviewerQuery = new Parse.Query(Reviewer);
+		reviewerQuery.find({
+			success: function(reviewers) {
+				var length = reviewers.length;
+				
+				new SideReviewerView({
+					model: reviewers[length - 1]
+				});
+				new SideReviewerView({
+					model: reviewers[length - 2]
+				});
+			}
+		});
+
+		var newsQuery = new Parse.Query(News);
+		newsQuery.find({
+			success: function(allNews) {
+				var reverse = allNews.reverse();
+
+				reverse.forEach(function(news) {
+					new NewsView({
+						model: news
+					});	
+				});
+			}
 		});			
 	},
 
@@ -298,7 +301,8 @@ var Router = Parse.Router.extend({
 			var reviewerQuery = new Parse.Query(Reviewer);
 			reviewerQuery.find({
 				success: function(reviewers) {
-					reviewers.forEach(function(reviewer) {
+					var reverse = reviewers.reverse();
+					reverse.forEach(function(reviewer) {
 						new ReviewerView({
 							model: reviewer
 						});
@@ -307,7 +311,6 @@ var Router = Parse.Router.extend({
 			});
 		}).done(function() {
 			var newsQuery = new Parse.Query(News);
-
 			newsQuery.find({
 				success: function(allNews) {
 					var length = allNews.length;
