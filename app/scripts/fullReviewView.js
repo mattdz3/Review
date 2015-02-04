@@ -63,7 +63,6 @@ var FullReviewView = Parse.View.extend({
 		$('.reviewerPost').hide();
 
 		var modelId = this.model.id;
-		console.log(modelId)
 
 		var query = new Parse.Query(ReviewComment)
 		query.find({

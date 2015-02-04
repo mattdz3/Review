@@ -67,7 +67,6 @@ var Router = Parse.Router.extend({
 					model: reviews[1]
 				});
 				reviews.forEach(function(review) {
-					console.log(review)
 					new ReviewView({
 						model: review
 					});	
@@ -90,7 +89,6 @@ var Router = Parse.Router.extend({
 						model: reviewers[1]
 					});
 					reverseReviewer.forEach(function(reviewer) {
-						console.log(reviewer)
 						new ReviewerView({
 							model: reviewer
 						});
@@ -131,7 +129,6 @@ var Router = Parse.Router.extend({
 		var gameQuery = new Parse.Query(Review);
 		gameQuery.find({
 			success: function(reviews) {
-				console.log(reviews)
 				$('.hide-game').hide();
 				$('.hide-team').hide();
 				$('.team-sidebar').hide();

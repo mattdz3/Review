@@ -9,7 +9,6 @@ var CreatePostView = Parse.View.extend({
 	},
 
 	initialize: function() {
-		console.log(this.model)
 		$('.create-new-post').hide();
 		$('.views-container').append(this.el);
 		this.render();

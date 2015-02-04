@@ -20,7 +20,6 @@ var CreateTopicView = Parse.View.extend({
 	},
 
 	createTopic: function() {
-		console.log('cool');
 		var topic = new Forum();
 		var comment = new Comment();
 		var title = $('.create-topic').val();

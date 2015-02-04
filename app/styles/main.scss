@@ -909,7 +909,7 @@ body {
     width: 100%;
     ul {
       width: 70%;
-      margin: 0;
+      margin-left: 0;
       text-align: left;
     }
   }
@@ -925,15 +925,22 @@ body {
     width: 100%;
     ul {
       width: 100%;
-      margin: 0;
       text-align: left;
     }
   }
 
-  .views-container .main-view .reviews-container 
-  .review-contents .full-review {
-    width: 80%;
+  .main-slidr {
+    display: none;
   }
+
+  .views-container {
+    margin-top: 50px;
+    border-top: 1px solid $border;
+  .main-view .reviews-container 
+  .review-contents .full-review {
+      width: 80%;
+    }
+  } 
 }
 
 @media screen and (max-width: 600px) {
@@ -941,6 +948,7 @@ body {
     width: 100%;
 
     ul {
+      margin-top: 8px;
       width: 100%;
 
       li {
@@ -952,6 +960,10 @@ body {
         font-size: 12px;
       }
     }
+  }
+
+  .uploader {
+    display: none;
   }
 }
 
