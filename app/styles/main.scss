@@ -892,18 +892,14 @@ body {
   width: 70%;
   margin: 0 auto;
   padding-bottom: 50px;
+  text-align: center;
 
   h1 {
-    font-family: $header-font;
-    border-left: 1px solid $border;
-    border-bottom: 1px solid $border;
-    border-radius: 0 3px;
     padding: 4px;
     margin: 0;
   }
 
-  video {
-    width: 100%;
+  iframe {
     margin-top: 30px;
   }
 }
