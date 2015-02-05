@@ -26,35 +26,39 @@
     <div class="top-header">
       <img class="logo" src="images/8bit.png">
       <h1 class="title">JoyGun</h1>
-      <ul>
-        <li><a href="#login">Reviewer Login</a></li>
-        <li><a href="#join" class="reviewer-button">Join</li></a>
-        <li class='logout reviewer-button'><a>logout</a></li>
-        <li><a href="#createReview" class="reviewer-button">Create Review</li></a>
-      </ul>
+      <span class="searchbar"></span>
+      <div class="display-search"></div>
     </div>
+
     <div class="header">
       <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#game">Games</a></li>
         <li><a href="#news">News</a></li>
         <li><a href="#reviewer">Industry</a></li>
+        <li><a href="#video">Videos</a></li>
         <li><a href="#team">Team</a></li>
         <li><a href="#forums">Forum</a></li>
       </ul>
-      <span class="searchbar"></span>
-      <div class="display-search"></div> 
+       
     </div>
+
+
     <div class="banner"></div>
     <div class="main-slidr"></div>
 
     <div class="views-container"></div>
 
-    
     <div class="footer">
       <ul>
         <li><a href="#team">About</a></li>
         <li><a href="mailto:joygungaming@gmail.com">Contact</a></li>
+      </ul>
+      <ul class="reviewer-login">
+        <li><a href="#login">Reviewer Login</a></li>
+        <li><a href="#join" class="reviewer-button">Join</li></a>
+        <li class='logout reviewer-button'><a>logout</a></li>
+        <li><a href="#createReview" class="reviewer-button">Create Review</li></a>
       </ul>
       <!-- <span><a href="http://mattdz3.github.io/Portfolio/">Created By Matt Dougherty</a></span> -->
     </div>
@@ -501,6 +505,11 @@
       </div>
     </script>
 
+    <script type="text/template" class="video-view">
+      <h1> Newest Videos </h1>
+      <video controls="controls" src="video/cool.MOV"> </video>
+    </script>
+
     <script type="text/template" class="news-view">
         <div class="full-review">
         <h2> <%= name %> </h2>
@@ -614,6 +623,7 @@
         <script src="scripts/CreateSecondReviewView.js"></script>
         <script src="scripts/newsView.js"></script>
         <script src="scripts/reviewerView.js"></script>
+        <script src="scripts/videoView.js"></script>
         <script src="scripts/mainForumView.js"></script>
         <script src="scripts/forumView.js"></script>
         <script src="scripts/teamView.js"></script>

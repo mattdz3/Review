@@ -11,6 +11,7 @@ var Router = Parse.Router.extend({
 		'login'            : 'login',
 		'game'             : 'game',
 		'news'             : 'news',
+		'video'            : 'video',
 		'reviewer'         : 'reviewer',
 		'createReview'     : 'createReview',
 		'createSecond'     : 'createSecond',
@@ -327,6 +328,14 @@ var Router = Parse.Router.extend({
 		$('.searchbar').hide();
 		$('.main-slidr').empty();
 		var view = new TeamView();
+		this.swap(view);
+	},
+
+	video: function() {
+		$('.views-container').empty();
+		$('.searchbar').hide();
+		$('.main-slidr').empty();
+		var view = new VideoView();
 		this.swap(view);
 	},
 
