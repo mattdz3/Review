@@ -58,6 +58,7 @@ var Router = Parse.Router.extend({
 		var gameQuery = new Parse.Query(Review);
 		gameQuery.find({
 			success: function(reviews) {
+				var reverseReviews = reviews.reverse();
 				new MainSideView({
 					model: reviews[0]
 				});
@@ -133,7 +134,9 @@ var Router = Parse.Router.extend({
 				$('.hide-game').hide();
 				$('.hide-team').hide();
 				$('.team-sidebar').hide();
+				var reverse = reviews.reverse();
 				reviews.forEach(function(review) {
+
 					new ReviewView({
 						model: review
 					});	
@@ -239,6 +242,7 @@ var Router = Parse.Router.extend({
 				$('.hide-news').hide();
 				$('.hide-team').hide();
 				$('.team-sidebar').hide();
+				var reverse = reviews.reverse();
 				new SideGameView({
 					model: reviews[0]
 				});
@@ -288,6 +292,7 @@ var Router = Parse.Router.extend({
 				$('.hide-industry').hide();
 				$('.hide-team').hide();
 				$('.team-sidebar').hide();
+				var reverse = reviews.reverse();
 				new SideGameView({
 					model: reviews[0]
 				});

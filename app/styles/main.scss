@@ -6,7 +6,7 @@ $button-background: #586E57;
 $border: #AAAAAA;
 $review-background: #3F733C;
 $main-font-color: #2C2C2E;
-$transition-color: #CD3232;
+$transition-color: #3E9183;
 $header-font: 'Ropa Sans', sans-serif;
 
 
@@ -439,6 +439,12 @@ body {
               left: 75px;
               width: 200px;
               font-size: 14px;
+
+              br {
+                height: 10px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+              }
             }
           }
         
@@ -979,7 +985,7 @@ body {
   }
 }
 
-@media screen and (max-width: 472px) {
+@media screen and (max-width: 500px) {
   .searchbar {
     display: none;
   }
