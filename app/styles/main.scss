@@ -6,9 +6,8 @@ $button-background: #586E57;
 $border: #AAAAAA;
 $review-background: #3F733C;
 $main-font-color: #2C2C2E;
-$transition-color: #3E9183;
+$transition-color: #192C55;
 $header-font: 'Ropa Sans', sans-serif;
-
 
 body {
   margin: 0;
@@ -89,18 +88,9 @@ body {
   color: $main-font-color;
   border-bottom: 1px solid $border;
   font-family: $header-font;
-
-  input {
-    display: inline-block;
-    float: right;
-    margin-right: 100px;
-    border: 2px solid $border;
-    border-radius: 3px;
-    padding: 3px;
-  }
+  text-align: center;
 
   ul {
-    vertical-align: bottom;
     width: 100%;
     margin: 0;
     margin-top: 9px;
@@ -125,10 +115,14 @@ body {
         cursor: pointer;
 
         &:hover {
-          border-left: 1px solid $transition-color;
           transition: all 0.2s ease;
           color: $transition-color;
         }
+      }
+
+      .border-right {
+        padding-right: 25px;
+        border-right: 1px solid $border;
       }
     }
   } 
@@ -534,10 +528,17 @@ body {
 
           &:hover {
             transition: all 0.2s ease;
-            border-bottom: 2px solid $transition-color;
-            border-left: 2px solid $transition-color;
-            border-radius: 0 3px;
+            border-bottom: 1px solid $transition-color;
+            border-left: 1px solid $transition-color;
+            border-radius: 3px;
             cursor: pointer;
+            color: $border;
+            position: relative;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: $transition-color;
           }
 
           .uploader {
