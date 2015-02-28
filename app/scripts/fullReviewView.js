@@ -114,13 +114,20 @@ var FullReviewView = Parse.View.extend({
 		var topic = this.model;
 		var comment = new ReviewComment();
 		var content = $('.comment').val();
+		var user = Parse.User.current();
+		var pic = user.attributes.userPic;
+		var username = user.attributes.username;
 		var that = this;
 
 		if (content == ""){
-			alert("You didn't write anything!")
+			alert("You didn't write anything!");
+		} else if (user == null) {
+			alert("Login to leave comment!");
 		} else {
 			comment.set('post', content);
 			comment.set('parent', topic);
+			comment.set('username', username);
+			comment.set('userPhoto', pic);
 
 			comment.save({
 				success: function(comment) {
@@ -141,13 +148,20 @@ var FullReviewView = Parse.View.extend({
 		var topic = this.model;
 		var comment = new NewsComment();
 		var content = $('.comment').val();
+		var user = Parse.User.current();
+		var pic = user.attributes.userPic;
+		var username = user.attributes.username;
 		var that = this;
 
 		if (content == "") {
-			alert("You didn't write anything!")
+			alert("You didn't write anything!");
+		} else if (user == null) {
+			alert("Login to leave comment!");
 		} else {
 			comment.set('post', content);
 			comment.set('parent', topic);
+			comment.set('username', username);
+			comment.set('userPhoto', pic);
 
 			comment.save({
 				success: function(comment) {
@@ -168,13 +182,20 @@ var FullReviewView = Parse.View.extend({
 		var topic = this.model;
 		var comment = new ReviewerComment();
 		var content = $('.comment').val();
+		var user = Parse.User.current();
+		var pic = user.attributes.userPic;
+		var username = user.attributes.username;
 		var that = this;
 
 		if (content == "") {
-			alert("You didn't write anything!")
+			alert("You didn't write anything!");
+		} else if (user == null) {
+			alert("Login to leave comment!");
 		} else {
 			comment.set('post', content);
 			comment.set('parent', topic);
+			comment.set('username', username);
+			comment.set('userPhoto', pic);
 
 			comment.save({
 				success: function(comment) {

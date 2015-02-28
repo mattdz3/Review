@@ -26,8 +26,12 @@
     <div class="top-header">
       <img class="logo" src="images/8bit.png">
       <h1 class="title">JoyGun</h1>
-      <span class="searchbar"></span>
-      <div class="display-search"></div>
+      <ul class="reviewer-login">
+        <li><a href="#login">Login</a></li>
+        <li><a href="#join" class="reviewer-button">Join</li></a>
+        <li class='logout reviewer-button'><a>logout</a></li>
+      </ul>
+      
     </div>
 
     <div class="header">
@@ -37,10 +41,11 @@
         <li><a href="#news">News</a></li>
         <li><a href="#reviewer">Industry</a></li>
         <li><a href="#video">Videos</a></li>
-        <li><a href="#team">Team</a></li>
+        <li><a href="#team">About</a></li>
         <li><a class="border-right" href="#forums">Forum</a></li>
       </ul>
-       
+       <span class="searchbar"></span>
+      <div class="display-search"></div>
     </div>
 
 
@@ -53,12 +58,6 @@
       <ul>
         <li><a href="#team">About</a></li>
         <li><a href="mailto:joygungaming@gmail.com">Contact</a></li>
-      </ul>
-      <ul class="reviewer-login">
-        <li><a href="#login">Reviewer Login</a></li>
-        <li><a href="#join" class="reviewer-button">Join</li></a>
-        <li class='logout reviewer-button'><a>logout</a></li>
-        <li><a href="#createReview" class="reviewer-button">Create Review</li></a>
       </ul>
       <!-- <span><a href="http://mattdz3.github.io/Portfolio/">Created By Matt Dougherty</a></span> -->
     </div>
@@ -115,6 +114,7 @@
           </a>
         </div>
       </div>
+      <div class="bottom-news-container"></div>
     </script>
 
     <script type="text/template" class="join-view">
@@ -271,31 +271,45 @@
               <%= reviewOne %>
             </span>
 
-            <div class="image-container">
-              <img src="<%=imageOne%>">
-              <p><%=captionOne%></p>
-            </div>
+            <% if (this.model.get('imageOne') == undefined) { %>
+              <span></span>
+            <% } else { %>
+              <div class="image-container">
+                <img src="<%=imageOne%>">
+                <p><%=captionOne%></p>
+              </div>
+            <% } %>
 
             <span>
               <%= reviewTwo %>
             </span>
 
-            <div class="image-container">
-              <img src="<%=imageTwo%>">
-              <p><%=captionTwo%></p>
-            </div>
+            <% if (this.model.get('imageTwo') == undefined) { %>
+              <span></span>
+            <% } else { %>
+              <div class="image-container">
+                <img src="<%=imageTwo%>">
+                <p><%=captionTwo%></p>
+              </div>
+            <% } %>
 
             <span>
               <%= reviewThree %>
             </span>
 
-            <div class="image-container">
-              <img src="<%=imageThree%>">
-              <p><%=captionThree%></p>
-            </div>
+            <% if (this.model.get('imageThree') == undefined) { %>
+              <span></span>
+            <% } else { %>
+              <div class="image-container">
+                <img src="<%=imageThree%>">
+                <p><%=captionThree%></p>
+              </div>
+            <% } %>
+
             <span>
               <%=reviewFour%>
             </span>
+
             <div class="review-score">
               <%= score %>
             </div>
@@ -398,8 +412,6 @@
       </div>
 
       <button class='load-comments'> Load Comments </button>
-      <button class="create-second-review">Create Second Review</button>
-
       
       <div class="comment-container">
         <div class="comments-container"></div>
@@ -416,6 +428,19 @@
     </script>
 
     <script type="text/template" class="comment-view">
+
+    <% if (this.model.get('userPhoto') == undefined) { %>
+      <div class="comment-user-photo"><img src="../images/user.png"></div>
+    <% } else { %>
+      <div class="comment-user-photo"><img src="<%=attributes.userPhoto%>"></div>
+    <% } %>
+
+    <% if (this.model.get('username') == undefined) { %>
+      <div> Unknown </div>
+    <% } else { %>
+      <div><%=attributes.username%></div>
+    <% } %>
+
       <div><%=attributes.post%></div>
     </script>
 
@@ -434,10 +459,10 @@
           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           <div class='ul-container'>
-            <ul> Likes:
+            <ul> Likes
               <li>Cool Stuff</li>
             </ul>
-            <ul>Dislikes:
+            <ul>Dislikes
               <li>Uncool Stuff</li>
             </ul>
           </div>
@@ -454,10 +479,10 @@
           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
           proident.
           <div class='ul-container'>
-            <ul> Likes:
+            <ul> Likes
               <li>Cool Stuff</li>
             </ul>
-            <ul>Dislikes:
+            <ul>Dislikes
               <li>Uncool Stuff</li>
             </ul>
           </div>
@@ -474,10 +499,10 @@
           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
           proident.
           <div class='ul-container'>
-            <ul> Likes:
+            <ul> Likes
               <li>Cool Stuff</li>
             </ul>
-            <ul>Dislikes:
+            <ul>Dislikes
               <li>Uncool Stuff</li>
             </ul>
           </div>
@@ -487,18 +512,17 @@
       <div class="team-member">
         <img src="images/matt.jpeg">
         <div class="reviewer-info">
-          Hi my name is Matt Dougherty! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum. qui officia deserunt mollit anim id est laborum.
+          Hi my name is Matt! Too long have I read reviews where their word is supreme, and I don't think that is right. Things I look for in a game are a good story, and solid gameplay. If it has those two things I can over look a lot of problems, maybe the graphics are shit, that's alright the story made me shoot beer out of my nose last night. Maybe the physics are completely broken, that's fine I just surfed on a jumbo jet while shooting planes out of the sky. The only real question I'm concerned with is, is it fun?
           <div class='ul-container'>
-            <ul> Likes:
-              <li>Cool Stuff</li>
+            <ul> Likes
+              <li>RPG</li>
+              <li>Puzzle</li>
+              <li>3rd Person Shooters</li>
             </ul>
-            <ul>Dislikes:
-              <li>Uncool Stuff</li>
+            <ul>Dislikes
+              <li>1st Person Shooters</li>
+              <li>Restrictive gameplay</li>
+              <li>General Shittyness</li>
             </ul>
           </div>
         </div>
@@ -508,10 +532,13 @@
     <script type="text/template" class="video-view">
       <h1> Newest Videos </h1>
 
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/-TnFP4V0Ai0" frameborder="0" allowfullscreen></iframe>
+      <p> 2015 Most Wanted</p>
       <iframe width="560" height="315" src="https://www.youtube.com/embed/ZyWDJZZNpq0" frameborder="0" allowfullscreen></iframe>
       <p>I am so sneaky.</p>
       <iframe width="560" height="315" src="https://www.youtube.com/embed/qvmtL51LpCI" frameborder="0" allowfullscreen></iframe>
       <p>Master Assassin.</p>
+
     </script>
 
     <script type="text/template" class="news-view">
@@ -618,13 +645,12 @@
         <script src="scripts/sideNewsView.js"></script>
         <script src="scripts/sideReviewerView.js"></script>
         <script src="scripts/mainSideContainer.js"></script>
+        <script src="scripts/BottomNewsView.js"></script>
         <script src="scripts/slidrView.js"></script>
         <script src="scripts/loginView.js"></script>
         <script src="scripts/joinView.js"></script>
         <script src="scripts/reviewView.js"></script>
-        <script src="scripts/CreateReviewView.js"></script>
         <script src="scripts/fullReviewView.js"></script>
-        <script src="scripts/CreateSecondReviewView.js"></script>
         <script src="scripts/newsView.js"></script>
         <script src="scripts/reviewerView.js"></script>
         <script src="scripts/videoView.js"></script>

@@ -5,7 +5,7 @@ var JoinView = Parse.View.extend({
 	template: _.template($('.join-view').text()),
 
 	events: {
-		'click .create' : 'createUser',
+		'click .create'   : 'createUser',
 		'click .user-pic' : "addPic",
 	},
 

@@ -13,8 +13,6 @@ var Router = Parse.Router.extend({
 		'news'             : 'news',
 		'video'            : 'video',
 		'reviewer'         : 'reviewer',
-		'createReview'     : 'createReview',
-		'createSecond'     : 'createSecond',
 		'forums'           : 'forums',
 		'forums/:id'       : 'topic',
 		'createTopic'      : 'createTopic',
@@ -23,15 +21,6 @@ var Router = Parse.Router.extend({
 	initialize: function(options) {
 		this.currentView = null;
 		var user = Parse.User.current();
-
-		if (user == undefined) {
-			$('.reviewer-button').hide();
-		}
-		// } else if (user.id !== 'QhlOUZ9D7f' || 'eQjDxaKN4B' || '96Fg6Rt94H') {
-		// 	$('.reviewer-button').hide();
-		// } else if (user.id == 'QhlOUZ9D7f' || 'eQjDxaKN4B' || '96Fg6Rt94H') {
-		// 	$('.reviewer-button').show();
-		// }
 	
 		new SearchView();
 		$('.display-search').hide();				
@@ -39,14 +28,6 @@ var Router = Parse.Router.extend({
 
 	home: function() {
 		var user = Parse.User.current();
-
-		// if (user == undefined) {
-		// 	$('.reviewer-button').hide();
-		// } else if (user.id !== 'QhlOUZ9D7f' || 'eQjDxaKN4B' || '96Fg6Rt94H') {
-		// 	$('.reviewer-button').hide();
-		// } else if (user.id == 'QhlOUZ9D7f' || 'eQjDxaKN4B' || '96Fg6Rt94H') {
-		// 	$('.reviewer-button').show();
-		// }
 		
 		$('.views-container').empty();
 		$('.main-slidr').empty();
@@ -104,8 +85,15 @@ var Router = Parse.Router.extend({
 				success: function(allNews) {
 					var reverseNews = allNews.reverse();
 					var length = allNews.length;
-					new MainSideView({
+					console.log(reverseNews)
+					new BottomNewsView({
 						model: allNews[0]
+					});
+					new BottomNewsView({
+						model: allNews[1]
+					});
+					new BottomNewsView({
+						model: allNews[2]
 					});
 					new SideNewsView({
 						model: allNews[0]
@@ -188,17 +176,6 @@ var Router = Parse.Router.extend({
 		this.swap(view);
 	},
 
-	createReview: function() {
-		$('.main-slidr').empty();
-		if (Parse.User.current() != null ) {
-			$('.views-container').empty();
-			var view = new CreateReviewView();
-			this.swap(view);
-		} else {
-			router.navigate('login', {trigger: true})
-		}
-	},
-
 	review: function(id) {
 		$('.main-slidr').empty();
 		$('.comment-container').hide();
@@ -222,12 +199,6 @@ var Router = Parse.Router.extend({
 		// 		console.log('error')
 		// 	}
 		// });
-	},
-
-	createSecond: function() {
-		$('.views-container').empty();
-		var view = new CreateSecondReviewView();
-		this.swap(view);
 	},
 
 	news: function() {

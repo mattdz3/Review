@@ -12,3 +12,4 @@ $('.logout').click(function() {
 	router.navigate("home", {trigger: true})
 	alert('user has logged out!')
 });
+
