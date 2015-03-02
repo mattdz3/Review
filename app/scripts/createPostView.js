@@ -24,14 +24,19 @@ var CreatePostView = Parse.View.extend({
 		var topic = this.model;
 		var id = topic.id;
 		var comment = new Comment();
+		var user = Parse.User.current();
 		var content = $('.create-post').val();
 
-		if (content == "") {
-			alert("You didn't write anything!")
+		if (content == "" || user == undefined) {
+			alert("You need to write something or login!")
 		} else {
+			var pic = user.attributes.userPic;
+			var username = user.attributes.username;
 
 			comment.set('post', content);
 			comment.set('parent', topic);
+			comment.set('username', username);
+			comment.set('userPhoto', pic);
 
 			comment.save().then(function() {
 				var relation = topic.relation("comments");

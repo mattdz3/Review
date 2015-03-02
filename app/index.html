@@ -428,20 +428,21 @@
     </script>
 
     <script type="text/template" class="comment-view">
+      <div class="user-info">
+        <% if (this.model.get('userPhoto') == undefined) { %>
+          <div class="comment-user-photo"><img src="../images/user.png"></div>
+        <% } else { %>
+          <div class="comment-user-photo"><img src="<%=attributes.userPhoto%>"></div>
+        <% } %>
 
-    <% if (this.model.get('userPhoto') == undefined) { %>
-      <div class="comment-user-photo"><img src="../images/user.png"></div>
-    <% } else { %>
-      <div class="comment-user-photo"><img src="<%=attributes.userPhoto%>"></div>
-    <% } %>
+        <% if (this.model.get('username') == undefined) { %>
+          <div> Unknown </div>
+        <% } else { %>
+          <div><%=attributes.username%></div>
+        <% } %>
+      </div>
 
-    <% if (this.model.get('username') == undefined) { %>
-      <div> Unknown </div>
-    <% } else { %>
-      <div><%=attributes.username%></div>
-    <% } %>
-
-      <div><%=attributes.post%></div>
+      <div class="view-post"><%=attributes.post%></div>
     </script>
 
     <script type="text/template" class="team-view">
@@ -588,7 +589,13 @@
     </script>
 
     <script type="text/template" class="forums-view">
-      <div class="topic-title"><%=name%></div>
+      <div class="topic-container">
+        <div class="topic-title"><%=name%></div>
+        <div class="topic-uploader">
+          <img src="<%=userPhoto%>">
+          <span> <%=username%> </span>
+        </div>
+      </div>
     </script>
 
     <script type="text/template" class="topic-view">
@@ -611,7 +618,13 @@
     </script>
 
     <script type="text/template" class="post-view">
-      <div class="post"><%=this.model.attributes.post%></div>
+      <div class="full-post">
+        <div class="post-info">
+          <img src="<%=this.model.attributes.userPhoto%>">
+          <span> <%=this.model.attributes.username%> </span>
+        </div>
+        <div class="post"><%=this.model.attributes.post%></div>
+      </div>
     </script>
 
 

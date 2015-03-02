@@ -22,14 +22,19 @@ var CreateTopicView = Parse.View.extend({
 	createTopic: function() {
 		var topic = new Forum();
 		var comment = new Comment();
+		var user = Parse.User.current();
 		var title = $('.create-topic').val();
 		var post = $('.create-post').val();
 
-		if (title == "" || post == "") {
-			alert("Looks like you forgot something!")
+		if (title == "" || post == "" || user == null) {
+			alert("Did you write something or do you need to login?")
 		} else {
+			var pic = user.attributes.userPic;
+			var username = user.attributes.username;
 
 			topic.set('name', title);
+			topic.set('username', username);
+			topic.set('userPhoto', pic);
 			topic.save(null, {
 				success: function() {
 					$('.create-topic').val('');
@@ -42,6 +47,8 @@ var CreateTopicView = Parse.View.extend({
 			}).then(function() {
 				comment.set('post', post);
 				comment.set('parent', topic);
+				comment.set('username', username);
+				comment.set('userPhoto', pic);
 
 				comment.save().then(function() {
 					var relation = topic.relation("comments");

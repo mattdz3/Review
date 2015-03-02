@@ -115,15 +115,17 @@ var FullReviewView = Parse.View.extend({
 		var comment = new ReviewComment();
 		var content = $('.comment').val();
 		var user = Parse.User.current();
-		var pic = user.attributes.userPic;
-		var username = user.attributes.username;
+		
 		var that = this;
 
 		if (content == ""){
 			alert("You didn't write anything!");
 		} else if (user == null) {
-			alert("Login to leave comment!");
+			alert("Login to leave a comment!");
 		} else {
+			var pic = user.attributes.userPic;
+			var username = user.attributes.username;
+
 			comment.set('post', content);
 			comment.set('parent', topic);
 			comment.set('username', username);
@@ -149,15 +151,17 @@ var FullReviewView = Parse.View.extend({
 		var comment = new NewsComment();
 		var content = $('.comment').val();
 		var user = Parse.User.current();
-		var pic = user.attributes.userPic;
-		var username = user.attributes.username;
+		
 		var that = this;
 
 		if (content == "") {
 			alert("You didn't write anything!");
 		} else if (user == null) {
-			alert("Login to leave comment!");
+			alert("Login to leave a comment!");
 		} else {
+			var pic = user.attributes.userPic;
+			var username = user.attributes.username;
+
 			comment.set('post', content);
 			comment.set('parent', topic);
 			comment.set('username', username);
@@ -183,15 +187,17 @@ var FullReviewView = Parse.View.extend({
 		var comment = new ReviewerComment();
 		var content = $('.comment').val();
 		var user = Parse.User.current();
-		var pic = user.attributes.userPic;
-		var username = user.attributes.username;
+		
 		var that = this;
 
 		if (content == "") {
 			alert("You didn't write anything!");
 		} else if (user == null) {
-			alert("Login to leave comment!");
+			alert("Login to leave a comment!");
 		} else {
+			var pic = user.attributes.userPic;
+			var username = user.attributes.username;
+			
 			comment.set('post', content);
 			comment.set('parent', topic);
 			comment.set('username', username);

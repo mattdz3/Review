@@ -431,6 +431,25 @@ body {
               margin: 10px;
               margin-top: 25px;
               padding: 5px;
+              position: relative;
+
+              .user-info {
+                width: 20%;
+                display: inline-block;
+
+                img {
+                  width: 50px;
+                  height: 50px;
+                  border-radius: 4px;
+                  border: 1px solid $border;
+                }
+              }
+
+              .view-post {
+                display: inline-block;
+                width: 70%;
+                vertical-align: top;
+              }
             }
           }
         }
@@ -847,23 +866,45 @@ body {
 
         .main-topic-title {
           font-size: 25px;
-          margin-top: 40px;
-          margin-left: 40px;
+          margin: 40px;
         }
 
         .posts {
-          width: 80%;
+          width: 100%;
 
           .post-view {
             width: 100%;
+            padding: 10px;
+            margin: 20px;
+            border-left: 1px solid $border;
+            border-bottom: 1px solid $border;
+            border-radius: 0 3px;
 
-            .post {
-              width: 80%;
-              margin: 40px;
-              padding: 10px;
-              border-bottom: 1px solid $border;
-              border-left: 1px solid $border;
-              border-radius: 0 3px;
+            .full-post {
+              width: 100%;
+              position: relative;
+
+              .post {
+                display: inline-block;
+                width: 80%;
+                vertical-align: top;
+              }
+
+              .post-info {
+                width: 15%;
+                display: inline-block;
+
+                img {
+                  width: 50px;
+                  height: 50px;
+                  border-radius: 3px;
+                  border: 1px solid $border;
+                }
+
+                span {
+                  display: block;
+                }
+              }
             }
           }
         }
@@ -886,6 +927,43 @@ body {
           border-radius: 0 3px;
           color: $transition-color;
           transition: all 0.2s ease;
+        }
+
+        .topic-container {
+          width: 100%;
+          position: relative;
+
+          .topic-title {
+            width: 80%;
+            display: inline-block;
+            vertical-align: top;
+            font-size: 20px;
+            padding: 0 10px;
+          }
+
+          .topic-uploader {
+            width: 15%;
+            height: 120px;
+            display: inline-block;
+            position: relative;
+            vertical-align: top;
+
+            img {
+              width: 60px;
+              height: 60px;
+              border-radius: 3px;
+              border: 1px solid $border;
+              float: right;
+
+            }
+
+            span {
+              text-align: right;
+              position: absolute;
+              bottom: 0;
+              right: 0;
+            }
+          }
         }
       }
     }

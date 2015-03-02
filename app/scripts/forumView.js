@@ -5,7 +5,7 @@ var ForumsView = Parse.View.extend({
 	template: _.template($('.forums-view').text()),
 
 	events: {
-		"click .topic-title" : "fullView",
+		"click .topic-container" : "fullView",
 	},
 
 	initialize: function() {

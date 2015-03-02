@@ -338,6 +338,10 @@ var Router = Parse.Router.extend({
 		})
 	},
 
+	// topic: function() {
+	// 	console.log(this.model)
+	// },
+
 	createTopic: function() {
 		$('.views-container').empty();
 		var view = new CreateTopicView();
