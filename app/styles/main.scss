@@ -903,6 +903,8 @@ body {
 
                 span {
                   display: block;
+                  max-width: 110px;
+                  overflow: scroll;
                 }
               }
             }
@@ -959,6 +961,8 @@ body {
 
             span {
               text-align: right;
+              max-width: 120px;
+              overflow: scroll;
               position: absolute;
               bottom: 0;
               right: 0;
@@ -1012,7 +1016,7 @@ body {
     width: 90%;
 
     div {
-      margin-left: 20px;
+      padding: 20px;
       font-size: 25px;
     }
 
