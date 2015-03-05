@@ -39,17 +39,18 @@ var Router = Parse.Router.extend({
 		var gameQuery = new Parse.Query(Review);
 		gameQuery.find({
 			success: function(reviews) {
-				var reverseReviews = reviews.reverse();
+				var inOrder = _.sortBy(reviews, 'createdAt')
+				var reverseReviews = inOrder.reverse();
 				new MainSideView({
-					model: reviews[0]
+					model: reverseReviews[0]
 				});
 				new SideGameView({
-					model: reviews[0]
+					model: reverseReviews[0]
 				});
 				new SideGameView({
-					model: reviews[1]
+					model: reverseReviews[1]
 				});
-				reviews.forEach(function(review) {
+				reverseReviews.forEach(function(review) {
 					new ReviewView({
 						model: review
 					});	
@@ -61,17 +62,18 @@ var Router = Parse.Router.extend({
 			reviewerQuery.find({
 				success: function(reviewers) {
 					var length = reviewers.length;
-					var reverseReviewer = reviewers.reverse();
+					var inOrder = _.sortBy(reviewers, 'createdAt')
+					var reverseReviewers = inOrder.reverse();
 					new MainSideView({
-						model: reviewers[0]
+						model: reviewers[length - 1]
 					});
 					new SideReviewerView({
-						model: reviewers[0]
+						model: reviewers[length - 1]
 					});
 					new SideReviewerView({
-						model: reviewers[1]
+						model: reviewers[length - 2]
 					});
-					reverseReviewer.forEach(function(reviewer) {
+					reverseReviewers.forEach(function(reviewer) {
 						new ReviewerView({
 							model: reviewer
 						});
@@ -83,23 +85,17 @@ var Router = Parse.Router.extend({
 
 			newsQuery.find({
 				success: function(allNews) {
-					var reverseNews = allNews.reverse();
+
 					var length = allNews.length;
-					console.log(reverseNews)
-					new BottomNewsView({
-						model: allNews[0]
-					});
-					new BottomNewsView({
-						model: allNews[1]
-					});
-					new BottomNewsView({
-						model: allNews[2]
+					var inOrder = _.sortBy(allNews, 'createdAt')
+					console.log(inOrder)
+					var reverseNews = inOrder.reverse();
+
+					new SideNewsView({
+						model: reverseNews[0]
 					});
 					new SideNewsView({
-						model: allNews[0]
-					});
-					new SideNewsView({
-						model: allNews[1]
+						model: reverseNews[1]
 					});
 					reverseNews.forEach(function(news) {
 						new NewsView({
@@ -122,9 +118,9 @@ var Router = Parse.Router.extend({
 				$('.hide-game').hide();
 				$('.hide-team').hide();
 				$('.team-sidebar').hide();
-				var reverse = reviews.reverse();
-				reviews.forEach(function(review) {
-
+				var inOrder = _.sortBy(reviews, 'createdAt')
+				var reverseReviews = inOrder.reverse();
+				reverseReviews.forEach(function(review) {
 					new ReviewView({
 						model: review
 					});	
@@ -134,28 +130,32 @@ var Router = Parse.Router.extend({
 			var reviewerQuery = new Parse.Query(Reviewer);
 			reviewerQuery.find({
 				success: function(reviewers) {
+
+					var inOrder = _.sortBy(reviewers, 'createdAt')
+					var reverseReviewers = inOrder.reverse();
 					var length = reviewers.length;
-					
+
 					new SideReviewerView({
-						model: reviewers[length - 1]
+						model: reverseReviewers[0]
 					});
 					new SideReviewerView({
-						model: reviewers[length - 2]
+						model: reverseReviewers[1]
 					});
 				}
 			});
 		}).done(function() {
 			var newsQuery = new Parse.Query(News);
-
 			newsQuery.find({
 				success: function(allNews) {
 					var length = allNews.length;
-					
+					var inOrder = _.sortBy(allNews, 'createdAt')
+					var reverseNews = inOrder.reverse();
+
 					new SideNewsView({
-						model: allNews[length - 1]
+						model: reverseNews[0]
 					});
 					new SideNewsView({
-						model: allNews[length - 2]
+						model: reverseNews[1]
 					});
 				}
 			});
@@ -213,36 +213,36 @@ var Router = Parse.Router.extend({
 				$('.hide-news').hide();
 				$('.hide-team').hide();
 				$('.team-sidebar').hide();
-				var reverse = reviews.reverse();
+				var inOrder = _.sortBy(reviews, 'createdAt')
+				var reverseReviews = inOrder.reverse();
 				new SideGameView({
-					model: reviews[0]
+					model: reverseReviews[0]
 				});
 				new SideGameView({
-					model: reviews[1]
+					model: reverseReviews[1]
 				});
 			}
 		});
-
 		var reviewerQuery = new Parse.Query(Reviewer);
 		reviewerQuery.find({
 			success: function(reviewers) {
-				var length = reviewers.length;
+				var inOrder = _.sortBy(reviewers, 'createdAt')
+				var reverseReviewers = inOrder.reverse();
 				
 				new SideReviewerView({
-					model: reviewers[length - 1]
+					model: reverseReviewers[0]
 				});
 				new SideReviewerView({
-					model: reviewers[length - 2]
+					model: reverseReviewers[1]
 				});
 			}
 		});
-
 		var newsQuery = new Parse.Query(News);
 		newsQuery.find({
 			success: function(allNews) {
-				var reverse = allNews.reverse();
-
-				reverse.forEach(function(news) {
+				var inOrder = _.sortBy(allNews, 'createdAt')
+				var reverseNews = inOrder.reverse();
+				reverseNews.forEach(function(news) {
 					new NewsView({
 						model: news
 					});	
@@ -256,27 +256,28 @@ var Router = Parse.Router.extend({
 		$('.main-slidr').empty();
 		$('.searchbar').show();
 		var view = new HomeView();
-
 		var gameQuery = new Parse.Query(Review);
 		gameQuery.find({
 			success: function(reviews) {
 				$('.hide-industry').hide();
 				$('.hide-team').hide();
 				$('.team-sidebar').hide();
-				var reverse = reviews.reverse();
+				var inOrder = _.sortBy(reviews, 'createdAt')
+				var reverseReview = inOrder.reverse();
 				new SideGameView({
-					model: reviews[0]
+					model: reverseReview[0]
 				});
 				new SideGameView({
-					model: reviews[1]
+					model: reverseReview[1]
 				});
 			}
 		}).done(function() {
 			var reviewerQuery = new Parse.Query(Reviewer);
 			reviewerQuery.find({
 				success: function(reviewers) {
-					var reverse = reviewers.reverse();
-					reverse.forEach(function(reviewer) {
+					var inOrder = _.sortBy(reviewers, 'createdAt')
+					var reverseReviewers = inOrder.reverse();
+					reverseReviewers.forEach(function(reviewer) {
 						new ReviewerView({
 							model: reviewer
 						});
@@ -287,12 +288,13 @@ var Router = Parse.Router.extend({
 			var newsQuery = new Parse.Query(News);
 			newsQuery.find({
 				success: function(allNews) {
-					var length = allNews.length;
+					var inOrder = _.sortBy(allNews, 'createdAt')
+					var reverseNews = inOrder.reverse();
 					new SideNewsView({
-						model: allNews[length - 1]
+						model: reverseNews[0]
 					});
 					new SideNewsView({
-						model: allNews[length - 2]
+						model: reverseNews[1]
 					});
 				}
 			});
@@ -326,7 +328,8 @@ var Router = Parse.Router.extend({
 		var query = new Parse.Query(Forum);
 		query.find({
 			success: function(forums) {
-				forums.forEach(function(forum) {
+				var reverse = forums.reverse();
+				reverse.forEach(function(forum) {
 					new ForumsView({
 						model: forum
 					});
