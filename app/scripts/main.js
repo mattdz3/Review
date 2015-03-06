@@ -12,3 +12,13 @@ $('.logout').click(function() {
 	router.navigate("home", {trigger: true})
 	alert('user has logged out!')
 });
+
+$('.hb-menu').click(function() {
+	$('.top-nav').slideToggle();
+	$('li').click(function() {
+		$('.top-nav').slideUp();
+	});
+});
+
+
+

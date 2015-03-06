@@ -91,7 +91,12 @@ body {
   color: $main-font-color;
   border-bottom: 1px solid $border;
   font-family: $header-font;
-  // text-align: center;
+
+  img {
+    width: 40px;
+    margin-left: 30px;
+    display: none;
+  }
 
   .searchbar {
     float: right;
@@ -133,38 +138,30 @@ body {
   }
 
   ul {
-    width: 60%;
     margin: 0;
-    margin-top: 9px;
-    padding: 0;
+    padding-top: 8px;
+    padding-left: 20px;
     display: inline-block;
+    font-size: 20px;
 
     li {
-      font-size: 17px;
       display: inline-block;
-      margin: 10px;
-      margin-bottom: 3px;
-      margin-top: 0;
+      margin-left: 10px;
 
       a {
-        background-color: $background;
-        padding: 3px;
-        padding-left: 25px;
-        border-left: 1px solid $border;
+        padding: 0 10px;
+        border: 1px solid $border;
+        border-bottom: none;
+        border-top: none;
         text-decoration: none;
         color: $main-font-color;
-        transition: all 0.2s ease;
-        cursor: pointer;
+        transition: all 0.5s ease;
 
         &:hover {
-          transition: all 0.2s ease;
-          color: $transition-color;
-        }
-      }
-
-      .border-right {
-        padding-right: 25px;
-        border-right: 1px solid $border;
+          background-color: $transition-color;
+          color: $border;
+          transition: all 0.5s ease;
+        }         
       }
     }
   } 
@@ -1089,15 +1086,42 @@ body {
   } 
 }
 
-@media screen and (max-width: 825px) {
+@media screen and (max-width: 865px) {
 
   .header {
-    width: 100%;
-    ul {
-      margin-left: 0;
-      text-align: left;
+    height: 55px;
+
+    .top-nav {
+      display: none;
+      width: 30%;
+      background-color: $transition-color;
+      position: absolute;
+      padding: 10px;
+      margin-top: 1px;
+      border-radius: 3px;
+
+      li {
+        display: block;
+        margin: 32px;
+      }
+
+      a {
+        border: none;
+        border-left: 1px solid $border;
+        border-bottom: 1px solid $border;
+        border-radius: 0 3px;
+        color: $border;
+      }
+    }
+
+    img {
+      margin-top: 10px;
+      display: inline-block;
     }
   }
+}
+
+@media screen and (max-width: 825px) {
 
   .main-slidr {
     display: none;
@@ -1119,24 +1143,12 @@ body {
   } 
 }
 
-@media screen and (max-width: 671px) {
-  .header {
-    width: 100%;
+@media screen and (max-width: 640px) {
 
-    ul {
-      margin-top: 8px;
-      width: 100%;
-
-      li {
-        padding: 2px;
-        width: 7%;
-          a {
-          padding-left: 3px;
-          text-align: left;
-          font-size: 12px;
-        }
-      }
-    }
+  .top-header
+  ul
+  .logout {
+    display: none;
   }
 
   .uploader {
@@ -1144,8 +1156,4 @@ body {
   }
 }
 
-@media screen and (max-width: 500px) {
-  .searchbar {
-    display: none;
-  }
-}
+
