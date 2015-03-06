@@ -88,7 +88,6 @@ var Router = Parse.Router.extend({
 
 					var length = allNews.length;
 					var inOrder = _.sortBy(allNews, 'createdAt')
-					console.log(inOrder)
 					var reverseNews = inOrder.reverse();
 
 					new SideNewsView({
