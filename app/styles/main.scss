@@ -162,6 +162,7 @@ body {
         &:hover {
           background-color: $transition-color;
           color: $border;
+          border-radius: 3px 3px 0 0;
           transition: all 0.5s ease;
         }         
       }
