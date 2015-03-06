@@ -1083,12 +1083,12 @@ body {
     }
 
     .top-nav-two {
-      width: 30%;
       background-color: $transition-color;
       position: absolute;
       padding: 10px;
       margin-top: 1px;
       border-radius: 3px;
+      font-size: 14px;
 
       li {
         display: block;
@@ -1140,9 +1140,37 @@ body {
   .views-container {
     margin-top: 50px;
     border-top: 1px solid $border;
-  .main-view .reviews-container 
-  .review-contents .full-review {
-      width: 80%;
+
+  .main-view 
+  .reviews-container 
+  .review-contents 
+  .full-review {
+      width: 75%;
+
+      h2 {
+        text-align: center;
+      }
+
+      .review-start {
+        width: 60%;
+        margin: 0 auto;
+        display: block;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .quick-review {
+        width: 80%;
+        display: block;
+        float: none;
+        margin: 0 auto;
+
+        .uploader {
+          text-align: center;
+        }
+      }
     }
   }
 
@@ -1158,10 +1186,6 @@ body {
   .top-header
   ul
   .logout {
-    display: none;
-  }
-
-  .uploader {
     display: none;
   }
 
