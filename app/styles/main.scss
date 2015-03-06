@@ -92,6 +92,10 @@ body {
   border-bottom: 1px solid $border;
   font-family: $header-font;
 
+  .top-nav-two {
+    display: none;
+  }
+
   img {
     width: 40px;
     margin-left: 30px;
@@ -372,21 +376,21 @@ body {
 
         button {
           color: $main-font-color;
-        padding: 3px;
-        border: 1px solid $transition-color;
-        border-radius: 3px;
-        font-size: 16px;
-        color: $transition-color;
-        background: #E3E3E3;
-        cursor: pointer;
-        margin-bottom: 10px;
-        transition: all 0.2s ease;
-
-        &:hover {
-          color: $border;
-          background: $transition-color;
+          padding: 3px;
+          border: 1px solid $transition-color;
+          border-radius: 3px;
+          font-size: 16px;
+          color: $transition-color;
+          background: #E3E3E3;
+          cursor: pointer;
+          margin-bottom: 10px;
           transition: all 0.2s ease;
-        }
+
+          &:hover {
+            color: $border;
+            background: $transition-color;
+            transition: all 0.2s ease;
+          }
         }
       
         .comment-container {
@@ -561,30 +565,7 @@ body {
       width: 68%;
       display: inline-block;
 
-      h1 {
-        width: 40%;
-        margin: 20px;
-        font-size: 20px;
-        cursor: pointer;
-        font-family: $header-font;
-
-        a {
-          transition: all 0.2s ease;
-          border-left: 1px solid $border;
-          border-bottom: 1px solid $border;
-          border-radius: 0 3px;
-          text-decoration: none;
-          padding: 5px;
-          color: $main-font-color;
-
-            &:hover {
-            border-bottom: 2px solid $transition-color;
-            border-left: 2px solid $transition-color;
-            border-radius: 0 3px;
-            transition: all 0.2s ease;
-          }
-        }
-      }
+      
       
       .review-contents {
         width: 100%;
@@ -782,29 +763,33 @@ body {
   border-top: 1px solid $border;
   font-family: $header-font;
 
-  span {
-    font-size: 10px;
-    float: right;
-    margin-right: 70px;
-    padding-bottom: 5px;
+  .follow-us {
+    display: inline-block;
 
-    a {
-      text-decoration: none;
-      color: $main-font-color;
+    p {
+      text-align: center;
+      margin-right: 20px;
+    }
+
+    img {
+      text-align: center;
+      width: 50px;
+      height: 50px;
+      margin-right: 20px;
     }
   }
 
   ul {
-    width: 50%;
+    width: 80%;
     margin: 0;
     margin-top: 30px;
     padding-top: 30px;
     padding-bottom: 40px;
+    display: inline-block;
 
     li {
       display: inline-block;
       margin-left: 20px;
-
 
       a {
         text-decoration: none;
@@ -1084,6 +1069,10 @@ body {
       width: 100%;
     }
   } 
+
+  .footer ul {
+    width: 70%;
+  }
 }
 
 @media screen and (max-width: 865px) {
@@ -1093,6 +1082,9 @@ body {
 
     .top-nav {
       display: none;
+    }
+
+    .top-nav-two {
       width: 30%;
       background-color: $transition-color;
       position: absolute;
@@ -1117,6 +1109,26 @@ body {
     img {
       margin-top: 10px;
       display: inline-block;
+    }
+  }
+
+  .views-container .team-view .team-member {
+    width: 90%;
+
+    img {
+      width: 80%;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .reviewer-info {
+      width: 100%;
+      display: block;
+      margin-top: 30px;
+
+      ul {
+        text-align: center;
+      }
     }
   }
 }
@@ -1153,6 +1165,10 @@ body {
 
   .uploader {
     display: none;
+  }
+
+  .footer ul {
+    width: 50%;
   }
 }
 

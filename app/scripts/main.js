@@ -14,9 +14,9 @@ $('.logout').click(function() {
 });
 
 $('.hb-menu').click(function() {
-	$('.top-nav').slideToggle();
+	$('.top-nav-two').slideToggle();
 	$('li').click(function() {
-		$('.top-nav').slideUp();
+		$('.top-nav-two').slideUp();
 	});
 });
 
