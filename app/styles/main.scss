@@ -635,7 +635,7 @@ body {
           }
 
           .quick-review {
-            align-self: center;
+            // align-self: center;
             font-size: 16px;
             margin-top: 15px;
             width: 60%;
@@ -1083,6 +1083,7 @@ body {
     }
 
     .top-nav-two {
+      width: 30%;
       background-color: $transition-color;
       position: absolute;
       padding: 10px;
@@ -1137,14 +1138,36 @@ body {
     display: none;
   }
 
+  .views-container
+  .main-view
+  .review-container
+  .full-review-container
+  .review {
+    position: relative;
+
+    span {
+      font-size: 13px;
+    }
+
+    .next-button {
+      display: none;
+    }
+
+    aside {
+      position: absolute;
+      bottom: -30px;
+    }
+  }
+  
+
   .views-container {
     margin-top: 50px;
     border-top: 1px solid $border;
 
-  .main-view 
-  .reviews-container 
-  .review-contents 
-  .full-review {
+    .main-view 
+    .reviews-container 
+    .review-contents 
+    .full-review {
       width: 75%;
 
       h2 {
@@ -1166,6 +1189,7 @@ body {
         display: block;
         float: none;
         margin: 0 auto;
+        font-size: 14px;
 
         .uploader {
           text-align: center;
@@ -1184,17 +1208,50 @@ body {
 @media screen and (max-width: 640px) {
 
   .top-header
-  ul
-  .logout {
-    display: none;
+  ul {
+    position: absolute;
+    right: 0;
+    top: 80px;
+  }
+  
+  .views-container 
+  .main-view 
+  .reviews-container 
+  .review-contents 
+  .full-review 
+  .uploader img {
+    width: 45px;
+    height: 45px;
   }
 
   .searchbar {
     display: none;
   }
 
-  .footer ul {
-    width: 50%;
+  .footer {
+    display: block;
+    width: 100%;
+
+    ul {
+      width: 100%;
+      text-align: center;
+      padding-left: 0;
+    }
+
+    .follow-us {
+      display: block;
+      width: 100%;
+      margin: 0 auto;
+      padding-bottom: 20px;
+
+      div {
+        text-align: center;
+      }
+
+      p {
+        margin-right: 0;
+      }
+    }
   }
 }
 
