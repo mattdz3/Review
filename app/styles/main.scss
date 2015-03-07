@@ -1218,18 +1218,45 @@ body {
     .comments-container {
       width: 90%;
       display: block;
+
+      .comment-view {
+        .view-post {
+          font-size: 14px;
+          margin-left: 5px;
+        }
+        .user-info {
+          div {
+            font-size: 12px;
+          }
+          .comment-user-photo 
+          img {
+            width: 40px;
+            height: 40px;
+          }
+        }
+      }
     }
 
     .post-button-container {
       width: 90%;
+
+      .create-comment
+      textarea {
+        height: 100px;
+      }
     }
   } 
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 660px) {
 
   .views-container {
     width: 100%;
+
+    h1 {
+      font-size: 20px;
+      margin-left: 0;
+    }
   }
 
   .top-header
@@ -1271,6 +1298,10 @@ body {
     .review {
       margin: 0;
       width: 100%;
+
+      span {
+        width: 100%;
+      }
 
       .full-review-reviewer {
         font-size: 20px;
