@@ -1264,7 +1264,7 @@ body {
     height: 55px;
 
     .logo {
-      width: 85px;
+      width: 90px;
       left: 20px;
       top: 10px;
     }
@@ -1276,7 +1276,7 @@ body {
     ul {
       margin: 0;
       position: absolute;
-      right: 0;
+      right: 10px;
       top: 60px;
     }
   }
@@ -1286,16 +1286,21 @@ body {
   .main-view 
   .reviews-container 
   .review-contents 
-  .full-review
-  .quick-review {
-    font-size: 13px;
-    line-height: 18px;
+  .full-review {
+    .review-start {
+      width: 80%;
+    }
+    .quick-review {
+      font-size: 13px;
+      line-height: 18px;
 
-    .uploader img {
-      width: 40px;
-      height: 40px;
+      .uploader img {
+        width: 40px;
+        height: 40px;
+      }
     }
   }
+  
 
   .views-container
   .main-view 
@@ -1315,6 +1320,14 @@ body {
       margin: 0;
       width: 100%;
 
+      .image-container {
+        width: 100%;
+
+        p {
+          font-size: 14px;
+        }
+      }
+
       span {
         line-height: 24px;
         width: 100%;
@@ -1329,6 +1342,7 @@ body {
   .searchbar {
     visibility: hidden;
     display: none;
+    margin: 0;
   }
 
   .footer {
