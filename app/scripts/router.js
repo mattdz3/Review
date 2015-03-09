@@ -176,12 +176,10 @@ var Router = Parse.Router.extend({
 	},
 
 	review: function(id) {
+		$('.second-review').hide();
 		$('.main-slidr').empty();
 		$('.comment-container').hide();
 		$('.searchbar').show();
-		if (Parse.User.current() == null) {
-			$('.create-second-review').hide();
-		};
 
 		// new Parse.Query('Review').get(id, {
 		// 	success: function(reviews) {

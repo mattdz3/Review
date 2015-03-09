@@ -488,9 +488,10 @@ body {
           position: relative;
 
           .next-button {
-            margin-left: 80px;
             margin-top: 40px;
             position: relative;
+            cursor: pointer;
+            text-align: center;
 
             img {
               width: 60px;
@@ -499,11 +500,21 @@ body {
             }
 
             span {
+              border: 1px solid $border;
+              border-radius: 3px;
+              background: #E3E3E3;
               position: absolute;
               top: -25px;
               left: 75px;
               width: 200px;
               font-size: 14px;
+              transition: all 0.5s ease;
+
+              &:hover {
+                background: $transition-color;
+                color: $border;
+                transition: all 0.5s ease;
+              }
 
               br {
                 height: 10px;
@@ -1138,9 +1149,9 @@ body {
       font-size: 13px;
     }
 
-    .next-button {
-      display: none;
-    }
+    // .next-button {
+    //   display: none;
+    // }
 
     aside {
       position: absolute;
