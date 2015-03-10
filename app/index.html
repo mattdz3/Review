@@ -64,7 +64,7 @@
 
     <div class="footer">
       <ul>
-        <li><a href="#team">About</a></li>
+        <li class="about-us-footer"><a href="#team">About</a></li>
         <li><a href="mailto:joygungaming@gmail.com">Contact</a></li>
       </ul>
       <div class="follow-us">
@@ -106,6 +106,7 @@
 
     <script type="text/template" class="side-view">
       <div>
+      <p><%=name%></p>
         <img src='<%= image %>'>
       </div>
     </script>
@@ -131,8 +132,8 @@
     <script type="text/template" class="join-view">
       <h1>Create Account</h1>
       <div class="login-style">
-        <input class='username' placeholder="username">
-        <input class='password' placeholder="password" type="password">
+        <input class='username' placeholder="Username">
+        <input class='password' placeholder="Password" type="password">
         <button class='user-pic'>Add Pic</button>
         <button class="create"> Create User </button>
       </div>
@@ -141,9 +142,9 @@
     <script type="text/template" class="login-view">
       <h1> Login </h1>
       <div class="login-style">
-        <input class='username' placeholder="username">
-        <input class='password' placeholder="password" type="password">
-        <button class="login">login</button>
+        <input class='username' placeholder="Username">
+        <input class='password' placeholder="Password" type="password">
+        <button class="login">Login</button>
       </div>
     </script>
 
@@ -452,14 +453,11 @@
 
     <script type="text/template" class="video-view">
       <h1> Newest Videos </h1>
-
       <iframe width="560" height="315" src="https://www.youtube.com/embed/-TnFP4V0Ai0" frameborder="0" allowfullscreen></iframe>
-      <p> 2015 Most Wanted</p>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/ZyWDJZZNpq0" frameborder="0" allowfullscreen></iframe>
-      <p>I am so sneaky.</p>
+      <p>2015 Most Wanted</p>
+      
       <iframe width="560" height="315" src="https://www.youtube.com/embed/qvmtL51LpCI" frameborder="0" allowfullscreen></iframe>
       <p>Master Assassin.</p>
-
     </script>
 
     <script type="text/template" class="news-view">
@@ -578,7 +576,6 @@
         <script src="scripts/sideNewsView.js"></script>
         <script src="scripts/sideReviewerView.js"></script>
         <script src="scripts/mainSideContainer.js"></script>
-        <script src="scripts/BottomNewsView.js"></script>
         <script src="scripts/slidrView.js"></script>
         <script src="scripts/loginView.js"></script>
         <script src="scripts/joinView.js"></script>

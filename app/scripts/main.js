@@ -18,7 +18,14 @@ $('.hb-menu').click(function() {
 	$('li').click(function() {
 		$('.top-nav-two').slideUp();
 	});
+	$('.views-container').click(function(){
+		$('.top-nav-two').slideUp();
+	})
 });
 
-
+$('.about-us-footer').click(function() {
+	$('body').animate({
+        scrollTop: $('.header').offset().top
+    }, 0);
+})
 

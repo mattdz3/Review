@@ -27,6 +27,10 @@ var NewsView = Parse.View.extend({
 		new FullReviewView({
 			model: fullReview
 		});
+
+		$('body').animate({
+        	scrollTop: $('.header').offset().top
+    	}, 0);
 		
 		router.navigate('home/' + modelId, {trigger: true})
 	}

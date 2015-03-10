@@ -180,22 +180,6 @@ var Router = Parse.Router.extend({
 		$('.main-slidr').empty();
 		$('.comment-container').hide();
 		$('.searchbar').show();
-
-		// new Parse.Query('Review').get(id, {
-		// 	success: function(reviews) {
-		// 		console.log('no error')
-		// 		reviews.forEach(function(review) {
-		// 			console.log(review);
-		// 			var view = new FullReviewView({
-		// 				model: review
-		// 			})
-		// 		})
-		// 		this.swap(view);
-		// 	},
-		// 	error: function() {
-		// 		console.log('error')
-		// 	}
-		// });
 	},
 
 	news: function() {
@@ -337,10 +321,6 @@ var Router = Parse.Router.extend({
 			}
 		})
 	},
-
-	// topic: function() {
-	// 	console.log(this.model)
-	// },
 
 	createTopic: function() {
 		$('.views-container').empty();

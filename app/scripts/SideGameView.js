@@ -17,20 +17,21 @@ var SideGameView = Parse.View.extend({
 		var renderTemplate = this.template(this.model.attributes)
 		this.$el.html(renderTemplate);
 		return this;
-		console.log(this.model)
 	},
 
 	renderReview: function() {
 		$('.reviews-container').empty();
 		var modelId = this.model.id;
 		
-		console.log(modelId);
 		var fullReview = this.model;
-		console.log(fullReview)
 
 		new FullReviewView({
 			model: fullReview
 		});
+
+		$('body').animate({
+        	scrollTop: $('.header').offset().top
+    	}, 0);
 
 		router.navigate('home/' + modelId, {trigger: true})
 	}

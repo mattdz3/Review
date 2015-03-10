@@ -17,7 +17,6 @@ var SideReviewerView = Parse.View.extend({
 		var renderTemplate = this.template(this.model.attributes)
 		this.$el.html(renderTemplate);
 		return this;
-		console.log(this.model)
 	},
 
 	renderReview: function() {
@@ -29,6 +28,10 @@ var SideReviewerView = Parse.View.extend({
 		new FullReviewView({
 			model: fullReview
 		});
+
+		$('body').animate({
+       		scrollTop: $('.header').offset().top
+    	}, 0);
 
 		router.navigate('home/' + modelId, {trigger: true})
 	}

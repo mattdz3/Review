@@ -1,4 +1,6 @@
 var LoginView = Parse.View.extend({
+
+	className: 'user-container',
 	
 	template: _.template($('.login-view').text()),
 

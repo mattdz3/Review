@@ -23,13 +23,15 @@ var ReviewerView = Parse.View.extend({
 		$('.reviews-container').empty();
 		var modelId = this.model.id;
 		
-		console.log(modelId);
 		var fullReview = this.model;
-		console.log(fullReview)
 
 		new FullReviewView({
 			model: fullReview
 		});
+
+		$('body').animate({
+        	scrollTop: $('.header').offset().top
+    	}, 0);
 
 		router.navigate('home/' + modelId, {trigger: true})
 	}

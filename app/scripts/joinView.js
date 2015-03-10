@@ -1,6 +1,8 @@
 var pic;
 
 var JoinView = Parse.View.extend({
+
+	className: 'user-container',
 	
 	template: _.template($('.join-view').text()),
 

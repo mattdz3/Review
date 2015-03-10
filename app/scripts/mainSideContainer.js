@@ -30,6 +30,10 @@ var MainSideView = Parse.View.extend({
 			model: fullReview
 		});
 
+		$('body').animate({
+        	scrollTop: $('.header').offset().top
+    	}, 0);
+
 		router.navigate('home/' + modelId, {trigger: true})
 	}
 });
