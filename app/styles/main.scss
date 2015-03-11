@@ -227,11 +227,28 @@ body {
         width: 100%;
         height: 225px;
 
-        img {
-          opacity: 1;
-          height: 100%;
-          width: 100%;
-          cursor: pointer;
+        .overlay {
+          position: relative;
+
+          .overlay-name {
+            position: absolute;
+            top: -30px;
+            left: 5px;
+            font-size: 18px;
+            color: $border;
+            background-color: $transition-color;
+            padding: 5px;
+            border-radius: 3px;
+            transition: all 0.5s ease;
+            display: none;
+          }
+
+          img {
+            opacity: 1;
+            height: 100%;
+            width: 100%;
+            cursor: pointer;
+          }
         }
       }
     }

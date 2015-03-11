@@ -5,7 +5,9 @@ var MainSideView = Parse.View.extend({
 	template: _.template($('.main-side-view').text()),
 
 	events: {
-		'click' : 'renderFull'
+		'click' : 'renderFull',
+		'mouseenter' : 'hover',
+		'mouseleave' : 'out',
 	},
 
 	initialize: function() {
@@ -35,5 +37,13 @@ var MainSideView = Parse.View.extend({
     	}, 0);
 
 		router.navigate('home/' + modelId, {trigger: true})
+	},
+
+	hover: function() {
+		$('.overlay-name').css('display', 'block')
+	},
+
+	out: function() {
+		$('.overlay-name').css('display', 'none')
 	}
 });
