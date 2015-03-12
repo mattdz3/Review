@@ -16,6 +16,7 @@ var Router = Parse.Router.extend({
 		'forums'           : 'forums',
 		'forums/:id'       : 'topic',
 		'createTopic'      : 'createTopic',
+		'user'             : 'user',
 	},
 
 	initialize: function(options) {
@@ -296,6 +297,75 @@ var Router = Parse.Router.extend({
 		$('.main-slidr').empty();
 		var view = new VideoView();
 		this.swap(view);
+	},
+
+	user: function() {
+		if (Parse.User.current() == undefined) {
+			router.navigate('login', {trigger: true});
+		} else {
+			$('.views-container').empty();
+			$('.main-slidr').empty();
+			var user = Parse.User.current();
+			var name = user.attributes.username;
+			var view = new UserView({
+				model: user
+			});
+
+			var gameQuery = new Parse.Query(ReviewComment);
+			gameQuery.find({
+				success: function(reviews) {
+					reviews.forEach(function(review) {
+						if (review.attributes.username == name) {
+							console.log(review)
+							new UserCommentView({
+								model: review
+							})
+						}
+					})
+				}
+			}).done(function() {
+				var reviewerQuery = new Parse.Query(ReviewerComment);
+				reviewerQuery.find({
+					success: function(reviewers) {
+						reviewers.forEach(function(reviewer) {
+							if (reviewer.attributes.username == name) {
+								new UserCommentView({
+									model: reviewer
+								})
+							}
+						})
+					}
+				});
+			}).done(function() {
+				var newsQuery = new Parse.Query(NewsComment);
+				newsQuery.find({
+					success: function(allNews) {
+						allNews.forEach(function(news) {
+							if (news.attributes.username == name) {
+								new UserCommentView({
+									model: news
+								})
+							}
+						})
+					}
+				});
+			}).done(function() {
+				var query = new Parse.Query(Comment);
+				query.find({
+					success: function(forums) {
+						forums.forEach(function(forum) {
+							if (forum.attributes.username == name) {
+								new UserCommentView({
+									model: forum
+								})
+							}
+						})
+					},
+				})
+			})
+
+			this.swap(view);
+		}
 	},
 
 	forums: function() {

@@ -1111,6 +1111,68 @@ span {
 }
 
 .views-container
+.user-view {
+  width: 100%;
+
+  .user-info {
+    width: 20%;
+    padding: 20px;
+    display: inline-block;
+
+    p {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    img {
+      width: 100%;
+      border: 1px solid $border;
+      border-radius: 3px;
+    }
+
+    button {
+      color: $main-font-color;
+      padding: 3px;
+      border: 1px solid $transition-color;
+      border-radius: 3px;
+      font-size: 16px;
+      color: $transition-color;
+      background: #E3E3E3;
+      cursor: pointer;
+      margin-top: 5px;
+      transition: all 0.2s ease;
+
+      &:hover {
+        color: $border;
+        background: $transition-color;
+        transition: all 0.2s ease;
+      }
+    }
+  }
+
+  .user-posts {
+    width: 60%;
+    vertical-align: top;
+    display: inline-block;
+    padding-top: 20px;
+
+    .user-comment-view {
+      width: 80%;
+      padding: 5px;
+      border-left: 1px solid $border;
+      border-bottom: 1px solid $border;
+      border-radius: 0 3px;
+      margin-bottom: 30px;
+      margin-left: 50px;
+    }
+  }
+}
+
+
+.views-container
 .video {
   width: 70%;
   margin: 0 auto;
@@ -1335,6 +1397,35 @@ span {
       }
     }
   } 
+
+  .views-container
+  .user-view {
+    width: 100%;
+
+    .user-info {
+      width: 80%;
+      padding: 20px;
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+
+      img {
+        width: 30%;
+      }
+    }
+
+    .user-posts {
+      width: 100%;
+      display: block;
+      padding-top: 20px;
+
+      .user-comment-view {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 30px;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 660px) {

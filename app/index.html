@@ -43,6 +43,7 @@
         <li><a href="#video">Videos</a></li>
         <li><a href="#team">About</a></li>
         <li><a href="#forums">Forum</a></li>
+        <li><a href="#user">Profile</a></li>
       </ul>
       <ul class="top-nav-two">
         <li><a href="#home">Home</a></li>
@@ -51,6 +52,7 @@
         <li><a href="#reviewer">Industry</a></li>
         <li><a href="#video">Videos</a></li>
         <li><a href="#team">About</a></li>
+        <li><a href="#user">Profile</a></li>
       </ul>
        <span class="searchbar"></span>
       <div class="display-search"></div>
@@ -102,6 +104,27 @@
 
     <script type="text/template" class="display-search-view">
       <span><%= attributes.name %></span>
+    </script>
+
+    <script type="text/template" class="user-view">
+      <div class="user-info">
+      <% if (this.model.get('userPic') == undefined){ %>
+        <img src="images/8bit.png">
+      <% } else { %>
+        <img src="<%=userPic%>">
+      <% } %>
+        <p>Username</p>
+        <h2> <%=username%></h2>
+        <button class="edit">Edit Picture</button>
+        <button class="save">Save Changes</button>
+      </div>
+      <div class="user-posts">
+        <h1> Your Comments </h1>
+      </div>
+    </script>
+
+    <script type="text/template" class="user-comment-view">
+      <%=post%>
     </script>
 
     <script type="text/template" class="side-view">
@@ -593,6 +616,8 @@
         <script src="scripts/topicView.js"></script>
         <script src="scripts/createTopicView.js"></script>
         <script src="scripts/createPostView.js"></script>
+        <script src="scripts/userView.js"></script>
+        <script src="scripts/userCommentView.js"></script>
         <script src="scripts/commentView.js"></script>
         <script src="scripts/postView.js"></script>
         <script src="scripts/searchView.js"></script>

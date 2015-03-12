@@ -32,13 +32,6 @@ var LoginView = Parse.View.extend({
 			error: function(user, error) {
 				alert("Error" + error.code + " " + error.message)
 			}
-		}).done(function() {
-			if (user.id !== 'QhlOUZ9D7f' || 'eQjDxaKN4B' || '96Fg6Rt94H') {
-				$('.reviewer-button').hide();
-			} 
-			if (user.id == 'QhlOUZ9D7f' || 'eQjDxaKN4B' || '96Fg6Rt94H') {
-				$('.reviewer-button').show();
-			}
 		});
 	},
 });
