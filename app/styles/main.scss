@@ -1157,7 +1157,11 @@ span {
     width: 60%;
     vertical-align: top;
     display: inline-block;
-    padding-top: 20px;
+    padding-top: 20px; 
+
+    h1 {
+      margin-left: 20px;
+    }
 
     .user-comment-view {
       width: 80%;
