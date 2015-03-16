@@ -9,10 +9,10 @@ var Router = Parse.Router.extend({
 		'team'             : 'team',
 		'join'             : 'join',
 		'login'            : 'login',
-		'game'             : 'game',
+		'review'             : 'game',
 		'news'             : 'news',
 		'video'            : 'video',
-		'reviewer'         : 'reviewer',
+		'article'         : 'reviewer',
 		'forums'           : 'forums',
 		'forums/:id'       : 'topic',
 		'createTopic'      : 'createTopic',
@@ -29,6 +29,19 @@ var Router = Parse.Router.extend({
 
 	home: function() {
 		var user = Parse.User.current();
+
+		var user = Parse.User.current();
+		if (user == null) {
+			$('.logout').hide();
+			$('.profile-button').hide();
+			$('.join-button').show();
+			$('.login-button').show();
+		} else {
+			$('.logout').show();
+			$('.profile-button').show();
+			$('.join-button').hide();
+			$('.login-button').hide();
+		}
 		
 		$('.views-container').empty();
 		$('.main-slidr').empty();
@@ -59,7 +72,6 @@ var Router = Parse.Router.extend({
 			}
 		}).done(function() {
 			var reviewerQuery = new Parse.Query(Reviewer);
-
 			reviewerQuery.find({
 				success: function(reviewers) {
 					var length = reviewers.length;
@@ -83,14 +95,11 @@ var Router = Parse.Router.extend({
 			});
 		}).done(function() {
 			var newsQuery = new Parse.Query(News);
-
 			newsQuery.find({
 				success: function(allNews) {
-
 					var length = allNews.length;
 					var inOrder = _.sortBy(allNews, 'createdAt')
 					var reverseNews = inOrder.reverse();
-
 					new SideNewsView({
 						model: reverseNews[0]
 					});
@@ -104,7 +113,7 @@ var Router = Parse.Router.extend({
 					});
 				}
 			});
-		});		
+		});	
 	},
 
 	game: function() {
