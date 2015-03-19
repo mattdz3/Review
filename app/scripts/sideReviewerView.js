@@ -20,14 +20,7 @@ var SideReviewerView = Parse.View.extend({
 	},
 
 	renderReview: function() {
-		$('.reviews-container').empty();
 		var modelId = this.model.id;
-		
-		var fullReview = this.model;
-
-		new FullReviewView({
-			model: fullReview
-		});
 
 		$('body').animate({
        		scrollTop: $('.header').offset().top

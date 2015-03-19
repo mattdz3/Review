@@ -14,16 +14,19 @@ var FullReviewView = Parse.View.extend({
 	template: _.template($('.full-review-view').text()),
 
 	initialize: function() {
-		$('.sidebar').hide();
-		$('.create-second-review').hide();
 		$('.review-container').append(this.el);
 		this.render();
 	},
 
 	render: function() {
 		var renderTemplate = this.template(this.model.attributes)
-		this.$el.html(renderTemplate);	
-
+		this.$el.html(renderTemplate);
+		$('.sidebar').hide();
+		$('.reviews-container').empty();
+		$('.second-review').hide();
+		$('.main-slidr').empty();
+		$('.comment-container').hide();
+		$('.review-container').show();
 		return this;
 	},
 

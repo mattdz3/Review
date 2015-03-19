@@ -9,10 +9,10 @@ var Router = Parse.Router.extend({
 		'team'             : 'team',
 		'join'             : 'join',
 		'login'            : 'login',
-		'review'             : 'game',
+		'review'           : 'game',
 		'news'             : 'news',
 		'video'            : 'video',
-		'article'         : 'reviewer',
+		'article'          : 'reviewer',
 		'forums'           : 'forums',
 		'forums/:id'       : 'topic',
 		'createTopic'      : 'createTopic',
@@ -186,10 +186,60 @@ var Router = Parse.Router.extend({
 	},
 
 	review: function(id) {
-		$('.second-review').hide();
+		console.log(id);
+		
+		$('.views-container').empty();
 		$('.main-slidr').empty();
-		$('.comment-container').hide();
 		$('.searchbar').show();
+		var view = new HomeView();
+
+		var gameQuery = new Parse.Query(Review);
+		gameQuery.find({
+			success: function(reviews) {
+				reviews.forEach(function(review) {
+					if (review.id === id) {
+						console.log(review)
+						new FullReviewView({
+							model: review
+						});
+					} else {
+						console.log("nope")
+					}
+				})
+			}
+		});
+
+		var artQuery = new Parse.Query(Reviewer);
+		artQuery.find({
+			success: function(articles) {
+				articles.forEach(function(article) {
+					if (article.id === id) {
+						console.log(article)
+						new FullReviewView({
+							model: article
+						});
+					} else {
+						console.log("nope")
+					}
+				})
+			}
+		});
+
+		var newsQuery = new Parse.Query(News);
+		newsQuery.find({
+			success: function(allNews) {
+				allNews.forEach(function(news) {
+					if (news.id === id) {
+						console.log(news)
+						new FullReviewView({
+							model: news
+						});
+					} else {
+						console.log("nope")
+					}
+				})
+			}
+		});
 	},
 
 	news: function() {
@@ -400,6 +450,11 @@ var Router = Parse.Router.extend({
 			}
 		})
 	},
+
+	// topic: function() {
+	// 	var view = new MainForumView();
+	// 	this.swap(view);
+	// },
 
 	createTopic: function() {
 		$('.views-container').empty();

@@ -20,14 +20,8 @@ var NewsView = Parse.View.extend({
 	},
 
 	renderFull: function() {
-		$('.reviews-container').empty();
 		var modelId = this.model.id;
-		var fullReview = this.model;
-
-		new FullReviewView({
-			model: fullReview
-		});
-
+	
 		$('body').animate({
         	scrollTop: $('.header').offset().top
     	}, 0);
