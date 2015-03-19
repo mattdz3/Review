@@ -22,10 +22,6 @@ var ForumsView = Parse.View.extend({
 	fullView: function() {
 		var modelId = this.model.id;
 
-		new TopicView({
-			model: this.model
-		});
-
 		router.navigate('forums/' + modelId, {trigger: true})
 	},
 });

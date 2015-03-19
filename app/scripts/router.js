@@ -185,9 +185,7 @@ var Router = Parse.Router.extend({
 		this.swap(view);
 	},
 
-	review: function(id) {
-		console.log(id);
-		
+	review: function(id) {		
 		$('.views-container').empty();
 		$('.main-slidr').empty();
 		$('.searchbar').show();
@@ -198,12 +196,9 @@ var Router = Parse.Router.extend({
 			success: function(reviews) {
 				reviews.forEach(function(review) {
 					if (review.id === id) {
-						console.log(review)
 						new FullReviewView({
 							model: review
 						});
-					} else {
-						console.log("nope")
 					}
 				})
 			}
@@ -214,12 +209,9 @@ var Router = Parse.Router.extend({
 			success: function(articles) {
 				articles.forEach(function(article) {
 					if (article.id === id) {
-						console.log(article)
 						new FullReviewView({
 							model: article
 						});
-					} else {
-						console.log("nope")
 					}
 				})
 			}
@@ -230,12 +222,9 @@ var Router = Parse.Router.extend({
 			success: function(allNews) {
 				allNews.forEach(function(news) {
 					if (news.id === id) {
-						console.log(news)
 						new FullReviewView({
 							model: news
 						});
-					} else {
-						console.log("nope")
 					}
 				})
 			}
@@ -448,13 +437,24 @@ var Router = Parse.Router.extend({
 			error: function() {
 				console.log('error')
 			}
-		})
+		});
 	},
 
-	// topic: function() {
-	// 	var view = new MainForumView();
-	// 	this.swap(view);
-	// },
+	topic: function(id) {
+		var view = new MainForumView();
+		var query = new Parse.Query(Forum);
+		query.find({
+			success: function(forums) {
+				forums.forEach(function(forum) {
+					if (forum.id === id) {
+						new TopicView({
+							model: forum
+						});
+					}
+				})
+			},
+		});
+	},
 
 	createTopic: function() {
 		$('.views-container').empty();
