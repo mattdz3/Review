@@ -24,7 +24,20 @@ var Router = Parse.Router.extend({
 		var user = Parse.User.current();
 	
 		new SearchView();
-		$('.display-search').hide();				
+		$('.display-search').hide();
+
+		var user = Parse.User.current();
+		if (user == null) {
+			$('.logout').hide();
+			$('.profile-button').hide();
+			$('.join-button').show();
+			$('.login-button').show();
+		} else {
+			$('.logout').show();
+			$('.profile-button').show();
+			$('.join-button').hide();
+			$('.login-button').hide();
+		}			
 	},
 
 	home: function() {
@@ -41,7 +54,7 @@ var Router = Parse.Router.extend({
 			$('.profile-button').show();
 			$('.join-button').hide();
 			$('.login-button').hide();
-		}
+		}	
 		
 		$('.views-container').empty();
 		$('.main-slidr').empty();
@@ -364,7 +377,6 @@ var Router = Parse.Router.extend({
 				success: function(reviews) {
 					reviews.forEach(function(review) {
 						if (review.attributes.username == name) {
-							console.log(review)
 							new UserCommentView({
 								model: review
 							})
@@ -441,6 +453,7 @@ var Router = Parse.Router.extend({
 	},
 
 	topic: function(id) {
+		$('.forum-view').empty();
 		var view = new MainForumView();
 		var query = new Parse.Query(Forum);
 		query.find({
